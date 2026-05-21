@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scout 360 — La plataforma global de scouting deportivo</title>
+<meta name="description" content="Conectamos deportistas con entrenadores, universidades y clubes de todo el mundo. La plataforma #1 de scouting deportivo.">
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0D1B4B;
+    --navy2:  #0A1535;
+    --royal:  #1565C0;
+    --sky:    #0099D6;
+    --cyan:   #4DD0E1;
+    --cyan2:  #00E5FF;
+    --white:  #FFFFFF;
+    --off:    #F5F7FA;
+    --gray:   #8899AA;
+    --text:   #1D2B3A;
+    --light:  #AACCE0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--sky); border-radius: 3px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 0 40px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(13,27,75,0.85);
+    border-bottom: 1px solid rgba(77,208,225,0.15);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo .s3 {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--sky), var(--cyan));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 16px; color: var(--navy);
+    letter-spacing: -1px;
+  }
+  .nav-logo span {
+    font-weight: 700; font-size: 17px; color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--sky), var(--cyan));
+    color: var(--navy);
+    padding: 9px 22px; border-radius: 24px;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .nav-cta:hover { opacity: 0.9; transform: scale(1.02); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    position: relative; overflow: hidden;
+    padding: 100px 24px 80px;
+    background: var(--navy2);
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,153,214,0.22) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(77,208,225,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 10% 20%, rgba(21,101,192,0.18) 0%, transparent 60%);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: orb-float 8s ease-in-out infinite;
+    z-index: 0;
+  }
+  .hero-orb-1 { width: 600px; height: 600px; background: rgba(0,153,214,0.15); top: -100px; left: -100px; animation-delay: 0s; }
+  .hero-orb-2 { width: 400px; height: 400px; background: rgba(77,208,225,0.12); bottom: -80px; right: -80px; animation-delay: 3s; }
+  .hero-orb-3 { width: 300px; height: 300px; background: rgba(21,101,192,0.18); top: 40%; left: 60%; animation-delay: 5s; }
+
+  @keyframes orb-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 30px) scale(0.97); }
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(77,208,225,0.12);
+    border: 1px solid rgba(77,208,225,0.3);
+    border-radius: 24px; padding: 7px 18px;
+    font-size: 13px; color: var(--cyan); font-weight: 600;
+    letter-spacing: 0.5px; margin-bottom: 36px;
+    animation: fade-up 0.8s ease both;
+  }
+  .hero-badge::before { content: "●"; font-size: 8px; animation: pulse-dot 2s infinite; }
+  @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-title {
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 24px;
+    animation: fade-up 0.8s ease 0.1s both;
+  }
+  .hero-title .gradient-text {
+    background: linear-gradient(135deg, var(--sky) 0%, var(--cyan) 50%, #a0f0ff 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(18px, 2.5vw, 22px);
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+    max-width: 620px; margin: 0 auto 48px;
+    font-weight: 400;
+    animation: fade-up 0.8s ease 0.2s both;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fade-up 0.8s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--sky), var(--cyan));
+    color: var(--navy); padding: 16px 36px;
+    border-radius: 50px; font-size: 16px; font-weight: 700;
+    text-decoration: none; letter-spacing: 0.3px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 32px rgba(0,153,214,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,153,214,0.45); }
+
+  .btn-secondary {
+    color: var(--white); padding: 16px 36px;
+    border-radius: 50px; font-size: 16px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.3px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--cyan); background: rgba(77,208,225,0.08); }
+
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 12px; letter-spacing: 1px;
+    animation: fade-up 1s ease 0.8s both;
+  }
+  .scroll-arrow {
+    width: 24px; height: 24px;
+    border-right: 2px solid rgba(77,208,225,0.5);
+    border-bottom: 2px solid rgba(77,208,225,0.5);
+    transform: rotate(45deg);
+    animation: scroll-bounce 1.5s ease-in-out infinite;
+  }
+  @keyframes scroll-bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: linear-gradient(135deg, var(--royal), var(--sky));
+    padding: 36px 40px;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+  }
+  .stat-item {
+    flex: 1; min-width: 160px; text-align: center;
+    padding: 12px 24px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 40px; font-weight: 800; color: var(--white); letter-spacing: -1px; line-height: 1; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 6px; font-weight: 500; }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 120px 24px; }
+
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .label-cyan { color: var(--cyan); }
+  .label-royal { color: var(--royal); }
+
+  .section-title {
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800; line-height: 1.08;
+    letter-spacing: -1.5px; margin-bottom: 20px;
+  }
+  .section-subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6; opacity: 0.7; max-width: 620px;
+  }
+
+  .dark-section { background: var(--navy2); color: var(--white); }
+  .dark-section .section-subtitle { color: rgba(255,255,255,0.6); }
+  .dark-section .section-title { color: var(--white); }
+
+  .light-section { background: var(--off); }
+  .white-section { background: var(--white); }
+
+  /* Reveal animations */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── PROBLEM ── */
+  #problem { background: var(--white); }
+  .problem-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px; margin-top: 64px;
+  }
+  .problem-card {
+    padding: 40px 36px;
+    border-radius: 20px;
+    background: var(--off);
+    border: 1px solid #E5EEF6;
+    border-left: 4px solid var(--sky);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .problem-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,153,214,0.10); }
+  .problem-num { font-size: 48px; font-weight: 900; color: var(--sky); opacity: 0.3; line-height: 1; margin-bottom: 16px; }
+  .problem-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+  .problem-body { font-size: 15px; color: #4a5568; line-height: 1.65; }
+
+  .problem-stat {
+    margin-top: 64px; padding: 48px;
+    background: var(--navy); border-radius: 24px;
+    text-align: center;
+  }
+  .problem-stat-num { font-size: clamp(48px, 7vw, 80px); font-weight: 900; color: var(--cyan); letter-spacing: -2px; }
+  .problem-stat-text { font-size: 18px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+
+  /* ── SOLUTION / FEATURES ── */
+  #solution { background: var(--navy2); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; margin-top: 64px;
+  }
+  .feature-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(77,208,225,0.15);
+    border-radius: 20px; padding: 36px 28px;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    backdrop-filter: blur(10px);
+  }
+  .feature-card:hover {
+    background: rgba(0,153,214,0.08);
+    border-color: rgba(77,208,225,0.4);
+    transform: translateY(-4px);
+  }
+  .feature-icon {
+    font-size: 36px; margin-bottom: 20px; display: block;
+  }
+  .feature-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .feature-body { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--off); }
+  .steps-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0; margin-top: 64px; position: relative;
+  }
+  .steps-container::before {
+    content: '';
+    position: absolute; top: 40px; left: 10%; right: 10%; height: 2px;
+    background: linear-gradient(90deg, var(--sky), var(--cyan));
+    opacity: 0.3;
+  }
+  .step {
+    text-align: center; padding: 0 20px;
+    position: relative;
+  }
+  .step-circle {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--royal), var(--sky));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 28px; font-weight: 900; color: var(--white);
+    box-shadow: 0 8px 24px rgba(0,153,214,0.3);
+    position: relative; z-index: 1;
+    transition: transform 0.3s;
+  }
+  .step:hover .step-circle { transform: scale(1.1); }
+  .step-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .step-body { font-size: 13px; color: var(--gray); line-height: 1.55; }
+
+  /* ── MARKET ── */
+  #market { background: var(--navy2); }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px; margin-top: 64px;
+  }
+  .market-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,153,214,0.25);
+    border-radius: 20px; padding: 40px 32px;
+    text-align: center; position: relative; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .market-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--sky), var(--cyan));
+  }
+  .market-card:hover { transform: translateY(-4px); border-color: rgba(77,208,225,0.4); }
+  .market-big { font-size: 52px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 12px; }
+  .market-big.counter { color: var(--cyan); }
+  .market-sub { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  .market-tam-row {
+    display: flex; flex-direction: column; gap: 12px;
+    margin-top: 48px;
+  }
+  .tam-bar {
+    display: flex; align-items: center; gap: 20px;
+    padding: 20px 28px; border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(77,208,225,0.15);
+    transition: background 0.3s;
+  }
+  .tam-bar:hover { background: rgba(0,153,214,0.08); }
+  .tam-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; color: var(--cyan); min-width: 40px; }
+  .tam-track { flex: 1; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+  .tam-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--royal), var(--cyan)); transition: width 1.5s ease; width: 0; }
+  .tam-text { font-size: 14px; color: rgba(255,255,255,0.7); }
+  .tam-amount { font-size: 18px; font-weight: 800; color: var(--white); min-width: 70px; text-align: right; }
+
+  /* ── BUSINESS MODEL ── */
+  #business { background: var(--white); }
+  .biz-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px; margin-top: 64px;
+  }
+  .biz-card {
+    border-radius: 20px; padding: 36px 28px;
+    background: var(--off); border: 1px solid #E5EEF6;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .biz-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,99,214,0.10); }
+  .biz-icon { font-size: 32px; margin-bottom: 16px; }
+  .biz-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .biz-plan { font-size: 14px; color: var(--royal); font-weight: 600; margin-bottom: 10px; }
+  .biz-body { font-size: 14px; color: #4a5568; line-height: 1.6; }
+
+  .biz-highlight {
+    margin-top: 40px; padding: 32px 40px;
+    background: linear-gradient(135deg, var(--navy), var(--royal));
+    border-radius: 20px; text-align: center;
+    color: var(--white); font-size: 18px; font-weight: 600;
+  }
+  .biz-highlight span { color: var(--cyan); }
+
+  /* ── COMPETITION ── */
+  #competition { background: var(--navy2); }
+  .comp-table-wrap { margin-top: 64px; overflow-x: auto; }
+  .comp-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 15px;
+  }
+  .comp-table th {
+    padding: 16px 20px; text-align: center;
+    font-size: 13px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .comp-table th:first-child { text-align: left; color: rgba(255,255,255,0.5); }
+  .th-scout360 {
+    background: linear-gradient(135deg, var(--royal), var(--sky));
+    color: var(--white) !important;
+    border-radius: 12px 12px 0 0;
+    font-size: 15px !important;
+  }
+  .th-others { color: rgba(255,255,255,0.35) !important; }
+  .comp-table td {
+    padding: 14px 20px; text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.6); font-size: 14px;
+  }
+  .comp-table td:first-child { text-align: left; color: rgba(255,255,255,0.8); font-weight: 500; }
+  .comp-table tbody tr:hover { background: rgba(0,153,214,0.05); }
+  .td-scout { background: rgba(0,153,214,0.08); }
+  .check { color: #4ade80; font-size: 18px; font-weight: 900; }
+  .cross { color: #f87171; font-size: 16px; }
+
+  /* ── TEAM ── */
+  #team { background: var(--off); }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px; margin-top: 64px;
+  }
+  .team-card {
+    background: var(--white); border-radius: 24px; padding: 40px 28px;
+    text-align: center; border: 1px solid #E5EEF6;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .team-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(21,101,192,0.12); }
+  .team-avatar {
+    width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--navy), var(--royal));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 800; color: var(--white);
+    border: 3px solid var(--sky);
+  }
+  .team-name { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .team-role { font-size: 13px; color: var(--royal); font-weight: 600; margin-bottom: 16px; }
+  .team-divider { width: 40px; height: 2px; background: var(--sky); margin: 0 auto 16px; border-radius: 1px; }
+  .team-bio { font-size: 13px; color: #4a5568; line-height: 1.65; }
+
+  /* ── ROADMAP ── */
+  #roadmap { background: var(--white); }
+  .roadmap-container { margin-top: 64px; position: relative; }
+  .roadmap-line {
+    position: absolute; left: 40px; top: 24px; bottom: 24px; width: 2px;
+    background: linear-gradient(to bottom, var(--sky), var(--cyan));
+    opacity: 0.3;
+  }
+  .phase {
+    display: flex; gap: 40px; margin-bottom: 40px;
+    padding-left: 0; align-items: flex-start;
+  }
+  .phase-dot {
+    min-width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--royal), var(--sky));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 800; font-size: 15px;
+    box-shadow: 0 4px 20px rgba(0,153,214,0.3);
+    flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .phase-content {
+    background: var(--off); border-radius: 20px; padding: 32px 36px;
+    border: 1px solid #E5EEF6; flex: 1;
+    border-left: 4px solid var(--sky);
+    transition: transform 0.3s;
+  }
+  .phase-content:hover { transform: translateX(4px); }
+  .phase-time { font-size: 12px; font-weight: 700; color: var(--sky); letter-spacing: 2px; margin-bottom: 6px; }
+  .phase-title { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .phase-items { font-size: 14px; color: #4a5568; line-height: 1.8; }
+  .phase-items span { display: inline-block; margin-right: 6px; color: var(--sky); }
+
+  /* ── INVESTMENT ── */
+  #investment { background: var(--off); }
+  .invest-hero {
+    text-align: center; margin-bottom: 64px;
+  }
+  .invest-amount {
+    font-size: clamp(64px, 10vw, 120px); font-weight: 900;
+    letter-spacing: -4px; line-height: 1;
+    background: linear-gradient(135deg, var(--navy), var(--royal), var(--sky));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  .invest-sub { font-size: 18px; color: var(--gray); }
+
+  .invest-bars { max-width: 700px; margin: 0 auto 48px; display: flex; flex-direction: column; gap: 20px; }
+  .invest-bar-item { }
+  .invest-bar-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .invest-bar-label { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .invest-bar-amt { font-size: 14px; font-weight: 700; color: var(--royal); }
+  .invest-bar-track { height: 12px; background: #E5EEF6; border-radius: 6px; overflow: hidden; }
+  .invest-bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--royal), var(--sky)); width: 0; transition: width 1.5s ease; }
+
+  .invest-return {
+    max-width: 700px; margin: 0 auto;
+    background: var(--navy); border-radius: 20px; padding: 36px 40px;
+    text-align: center; color: var(--white);
+  }
+  .invest-return h3 { font-size: 18px; color: var(--cyan); margin-bottom: 16px; font-weight: 700; }
+  .invest-bullets { display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: rgba(255,255,255,0.75); }
+  .invest-bullet::before { content: "→ "; color: var(--cyan); font-weight: 700; }
+
+  /* ── CLOSING CTA ── */
+  #cta {
+    background: var(--navy2); padding: 160px 24px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  #cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,153,214,0.2) 0%, transparent 70%);
+  }
+  .cta-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+  .cta-title {
+    font-size: clamp(40px, 6vw, 72px); font-weight: 900;
+    color: var(--white); line-height: 1.08; letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+  .cta-title .hl { color: var(--cyan); }
+  .cta-sub { font-size: 20px; color: rgba(255,255,255,0.6); margin-bottom: 52px; line-height: 1.55; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+
+  .cta-contact {
+    display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 48px;
+  }
+  .contact-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .contact-icon { font-size: 22px; }
+  .contact-text { font-size: 14px; color: rgba(255,255,255,0.55); }
+  .contact-val { font-size: 15px; color: var(--cyan); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #06101E;
+    padding: 32px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-logo .s3 {
+    width: 28px; height: 28px; background: linear-gradient(135deg, var(--sky), var(--cyan));
+    border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 12px; color: var(--navy);
+  }
+  .footer-logo span { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 80px 20px; }
+    .steps-container::before { display: none; }
+    .roadmap-line { display: none; }
+    .phase { flex-direction: column; }
+    .phase-dot { width: 60px; height: 60px; font-size: 13px; min-width: 60px; }
+    .stat-item { min-width: 140px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="s3">S3</div>
+    <span>SCOUT 360</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem">El problema</a></li>
+    <li><a href="#solution">Solución</a></li>
+    <li><a href="#market">Mercado</a></li>
+    <li><a href="#team">Equipo</a></li>
+    <li><a href="#investment">Inversión</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Únete ahora</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Startup deportiva global · 2025</div>
+    <h1 class="hero-title">
+      El talento está<br>
+      <span class="gradient-text">en todas partes.</span>
+    </h1>
+    <p class="hero-sub">Scout360 conecta deportistas, entrenadores, universidades y clubes de todo el mundo en una sola plataforma. La forma más eficiente de descubrir y ser descubierto.</p>
+    <div class="hero-ctas">
+      <a href="#investment" class="btn-primary">Ver oportunidad de inversión</a>
+      <a href="#solution" class="btn-secondary">Conocer la plataforma</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item reveal">
+    <div class="stat-num counter" data-target="600000" data-suffix="K+" data-divisor="1000">0</div>
+    <div class="stat-label">Deportistas en el mercado objetivo</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-num counter" data-target="26" data-suffix="B+" data-divisor="1">0</div>
+    <div class="stat-label">Mercado global en USD</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-num counter" data-target="4500" data-suffix="+" data-divisor="1">0</div>
+    <div class="stat-label">Universidades con becas deportivas</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-num counter" data-target="85" data-suffix="%" data-divisor="1">0</div>
+    <div class="stat-label">Clubes sin plataforma digital</div>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section id="problem" class="white-section">
+  <div class="section-inner">
+    <div class="section-label label-royal reveal">EL PROBLEMA</div>
+    <h2 class="section-title reveal">El talento deportivo existe.<br>La visibilidad, no.</h2>
+    <p class="section-subtitle reveal">Miles de deportistas con potencial real nunca son descubiertos. Los sistemas actuales son lentos, fragmentados e ineficientes.</p>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-num">01</div>
+        <div class="problem-title">Talentos invisibles</div>
+        <div class="problem-body">Miles de deportistas con potencial real nunca son descubiertos por falta de visibilidad digital y herramientas adecuadas de presentación.</div>
+      </div>
+      <div class="problem-card reveal reveal-delay-1">
+        <div class="problem-num">02</div>
+        <div class="problem-title">Procesos fragmentados</div>
+        <div class="problem-body">Reclutadores y universidades usan métodos lentos, costosos e ineficientes sin una plataforma unificada que los conecte directamente.</div>
+      </div>
+      <div class="problem-card reveal reveal-delay-2">
+        <div class="problem-num">03</div>
+        <div class="problem-title">Competidores limitados</div>
+        <div class="problem-body">FutbolJobs y los libros de pases digitales carecen de interactividad real, inteligencia artificial, cobertura global y perfil multimedia completo.</div>
+      </div>
+    </div>
+    <div class="problem-stat reveal">
+      <div class="problem-stat-num counter" data-target="600" data-suffix="K+" data-divisor="1">0</div>
+      <div class="problem-stat-text">deportistas buscan oportunidades sin encontrar la plataforma adecuada</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIÓN -->
+<section id="solution" class="dark-section">
+  <div class="section-inner">
+    <div class="section-label label-cyan reveal">LA SOLUCIÓN</div>
+    <h2 class="section-title reveal">El ecosistema deportivo<br><span style="color:var(--cyan)">completo.</span></h2>
+    <p class="section-subtitle reveal">Una plataforma que conecta todos los actores del deporte en un solo lugar.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-icon">🎬</span>
+        <div class="feature-title">Perfiles Multimedia</div>
+        <div class="feature-body">Videos de highlights, estadísticas de rendimiento, trayectoria completa y logros en un perfil dinámico.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <span class="feature-icon">🤖</span>
+        <div class="feature-title">IA + Análisis</div>
+        <div class="feature-body">Algoritmos de inteligencia artificial que analizan rendimiento y generan métricas automáticas desde los videos.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <span class="feature-icon">🎯</span>
+        <div class="feature-title">Matchmaking Inteligente</div>
+        <div class="feature-body">Sistema de recomendaciones personalizadas que conecta deportistas con las oportunidades perfectas para su perfil.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <span class="feature-icon">💬</span>
+        <div class="feature-title">Comunicación Directa</div>
+        <div class="feature-body">Chat, videollamadas y mensajería en tiempo real. Sin intermediarios, sin fricción.</div>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🎓</span>
+        <div class="feature-title">Becas y Oportunidades</div>
+        <div class="feature-body">Universidades, clubes y ligas de todo el mundo publican oportunidades accesibles desde cualquier lugar.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <span class="feature-icon">🧠</span>
+        <div class="feature-title">Formación Integral</div>
+        <div class="feature-body">Coach deportivo, psicólogo, nutricionista y capacitación continua integrados dentro de la plataforma.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="how" class="light-section">
+  <div class="section-inner">
+    <div class="section-label label-royal reveal">CÓMO FUNCIONA</div>
+    <h2 class="section-title reveal">Simple. Poderoso.<br>Eficiente.</h2>
+    <div class="steps-container">
+      <div class="step reveal">
+        <div class="step-circle">1</div>
+        <div class="step-title">Registro</div>
+        <div class="step-body">Crea tu perfil en minutos, sea deportista, club o universidad.</div>
+      </div>
+      <div class="step reveal reveal-delay-1">
+        <div class="step-circle">2</div>
+        <div class="step-title">Perfil Multimedia</div>
+        <div class="step-body">Sube videos de highlights, estadísticas, logros y trayectoria.</div>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-circle">3</div>
+        <div class="step-title">Descubrimiento</div>
+        <div class="step-body">El sistema te conecta con las mejores oportunidades automáticamente.</div>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-circle">4</div>
+        <div class="step-title">Contacto Directo</div>
+        <div class="step-body">Chat en tiempo real entre deportistas, scouts y entrenadores.</div>
+      </div>
+      <div class="step reveal reveal-delay-4">
+        <div class="step-circle">5</div>
+        <div class="step-title">Oportunidad</div>
+        <div class="step-body">Becas, fichajes y contratos conseguidos sin intermediarios.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADO -->
+<section id="market" class="dark-section">
+  <div class="section-inner">
+    <div class="section-label label-cyan reveal">EL MERCADO</div>
+    <h2 class="section-title reveal">Un mercado global<br>en plena <span style="color:var(--cyan)">expansión.</span></h2>
+    <div class="market-grid">
+      <div class="market-card reveal">
+        <div class="market-big counter" data-target="26" data-suffix="B+" data-divisor="1">$0</div>
+        <div class="market-sub">Mercado global de tecnología deportiva</div>
+      </div>
+      <div class="market-card reveal reveal-delay-1">
+        <div class="market-big counter" data-target="600" data-suffix="K+" data-divisor="1" style="font-size:44px">0</div>
+        <div class="market-sub">Deportistas activos buscando oportunidades</div>
+      </div>
+      <div class="market-card reveal reveal-delay-2">
+        <div class="market-big counter" data-target="4500" data-suffix="+" data-divisor="1" style="font-size:44px">0</div>
+        <div class="market-sub">Universidades con becas deportivas en USA/Canadá</div>
+      </div>
+      <div class="market-card reveal reveal-delay-3">
+        <div class="market-big counter" data-target="85" data-suffix="%" data-divisor="1">0</div>
+        <div class="market-sub">Clubes sin acceso a plataforma digital de scouting</div>
+      </div>
+    </div>
+    <div class="market-tam-row">
+      <div class="tam-bar reveal">
+        <div class="tam-label">TAM</div>
+        <div class="tam-track"><div class="tam-fill" data-width="100"></div></div>
+        <div class="tam-text">Tecnología deportiva global</div>
+        <div class="tam-amount">$26B+</div>
+      </div>
+      <div class="tam-bar reveal reveal-delay-1">
+        <div class="tam-label">SAM</div>
+        <div class="tam-track"><div class="tam-fill" data-width="65"></div></div>
+        <div class="tam-text">Reclutamiento digital deportivo</div>
+        <div class="tam-amount">$4.2B</div>
+      </div>
+      <div class="tam-bar reveal reveal-delay-2">
+        <div class="tam-label">SOM</div>
+        <div class="tam-track"><div class="tam-fill" data-width="22"></div></div>
+        <div class="tam-text">Objetivo años 1–3</div>
+        <div class="tam-amount">$85M</div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:32px; font-size:14px; color:rgba(255,255,255,0.4); letter-spacing:2px;" class="reveal">
+      USA &nbsp;•&nbsp; CANADÁ &nbsp;•&nbsp; ARGENTINA &nbsp;•&nbsp; CHILE &nbsp;•&nbsp; MÉXICO &nbsp;•&nbsp; AUSTRALIA
+    </p>
+  </div>
+</section>
+
+<!-- MODELO DE NEGOCIO -->
+<section id="business" class="white-section">
+  <div class="section-inner">
+    <div class="section-label label-royal reveal">MODELO DE NEGOCIO</div>
+    <h2 class="section-title reveal">Múltiples fuentes de ingreso.<br>Escalabilidad real.</h2>
+    <div class="biz-grid">
+      <div class="biz-card reveal">
+        <div class="biz-icon">⚽</div>
+        <div class="biz-title">Deportistas</div>
+        <div class="biz-plan">Freemium → Std → PRO</div>
+        <div class="biz-body">Suscripción mensual, trimestral y anual. Acceso progresivo a funciones premium.</div>
+      </div>
+      <div class="biz-card reveal reveal-delay-1">
+        <div class="biz-icon">🏛</div>
+        <div class="biz-title">Universidades / Clubes</div>
+        <div class="biz-plan">Suscripción institucional</div>
+        <div class="biz-body">Búsqueda avanzada de talentos, gestión de scouting y publicación de oportunidades ilimitada.</div>
+      </div>
+      <div class="biz-card reveal reveal-delay-2">
+        <div class="biz-icon">🤝</div>
+        <div class="biz-title">Agentes Deportivos</div>
+        <div class="biz-plan">Panel exclusivo</div>
+        <div class="biz-body">Gestión de fichas, representación y acceso a la red completa de jugadores y oportunidades.</div>
+      </div>
+      <div class="biz-card reveal reveal-delay-3">
+        <div class="biz-icon">📢</div>
+        <div class="biz-title">Publicidad / Sponsors</div>
+        <div class="biz-plan">Espacios en plataforma</div>
+        <div class="biz-body">Marcas deportivas, streaming de eventos, patrocinios y co-branding dentro del ecosistema.</div>
+      </div>
+    </div>
+    <div class="biz-highlight reveal">
+      Rentable a los <span>18 meses</span> &nbsp;·&nbsp; Crecimiento sostenido desde el mes <span>24</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIA -->
+<section id="competition" class="dark-section">
+  <div class="section-inner">
+    <div class="section-label label-cyan reveal">VENTAJA COMPETITIVA</div>
+    <h2 class="section-title reveal">Claramente<br><span style="color:var(--cyan)">diferenciados.</span></h2>
+    <div class="comp-table-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th class="th-scout360">SCOUT 360</th>
+            <th class="th-others">FutbolJobs</th>
+            <th class="th-others">Libro de Pase</th>
+            <th class="th-others">NCSA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Perfiles multimedia con video</td>
+            <td class="td-scout"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Chat y video en tiempo real</td>
+            <td class="td-scout"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>IA y análisis automático</td>
+            <td class="td-scout"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Becas universitarias + clubes</td>
+            <td class="td-scout"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Cobertura multi-deporte</td>
+            <td class="td-scout"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Formación y coaching integrado</td>
+            <td class="td-scout"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Precio accesible / Freemium</td>
+            <td class="td-scout"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section id="team" class="light-section">
+  <div class="section-inner">
+    <div class="section-label label-royal reveal">EQUIPO</div>
+    <h2 class="section-title reveal">Experiencia real.<br>Red global. Pasión por el deporte.</h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">FM</div>
+        <div class="team-name">Fernando Miranda</div>
+        <div class="team-role">Founder & CEO</div>
+        <div class="team-divider"></div>
+        <div class="team-bio">A.S.IT UBP · E.D.N.T UPM · Director NEXLIVE Stream · Director General IST Agency · 35+ años en tecnología y deporte.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar">CW</div>
+        <div class="team-name">Cory Weaver</div>
+        <div class="team-role">Co-Founder & Advisor USA</div>
+        <div class="team-divider"></div>
+        <div class="team-bio">Weaver Athlete Management · Jugador y entrenador profesional · Consultor en USA, Canadá y Australia.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar">CW</div>
+        <div class="team-name">Cintia Weber</div>
+        <div class="team-role">Tech Lead</div>
+        <div class="team-divider"></div>
+        <div class="team-bio">Desarrollo de plataforma multimedia · Landing Page · Frontend & UX/UI especializada en aplicaciones deportivas.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar">EC</div>
+        <div class="team-name">Evolution Consulting</div>
+        <div class="team-role">Marketing & Growth</div>
+        <div class="team-divider"></div>
+        <div class="team-bio">Marketing digital avanzado · Campañas de adquisición masiva · Estrategia de crecimiento y expansión regional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="white-section">
+  <div class="section-inner">
+    <div class="section-label label-royal reveal">ROADMAP</div>
+    <h2 class="section-title reveal">De MVP a plataforma<br>global en 24 meses.</h2>
+    <div class="roadmap-container">
+      <div class="roadmap-line"></div>
+      <div class="phase reveal">
+        <div class="phase-dot">MVP</div>
+        <div class="phase-content">
+          <div class="phase-time">0 – 6 MESES</div>
+          <div class="phase-title">MVP & UX</div>
+          <div class="phase-items">
+            <span>→</span> Diseño UX/UI profesional<span> · </span>
+            <span>→</span> Backend y base de datos<span> · </span>
+            <span>→</span> Perfiles multimedia<span> · </span>
+            <span>→</span> Sistema de autenticación y seguridad
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal reveal-delay-1">
+        <div class="phase-dot">β</div>
+        <div class="phase-content">
+          <div class="phase-time">6 – 8 MESES</div>
+          <div class="phase-title">Lanzamiento Beta</div>
+          <div class="phase-items">
+            <span>→</span> Primeros usuarios reales<span> · </span>
+            <span>→</span> Testeo de usabilidad<span> · </span>
+            <span>→</span> Feedback e iteración rápida<span> · </span>
+            <span>→</span> Validación del modelo
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal reveal-delay-2">
+        <div class="phase-dot">🚀</div>
+        <div class="phase-content">
+          <div class="phase-time">8 – 12 MESES</div>
+          <div class="phase-title">Lanzamiento Oficial</div>
+          <div class="phase-items">
+            <span>→</span> Campaña de marketing masiva<span> · </span>
+            <span>→</span> Embajadores y partnerships<span> · </span>
+            <span>→</span> Webinars y prensa deportiva<span> · </span>
+            <span>→</span> Alianzas con universidades y clubes
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal reveal-delay-3">
+        <div class="phase-dot">🌍</div>
+        <div class="phase-content">
+          <div class="phase-time">12 – 24 MESES</div>
+          <div class="phase-title">Escala Global</div>
+          <div class="phase-items">
+            <span>→</span> IA avanzada y video análisis<span> · </span>
+            <span>→</span> Internacionalización (EN, PT)<span> · </span>
+            <span>→</span> Alianzas institucionales<span> · </span>
+            <span>→</span> Nuevas rondas de inversión
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVERSIÓN -->
+<section id="investment" class="light-section">
+  <div class="section-inner">
+    <div class="section-label label-royal reveal" style="text-align:center">OPORTUNIDAD DE INVERSIÓN</div>
+    <div class="invest-hero reveal">
+      <div class="invest-amount">$25,000</div>
+      <div class="invest-sub">Capital semilla para llevar Scout360 a su siguiente fase de crecimiento</div>
+    </div>
+    <div class="invest-bars">
+      <div class="invest-bar-item reveal">
+        <div class="invest-bar-header">
+          <span class="invest-bar-label">Tecnología & Desarrollo</span>
+          <span class="invest-bar-amt">$12,500 · 50%</span>
+        </div>
+        <div class="invest-bar-track"><div class="invest-bar-fill" data-width="50"></div></div>
+      </div>
+      <div class="invest-bar-item reveal reveal-delay-1">
+        <div class="invest-bar-header">
+          <span class="invest-bar-label">Marketing & Lanzamiento</span>
+          <span class="invest-bar-amt">$7,500 · 30%</span>
+        </div>
+        <div class="invest-bar-track"><div class="invest-bar-fill" data-width="30"></div></div>
+      </div>
+      <div class="invest-bar-item reveal reveal-delay-2">
+        <div class="invest-bar-header">
+          <span class="invest-bar-label">Operaciones & Equipo</span>
+          <span class="invest-bar-amt">$5,000 · 20%</span>
+        </div>
+        <div class="invest-bar-track"><div class="invest-bar-fill" data-width="20"></div></div>
+      </div>
+    </div>
+    <div class="invest-return reveal">
+      <h3>¿Qué ofrecemos a cambio?</h3>
+      <div class="invest-bullets">
+        <div class="invest-bullet">Participación directa en el crecimiento exponencial de la plataforma</div>
+        <div class="invest-bullet">Co-participación en todos los procesos de desarrollo y expansión</div>
+        <div class="invest-bullet">Retorno proyectado a partir del mes 24 post-lanzamiento</div>
+        <div class="invest-bullet">Acceso a red global de deportistas, universidades y clubes en USA, Canadá y Australia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <div class="cta-content">
+    <h2 class="cta-title reveal">
+      Las oportunidades,<br>
+      <span class="hl">ahora también.</span>
+    </h2>
+    <p class="cta-sub reveal">Scout360 conecta el deporte con el futuro. Sé parte del movimiento que está transformando el scouting deportivo a nivel global.</p>
+    <div class="cta-btns reveal">
+      <a href="mailto:fernando@scout360.com" class="btn-primary">Contactar al equipo</a>
+      <a href="#investment" class="btn-secondary">Ver pitch completo</a>
+    </div>
+    <div class="cta-contact reveal">
+      <div class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div class="contact-text">Web</div>
+        <div class="contact-val">scout360.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-text">Email</div>
+        <div class="contact-val">fernando@scout360.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📷</div>
+        <div class="contact-text">Instagram</div>
+        <div class="contact-val">@scout360oficial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="s3">S3</div>
+    <span>SCOUT 360</span>
+  </div>
+  <div class="footer-copy">© 2025 Scout360 · Todos los derechos reservados</div>
+</footer>
+
+<script>
+// ── Intersection Observer — reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => revealObs.observe(el));
+
+// ── Counter animation
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.textContent.startsWith('$') ? '$' : '';
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = '1';
+      animateCounter(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+// ── Bar fill animation
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const fills = e.target.querySelectorAll('.tam-fill, .invest-bar-fill');
+      fills.forEach(f => {
+        setTimeout(() => { f.style.width = f.dataset.width + '%'; }, 200);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.market-tam-row, .invest-bars').forEach(el => barObs.observe(el));
+
+// ── Smooth nav background on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 80) {
+    nav.style.background = 'rgba(6,16,30,0.95)';
+  } else {
+    nav.style.background = 'rgba(13,27,75,0.85)';
+  }
+});
+
+// Stat counter in strip (special case with divisor)
+document.querySelectorAll('.stats-strip .counter').forEach(el => {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = '1';
+        const target = parseInt(e.target.dataset.target);
+        const divisor = parseInt(e.target.dataset.divisor) || 1;
+        const suffix = e.target.dataset.suffix || '';
+        const display = target / divisor;
+        const duration = 1600;
+        const step = display / (duration / 16);
+        let cur = 0;
+        const t = setInterval(() => {
+          cur = Math.min(cur + step, display);
+          e.target.textContent = Math.floor(cur) + suffix;
+          if (cur >= display) clearInterval(t);
+        }, 16);
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
