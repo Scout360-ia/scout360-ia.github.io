@@ -653,10 +653,24 @@
     border-bottom: none !important;
   }
 
-  /* ── RESPONSIVE — TABLET (≤ 900px) ── */
+  /* ── RESPONSIVE — TABLET & MOBILE (≤ 900px) ── */
   @media (max-width: 900px) {
-    .bh-right { display: none !important; }
-    .bh-left { width: 100% !important; padding: 76px 16px 28px !important; }
+    /* Stack panels vertically */
+    #hero { min-height: 100svh; height: auto; padding-bottom: 40px; }
+    .bh-layout {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      height: auto !important;
+      min-height: 100svh;
+    }
+
+    /* Left panel: full width, natural height */
+    .bh-left {
+      width: 100% !important;
+      padding: 84px 16px 20px !important;
+      min-height: auto !important;
+    }
+    .bh-glass-card { min-height: auto !important; }
 
     /* Card goes dark+transparent so background video shows through */
     .bh-glass-card.s3-glass-strong {
@@ -676,10 +690,32 @@
     /* Logo: invert to white on dark background */
     .bh-glass-card .bh-logo-hero img { filter: brightness(0) invert(1) !important; }
 
-    /* Hero fills full viewport height so background is fully visible */
-    #hero { min-height: 100svh; }
-    .bh-layout { min-height: 100svh; align-items: stretch; }
-    .bh-left { min-height: 100svh; }
+    /* Right panel: show below left panel, full width */
+    .bh-right {
+      display: flex !important;
+      width: 100% !important;
+      padding: 0 16px 32px !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+
+    /* Hide earth bg and spacer on mobile — they create dead space */
+    .bh-earth-bg    { display: none !important; }
+    .bh-earth-spacer { display: none !important; }
+
+    /* Feature cards: 2-column grid */
+    .bh-feat-cards {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+    }
+  }
+
+  /* Very small mobile: feature cards go single column */
+  @media (max-width: 480px) {
+    .bh-feat-cards {
+      grid-template-columns: 1fr !important;
+    }
   }
 
   /* ── RESPONSIVE — MOBILE (≤ 768px) ── */
