@@ -597,17 +597,171 @@
   .footer-logo span { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
   .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
 
-  /* ── RESPONSIVE ── */
+  /* ── HAMBURGER MENU ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    width: 40px; height: 40px; padding: 8px;
+    background: none; border: none; cursor: pointer;
+    border-radius: 8px; transition: background 0.2s;
+  }
+  .nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: rgba(255,255,255,0.85); border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile nav drawer */
+  .nav-mobile-drawer {
+    display: block;
+    position: fixed; top: 64px; left: 0; right: 0; z-index: 999;
+    background: rgba(6,16,30,0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(77,208,225,0.15);
+    padding: 0;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    pointer-events: none;
+  }
+  .nav-mobile-drawer.open {
+    max-height: 360px;
+    padding: 12px 0 20px;
+    pointer-events: all;
+  }
+  @media (min-width: 769px) {
+    .nav-mobile-drawer { display: none !important; }
+  }
+  .nav-mobile-drawer a {
+    display: block; padding: 14px 24px;
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    font-size: 16px; font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-mobile-drawer a:last-child { border-bottom: none; }
+  .nav-mobile-drawer a:hover { color: var(--cyan); background: rgba(77,208,225,0.06); }
+  .nav-mobile-drawer .nav-mobile-cta {
+    margin: 12px 24px 0;
+    display: block; text-align: center;
+    background: linear-gradient(135deg, var(--sky), var(--cyan));
+    color: var(--navy) !important; font-weight: 700 !important;
+    border-radius: 24px; padding: 12px 24px !important;
+    border-bottom: none !important;
+  }
+
+  /* ── RESPONSIVE — TABLET (≤ 900px) ── */
+  @media (max-width: 900px) {
+    .bh-right { display: none !important; }
+    .bh-left { width: 100% !important; padding: 76px 16px 28px !important; }
+  }
+
+  /* ── RESPONSIVE — MOBILE (≤ 768px) ── */
   @media (max-width: 768px) {
-    nav { padding: 0 20px; }
+    /* Nav */
+    nav { padding: 0 16px; }
     .nav-links { display: none; }
-    section { padding: 80px 20px; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+
+    /* Sections */
+    section { padding: 64px 16px; }
+
+    /* Hero glass card */
+    .bh-content { padding: 24px 20px 28px !important; }
+    .bh-logo-hero img { height: 44px !important; }
+    .bh-quote { padding: 20px 18px !important; }
+    .bh-quote-text { font-size: 15px !important; }
+
+    /* Stats strip */
+    .stats-strip { padding: 28px 16px; gap: 0; }
+    .stat-item { min-width: 130px; flex: 1; padding: 10px 12px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .stat-item:last-child { border-bottom: none; }
+    .stat-num { font-size: 32px; }
+    .stats-strip { flex-direction: column; align-items: stretch; }
+
+    /* Problem */
+    .problem-stat { padding: 32px 20px; }
+
+    /* Features grid */
+    .features-grid { grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
+    .feature-card { padding: 24px 18px; }
+
+    /* Steps */
+    .steps-container { grid-template-columns: 1fr 1fr; }
     .steps-container::before { display: none; }
+    .step { padding: 0 12px; }
+
+    /* Market TAM */
+    .tam-bar { flex-wrap: wrap; padding: 14px 14px; gap: 6px; }
+    .tam-text { display: none; }
+    .tam-label { min-width: auto; }
+    .tam-amount { font-size: 15px; min-width: auto; }
+
+    /* Business */
+    .biz-highlight { padding: 24px 20px; font-size: 15px; }
+    .biz-highlight br { display: none; }
+
+    /* Competition table */
+    .comp-table-wrap { -webkit-overflow-scrolling: touch; }
+    .comp-table { font-size: 12px; min-width: 480px; }
+    .comp-table th, .comp-table td { padding: 10px 8px; }
+
+    /* Team */
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .team-card { padding: 28px 18px; }
+
+    /* Roadmap */
     .roadmap-line { display: none; }
-    .phase { flex-direction: column; }
-    .phase-dot { width: 60px; height: 60px; font-size: 13px; min-width: 60px; }
-    .stat-item { min-width: 140px; }
+    .phase { flex-direction: column; gap: 16px; margin-bottom: 28px; }
+    .phase-dot { width: 60px; height: 60px; font-size: 13px; min-width: 60px; align-self: flex-start; }
+    .phase-content { padding: 22px 18px; }
+
+    /* Investment */
+    .invest-bars { padding: 0; }
+    .invest-return { padding: 28px 20px; }
+    .equity-item { min-width: 120px; }
+    .growth-box { padding: 24px 16px; }
+    .growth-bars-wrap { gap: 14px; }
+
+    /* CTA */
+    #cta { padding: 80px 16px; }
+    .cta-contact { gap: 20px; }
+
+    /* Why-now */
+    .why-now-strip { padding: 60px 16px; }
+
+    /* Misc */
     .hero-data-badge { display: none; }
+
+    /* Footer */
+    footer { padding: 24px 16px; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  }
+
+  /* ── RESPONSIVE — SMALL MOBILE (≤ 480px) ── */
+  @media (max-width: 480px) {
+    section { padding: 48px 14px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .steps-container { grid-template-columns: 1fr; }
+    .bh-logo-hero img { height: 38px !important; }
+    .stat-num { font-size: 28px; }
+    .market-big { font-size: 40px; }
+    .growth-box { padding: 20px 12px; }
+    .growth-bars-wrap { gap: 8px; }
+    .g-bar-label { font-size: 10px; }
+    .phase-content { padding: 18px 14px; }
+    .cta-contact { flex-direction: column; gap: 24px; align-items: center; }
+    .why-now-pills { grid-template-columns: 1fr !important; }
+    .equity-row { flex-direction: column; }
+    .equity-item { min-width: auto; width: 100%; }
+    .invest-return { padding: 22px 14px; }
+    .biz-grid { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .market-grid { grid-template-columns: 1fr; }
   }
 
   /* ═══════════════════════════════════════════════
@@ -1555,7 +1709,19 @@
     <li><a href="#traction">Tracción</a></li>
     <li><a href="#investment">Inversión</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- Mobile nav drawer -->
+<div class="nav-mobile-drawer" id="nav-mobile-drawer">
+  <a href="#problem" class="nav-mobile-link">Problema</a>
+  <a href="#solution" class="nav-mobile-link">Solución</a>
+  <a href="#market" class="nav-mobile-link">Mercado</a>
+  <a href="#traction" class="nav-mobile-link">Tracción</a>
+  <a href="#investment" class="nav-mobile-link">Inversión</a>
+  <a href="#investment" class="nav-mobile-cta">Quiero Invertir →</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -2479,6 +2645,37 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
   }
   window.addEventListener('scroll', updateNavVisibility, { passive: true });
   updateNavVisibility();
+})();
+
+// ── Hamburger menu toggle
+(function() {
+  const btn = document.getElementById('nav-hamburger');
+  const drawer = document.getElementById('nav-mobile-drawer');
+  if (!btn || !drawer) return;
+
+  // Ensure drawer is always block so transition works
+  drawer.style.display = 'block';
+
+  btn.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+  });
+
+  // Close drawer when a link is clicked
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      btn.classList.remove('open');
+    });
+  });
+
+  // Show drawer block on mobile, hide on desktop resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      drawer.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  });
 })();
 </script>
 </body>
