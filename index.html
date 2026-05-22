@@ -824,6 +824,110 @@
     0% { background-position: 100% 0; }
     100% { background-position: -100% 0; }
   }
+
+  /* ── WHY NOW STRIP ── */
+  .why-now-strip {
+    background: linear-gradient(110deg, #060e2e 0%, var(--navy) 40%, #0f2260 100%);
+    padding: 52px 24px; position: relative; overflow: hidden;
+  }
+  .why-now-strip::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(255,255,255,0.02) 18px, rgba(255,255,255,0.02) 19px);
+  }
+  .why-now-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+  .why-now-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--cyan); text-transform: uppercase; margin-bottom: 14px; }
+  .why-now-title { font-size: clamp(22px, 3.5vw, 34px); font-weight: 800; color: var(--white); margin-bottom: 28px; line-height: 1.2; }
+  .why-now-title em { font-style: normal; color: var(--cyan); }
+  .why-now-pills { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .why-now-pill {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(77,208,225,0.25);
+    border-radius: 50px; padding: 10px 22px;
+    font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.82);
+    display: flex; align-items: center; gap: 9px;
+  }
+  .why-now-pill .pill-icon { font-size: 16px; }
+
+  /* ── PRICING IN BIZ CARDS ── */
+  .price-list { display: flex; flex-direction: column; gap: 5px; margin: 10px 0 14px; }
+  .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 5px 10px; border-radius: 7px;
+    background: rgba(0,99,200,0.05); border: 1px solid rgba(0,153,214,0.1);
+  }
+  .price-row.free-row { background: transparent; border-color: transparent; padding-left: 0; }
+  .plan-name { font-size: 11px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; }
+  .plan-price { font-size: 12px; font-weight: 600; color: var(--royal); }
+  .plan-name.gold { color: #9c7722; }
+  .plan-name.black-plan { color: #1a1a2e; }
+  .biz-period { font-size: 11px; color: var(--gray); margin-top: 6px; }
+
+  /* ── TRACTION SECTION ── */
+  #traction { background: var(--navy2); }
+  .traction-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px; margin-top: 64px;
+  }
+  .traction-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(77,208,225,0.18);
+    border-radius: 20px; padding: 36px 28px; position: relative; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .traction-card:hover { transform: translateY(-4px); border-color: rgba(77,208,225,0.45); }
+  .traction-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--sky), var(--cyan));
+  }
+  .traction-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .traction-title { font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+  .traction-body { font-size: 14px; color: rgba(255,255,255,0.58); line-height: 1.65; }
+  .traction-status {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.28);
+    border-radius: 20px; padding: 4px 12px;
+    font-size: 11px; font-weight: 700; color: #4ade80;
+    letter-spacing: 0.5px; margin-top: 14px; text-transform: uppercase;
+  }
+  .traction-status::before { content: '●'; font-size: 7px; }
+
+  /* ── EQUITY BADGE ── */
+  .equity-row {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin: 0 auto 52px; max-width: 700px;
+  }
+  .equity-item {
+    flex: 1; min-width: 160px;
+    background: var(--white); border: 2px solid rgba(0,153,214,0.18);
+    border-radius: 18px; padding: 24px 20px; text-align: center;
+    box-shadow: 0 4px 24px rgba(0,99,200,0.09);
+  }
+  .equity-num {
+    font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1;
+    background: linear-gradient(135deg, var(--navy), var(--royal), var(--sky));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; letter-spacing: -2px;
+  }
+  .equity-label { font-size: 12px; color: var(--gray); margin-top: 6px; font-weight: 600; }
+
+  /* ── GROWTH PROJECTION ── */
+  .growth-box {
+    max-width: 700px; margin: 0 auto;
+    background: var(--navy); border-radius: 20px; padding: 36px 40px;
+    color: var(--white);
+  }
+  .growth-box-title { font-size: 13px; font-weight: 700; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-bottom: 32px; }
+  .growth-bars-wrap { display: flex; align-items: flex-end; justify-content: center; gap: 24px; height: 120px; margin-bottom: 16px; }
+  .g-bar-col { flex: 1; max-width: 120px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .g-bar-fill {
+    width: 100%; border-radius: 8px 8px 0 0;
+    background: linear-gradient(to top, var(--royal), var(--sky));
+  }
+  .g-bar-fill.y1 { height: 30px; }
+  .g-bar-fill.y2 { height: 72px; background: linear-gradient(to top, var(--royal), var(--cyan)); }
+  .g-bar-fill.y3 { height: 120px; background: linear-gradient(to top, var(--royal), var(--sky), var(--cyan)); box-shadow: 0 -6px 20px rgba(77,208,225,0.3); }
+  .g-bar-base { width: 100%; height: 2px; background: rgba(255,255,255,0.1); }
+  .g-bar-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 10px; font-weight: 600; }
+  .g-bar-tag { font-size: 11px; font-weight: 700; color: var(--cyan); background: rgba(77,208,225,0.1); border-radius: 6px; padding: 3px 8px; margin-top: 4px; }
+  .growth-note { text-align: center; font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 16px; }
 </style>
 </head>
 <body>
@@ -834,7 +938,13 @@
     <div class="s3"><img src="logo.png" alt="Scout 360 Logo"></div>
     <span>SCOUT 360</span>
   </a>
-  <div></div>
+  <ul class="nav-links">
+    <li><a href="#problem">Problema</a></li>
+    <li><a href="#solution">Solución</a></li>
+    <li><a href="#market">Mercado</a></li>
+    <li><a href="#traction">Tracción</a></li>
+    <li><a href="#investment">Inversión</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
@@ -933,6 +1043,20 @@
     </div>
   </div>
 </section>
+
+<!-- ¿POR QUÉ AHORA? -->
+<div class="why-now-strip">
+  <div class="why-now-inner">
+    <div class="why-now-label">¿Por qué Scout360? ¿Por qué ahora?</div>
+    <h3 class="why-now-title">Un <em>ecosistema integrado</em> donde todas las partes ganan.<br>El equipo y el momento son únicos.</h3>
+    <div class="why-now-pills">
+      <div class="why-now-pill"><span class="pill-icon">🔗</span>Ecosistema 360° — deportistas, clubes, universidades y agencias en un solo lugar</div>
+      <div class="why-now-pill"><span class="pill-icon">🧠</span>Equipo interdisciplinario — deporte, formación, tecnología y desarrollo</div>
+      <div class="why-now-pill"><span class="pill-icon">🌎</span>Sin líder consolidado en LATAM — la ventana está abierta hoy</div>
+      <div class="why-now-pill"><span class="pill-icon">⚡</span>La IA para matching deportivo está accesible y lista en 2025</div>
+    </div>
+  </div>
+</div>
 
 <!-- SOLUCIÓN (dark section) -->
 <section id="solution" class="dark-section" style="position:relative;">
@@ -1078,20 +1202,33 @@
       <div class="biz-card reveal">
         <div class="biz-icon">⚽</div>
         <div class="biz-title">Deportistas</div>
-        <div class="biz-plan">Free → Standar → Premium → Black</div>
-        <div class="biz-body">Suscripción mensual, trimestral y anual. Acceso progresivo a funciones premium.</div>
+        <div class="price-list">
+          <div class="price-row free-row"><span class="plan-name">Free</span><span class="plan-price">$0</span></div>
+          <div class="price-row"><span class="plan-name">Standard</span><span class="plan-price">$10/mes · $90/año</span></div>
+          <div class="price-row"><span class="plan-name gold">Gold</span><span class="plan-price">$12/mes · $99.99/año</span></div>
+          <div class="price-row"><span class="plan-name black-plan">Black</span><span class="plan-price">$15/mes · $130/año</span></div>
+        </div>
+        <div class="biz-body">Acceso progresivo a perfil multimedia, matching IA, becas y red global.</div>
       </div>
       <div class="biz-card reveal reveal-delay-1">
         <div class="biz-icon">🏛</div>
         <div class="biz-title">Universidades / Clubes</div>
-        <div class="biz-plan">Suscripción institucional</div>
-        <div class="biz-body">Búsqueda avanzada de talentos, gestión de scouting y publicación de oportunidades ilimitada.</div>
+        <div class="price-list">
+          <div class="price-row"><span class="plan-name">Standard</span><span class="plan-price">$500/año</span></div>
+          <div class="price-row"><span class="plan-name gold">Gold</span><span class="plan-price">$700/año</span></div>
+          <div class="price-row"><span class="plan-name black-plan">Black</span><span class="plan-price">$1,200/año</span></div>
+        </div>
+        <div class="biz-body">Búsqueda avanzada de talentos, gestión de scouting y publicación ilimitada de oportunidades.</div>
       </div>
       <div class="biz-card reveal reveal-delay-2">
         <div class="biz-icon">🤝</div>
-        <div class="biz-title">Agentes Deportivos</div>
-        <div class="biz-plan">Panel exclusivo</div>
-        <div class="biz-body">Gestión de fichas, representación y acceso a la red completa de jugadores y oportunidades.</div>
+        <div class="biz-title">Agencias y Agentes</div>
+        <div class="price-list">
+          <div class="price-row"><span class="plan-name">Standard</span><span class="plan-price">$500/año</span></div>
+          <div class="price-row"><span class="plan-name gold">Gold</span><span class="plan-price">$800/año</span></div>
+          <div class="price-row"><span class="plan-name black-plan">Black</span><span class="plan-price">$1,399/año</span></div>
+        </div>
+        <div class="biz-body">Panel exclusivo de gestión de fichas, representación y acceso a la red global completa.</div>
       </div>
       <div class="biz-card reveal reveal-delay-3">
         <div class="biz-icon">📢</div>
@@ -1216,6 +1353,46 @@
   </div>
 </section>
 
+<!-- TRACCIÓN -->
+<section id="traction" class="dark-section" style="position:relative;">
+  <div class="data-streams" aria-hidden="true">
+    <div class="stream-line"></div><div class="stream-line"></div>
+    <div class="stream-line"></div><div class="stream-line"></div>
+    <div class="stream-line"></div>
+  </div>
+  <div class="section-inner">
+    <div class="section-label label-cyan reveal">TRACCIÓN</div>
+    <h2 class="section-title reveal">El momentum<br><span style="color:var(--cyan)">ya comenzó.</span></h2>
+    <p class="section-subtitle reveal">Scout360 no es solo una idea — hay validación, capital y red activa sobre la mesa.</p>
+    <div class="traction-grid">
+      <div class="traction-card reveal">
+        <span class="traction-icon">💰</span>
+        <div class="traction-title">Capital Propio Invertido</div>
+        <div class="traction-body">Los founders ya inyectaron capital propio en desarrollo, diseño e infraestructura. Compromiso real desde el día uno.</div>
+        <div class="traction-status">Activo</div>
+      </div>
+      <div class="traction-card reveal reveal-delay-1">
+        <span class="traction-icon">🤝</span>
+        <div class="traction-title">Conversaciones con Clubes</div>
+        <div class="traction-body">Diálogo directo en curso con clubes y universidades en USA, Canadá y Australia. Demanda validada en el mercado objetivo.</div>
+        <div class="traction-status">En progreso</div>
+      </div>
+      <div class="traction-card reveal reveal-delay-2">
+        <span class="traction-icon">🌐</span>
+        <div class="traction-title">Red Internacional Activa</div>
+        <div class="traction-body">Cory Weaver operando activamente en Norteamérica y Oceanía. Red de contactos deportivos lista para activar desde el lanzamiento.</div>
+        <div class="traction-status">Activo</div>
+      </div>
+      <div class="traction-card reveal reveal-delay-3">
+        <span class="traction-icon">🚀</span>
+        <div class="traction-title">Plataforma Online</div>
+        <div class="traction-body">Landing page activa y recibiendo tráfico orgánico. MVP en construcción activa con roadmap técnico definido.</div>
+        <div class="traction-status">En desarrollo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ROADMAP -->
 <section id="roadmap" class="white-section">
   <div class="section-inner">
@@ -1286,6 +1463,20 @@
     <div class="invest-hero reveal">
       <div class="invest-amount">$25,000</div>
     </div>
+    <div class="equity-row reveal">
+      <div class="equity-item">
+        <div class="equity-num">8%</div>
+        <div class="equity-label">Equity a cambio</div>
+      </div>
+      <div class="equity-item">
+        <div class="equity-num">$312K</div>
+        <div class="equity-label">Valuación pre-money</div>
+      </div>
+      <div class="equity-item">
+        <div class="equity-num">Mes 18</div>
+        <div class="equity-label">Punto de equilibrio</div>
+      </div>
+    </div>
     <div class="invest-bars">
       <div class="invest-bar-item reveal">
         <div class="invest-bar-header">
@@ -1312,11 +1503,35 @@
     <div class="invest-return reveal">
       <h3>¿Qué ofrecemos a cambio?</h3>
       <div class="invest-bullets">
-        <div class="invest-bullet">Participación directa en el crecimiento exponencial de la plataforma</div>
-        <div class="invest-bullet">Co-participación en todos los procesos de desarrollo y expansión</div>
+        <div class="invest-bullet"><strong style="color:var(--cyan)">8% de equity</strong> — participación directa en el crecimiento de la plataforma</div>
+        <div class="invest-bullet">Co-participación en todos los procesos de desarrollo y expansión global</div>
         <div class="invest-bullet">Retorno proyectado a partir del mes 18 post-lanzamiento</div>
-        <div class="invest-bullet">Acceso a red global de deportistas, universidades y clubes en el mundo</div>
+        <div class="invest-bullet">Acceso a red global de deportistas, universidades, clubes y agencias en el mundo</div>
       </div>
+    </div>
+    <div class="growth-box reveal">
+      <div class="growth-box-title">Proyección de crecimiento — 3 años</div>
+      <div class="growth-bars-wrap">
+        <div class="g-bar-col">
+          <div class="g-bar-fill y1"></div>
+          <div class="g-bar-base"></div>
+          <div class="g-bar-label">Año 1</div>
+          <div class="g-bar-tag">Lanzamiento</div>
+        </div>
+        <div class="g-bar-col">
+          <div class="g-bar-fill y2"></div>
+          <div class="g-bar-base"></div>
+          <div class="g-bar-label">Año 2</div>
+          <div class="g-bar-tag">Escala LATAM</div>
+        </div>
+        <div class="g-bar-col">
+          <div class="g-bar-fill y3"></div>
+          <div class="g-bar-base"></div>
+          <div class="g-bar-label">Año 3</div>
+          <div class="g-bar-tag">Expansión Global</div>
+        </div>
+      </div>
+      <div class="growth-note">Crecimiento sostenido · Breakeven mes 18 · Escala desde mes 24</div>
     </div>
   </div>
 </section>
