@@ -34,7 +34,7 @@
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
-    background: var(--white);
+    background: var(--navy2); /* dark fallback — prevents any white bleed between sections */
     color: var(--text);
     overflow-x: hidden;
     overscroll-behavior-y: none;
@@ -676,6 +676,9 @@
 
   /* ── RESPONSIVE — TABLET & MOBILE (≤ 900px) ── */
   @media (max-width: 900px) {
+    /* Reduce section padding so there's less empty space on mobile */
+    section { padding: 64px 20px; }
+
     /* Stack panels vertically */
     #hero { min-height: 100svh; height: auto; padding-bottom: 60px; }
     .bh-layout {
@@ -879,7 +882,7 @@
 
   /* ── RESPONSIVE — SMALL MOBILE (≤ 480px) ── */
   @media (max-width: 480px) {
-    section { padding: 48px 14px; }
+    section { padding: 52px 16px; }
     .features-grid { grid-template-columns: 1fr; }
     .team-grid { grid-template-columns: 1fr; }
     .steps-container { grid-template-columns: 1fr; }
