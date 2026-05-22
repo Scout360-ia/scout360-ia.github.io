@@ -459,11 +459,16 @@
   }
   .team-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(21,101,192,0.12); }
   .team-avatar {
-    width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 20px;
+    width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px;
     background: linear-gradient(135deg, var(--navy), var(--royal));
     display: flex; align-items: center; justify-content: center;
     font-size: 32px; font-weight: 800; color: var(--white);
     border: 3px solid var(--sky);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .team-avatar img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    display: block; border-radius: 50%;
   }
   .team-name { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
   .team-role { font-size: 13px; color: var(--royal); font-weight: 600; margin-bottom: 16px; }
@@ -768,8 +773,8 @@
     .bh-quote { padding: 20px 18px !important; }
     .bh-quote-text { font-size: 15px !important; }
 
-    /* Stats strip */
-    .stats-strip { padding: 28px 16px; gap: 0; }
+    /* Stats strip — add top spacing to separate from hero */
+    .stats-strip { padding: 28px 16px; gap: 0; margin-top: 32px; border-radius: 20px 20px 0 0; }
     .stat-item { min-width: 130px; flex: 1; padding: 10px 12px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
     .stat-item:last-child { border-bottom: none; }
     .stat-num { font-size: 32px; }
@@ -2312,25 +2317,25 @@
         <div class="team-bio">A.S.IT UBP · E.D.N.T UPM · Director NEXLIVE Stream · Director General IST Agency · 35+ años en tecnología y deporte.</div>
       </div>
       <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar"><img src="equipo-matias.jpg" alt="Matias Miranda"></div>
+        <div class="team-name">Matias Miranda</div>
+        <div class="team-role">Desarrollo Comercial</div>
+        <div class="team-divider"></div>
+        <div class="team-bio">Especialista en desarrollo comercial · Gestión deportiva y scouting · Expansión de red institucional.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar"><img src="equipo-ignacio.jpg" alt="Ignacio Miranda"></div>
+        <div class="team-name">Ignacio Miranda</div>
+        <div class="team-role">Big Data & IA</div>
+        <div class="team-divider"></div>
+        <div class="team-bio">Especialista en Big Data e Inteligencia Artificial · Arquitectura de matching deportivo · Análisis predictivo de rendimiento.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
         <div class="team-avatar">CW</div>
         <div class="team-name">Cory Weaver</div>
         <div class="team-role">Co-Founder & Advisor USA</div>
         <div class="team-divider"></div>
         <div class="team-bio">Weaver Athlete Management · Jugador y entrenador profesional · Consultor en USA, Canadá y Australia.</div>
-      </div>
-      <div class="team-card reveal reveal-delay-2">
-        <div class="team-avatar">CW</div>
-        <div class="team-name">Cintia Weber</div>
-        <div class="team-role">Tech Lead</div>
-        <div class="team-divider"></div>
-        <div class="team-bio">Desarrollo de plataforma multimedia · Landing Page · Frontend & UX/UI especializada en aplicaciones deportivas.</div>
-      </div>
-      <div class="team-card reveal reveal-delay-3">
-        <div class="team-avatar">EC</div>
-        <div class="team-name">Evolution Consulting</div>
-        <div class="team-role">Marketing & Growth</div>
-        <div class="team-divider"></div>
-        <div class="team-bio">Marketing digital avanzado · Campañas de adquisición masiva · Estrategia de crecimiento y expansión regional.</div>
       </div>
     </div>
   </div>
