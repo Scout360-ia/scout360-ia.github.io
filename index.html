@@ -26,13 +26,19 @@
     --light:  #AACCE0;
   }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background: var(--navy2); /* iOS overscroll top/bottom shows navy not white */
+    overscroll-behavior-y: none;
+  }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
     background: var(--white);
     color: var(--text);
     overflow-x: hidden;
+    overscroll-behavior-y: none;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -656,7 +662,7 @@
   /* ── RESPONSIVE — TABLET & MOBILE (≤ 900px) ── */
   @media (max-width: 900px) {
     /* Stack panels vertically */
-    #hero { min-height: 100svh; height: auto; padding-bottom: 40px; }
+    #hero { min-height: 100svh; height: auto; padding-bottom: 60px; }
     .bh-layout {
       flex-direction: column !important;
       align-items: stretch !important;
@@ -694,7 +700,7 @@
     .bh-right {
       display: flex !important;
       width: 100% !important;
-      padding: 8px 16px 28px !important;
+      padding: 8px 16px 48px !important;
       flex-direction: column !important;
       gap: 10px !important;
     }
