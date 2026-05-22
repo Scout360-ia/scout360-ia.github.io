@@ -690,31 +690,54 @@
     /* Logo: invert to white on dark background */
     .bh-glass-card .bh-logo-hero img { filter: brightness(0) invert(1) !important; }
 
-    /* Right panel: show below left panel, full width */
+    /* Right panel: compact strip below left panel */
     .bh-right {
       display: flex !important;
       width: 100% !important;
-      padding: 0 16px 32px !important;
+      padding: 8px 16px 28px !important;
       flex-direction: column !important;
-      gap: 12px !important;
-    }
-
-    /* Hide earth bg and spacer on mobile — they create dead space */
-    .bh-earth-bg    { display: none !important; }
-    .bh-earth-spacer { display: none !important; }
-
-    /* Feature cards: 2-column grid */
-    .bh-feat-cards {
-      display: grid !important;
-      grid-template-columns: 1fr 1fr !important;
       gap: 10px !important;
     }
-  }
 
-  /* Very small mobile: feature cards go single column */
-  @media (max-width: 480px) {
+    /* Hide earth bg, spacer, and topbar on mobile — dead space */
+    .bh-earth-bg     { display: none !important; }
+    .bh-earth-spacer { display: none !important; }
+    .bh-topbar       { display: none !important; }
+
+    /* Community card: more compact */
+    .bh-community {
+      padding: 14px 16px !important;
+      gap: 12px !important;
+    }
+    .bh-community-icon { font-size: 22px !important; }
+
+    /* Feature cards: horizontal scroll row — compact, no stretching */
     .bh-feat-cards {
-      grid-template-columns: 1fr !important;
+      display: flex !important;
+      flex-direction: row !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      scroll-snap-type: x mandatory !important;
+      -webkit-overflow-scrolling: touch !important;
+      gap: 10px !important;
+      padding-bottom: 4px !important;
+    }
+    .bh-feat-cards::-webkit-scrollbar { display: none; }
+    .bh-feat-card {
+      flex: 0 0 200px !important;
+      width: 200px !important;
+      min-height: auto !important;
+      padding: 14px 14px !important;
+      scroll-snap-align: start !important;
+      gap: 7px !important;
+    }
+    .bh-feat-icon { width: 28px !important; height: 28px !important; font-size: 14px !important; }
+    .bh-feat-title { font-size: 11px !important; }
+    .bh-feat-sub   { font-size: 11px !important; }
+
+    /* Becas card: compact on mobile */
+    .bh-feature-card2 {
+      padding: 14px 16px !important;
     }
   }
 
