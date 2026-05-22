@@ -56,15 +56,18 @@
     text-decoration: none;
   }
   .nav-logo .s3 {
-    width: 36px; height: 36px;
-    border-radius: 8px;
+    width: 46px; height: 46px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 14px rgba(77,208,225,0.5), 0 0 4px rgba(0,153,214,0.8);
   }
-  .nav-logo .s3 img { width: 100%; height: 100%; object-fit: contain; }
+  .nav-logo .s3 img { width: 100%; height: 100%; object-fit: contain; filter: brightness(1.2) drop-shadow(0 0 6px rgba(77,208,225,0.7)); }
   .nav-logo span {
-    font-weight: 700; font-size: 17px; color: var(--white);
-    letter-spacing: 1px;
+    font-weight: 800; font-size: 18px; color: var(--white);
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 12px rgba(77,208,225,0.5);
   }
 
   .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -831,14 +834,7 @@
     <div class="s3"><img src="logo.png" alt="Scout 360 Logo"></div>
     <span>SCOUT 360</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#problem">El problema</a></li>
-    <li><a href="#solution">Solución</a></li>
-    <li><a href="#market">Mercado</a></li>
-    <li><a href="#team">Equipo</a></li>
-    <li><a href="#investment">Inversión</a></li>
-  </ul>
-  <a href="#cta" class="nav-cta">Únete ahora</a>
+  <div></div>
 </nav>
 
 <!-- HERO -->
@@ -1121,9 +1117,9 @@
           <tr>
             <th>Característica</th>
             <th class="th-scout360">SCOUT 360</th>
-            <th class="th-others">FutbolJobs</th>
-            <th class="th-others">Libro de Pase</th>
-            <th class="th-others">NCSA</th>
+            <th class="th-others">Competidor A</th>
+            <th class="th-others">Competidor B</th>
+            <th class="th-others">Competidor C</th>
           </tr>
         </thead>
         <tbody>
