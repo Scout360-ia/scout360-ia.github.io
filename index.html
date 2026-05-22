@@ -922,15 +922,83 @@
   .g-bar-col { flex: 1; max-width: 120px; display: flex; flex-direction: column; align-items: center; gap: 0; }
   .g-bar-fill {
     width: 100%; border-radius: 8px 8px 0 0;
-    background: linear-gradient(to top, var(--royal), var(--sky));
+    position: relative;
   }
-  .g-bar-fill.y1 { height: 30px; }
-  .g-bar-fill.y2 { height: 72px; background: linear-gradient(to top, var(--royal), var(--cyan)); }
-  .g-bar-fill.y3 { height: 120px; background: linear-gradient(to top, var(--royal), var(--sky), var(--cyan)); box-shadow: 0 -6px 20px rgba(77,208,225,0.3); }
+  /* Año 1 — muted steel blue, small */
+  .g-bar-fill.y1 {
+    height: 38px;
+    background: linear-gradient(to top, #1e3a6e, #5c8fd6);
+    opacity: 0.85;
+  }
+  /* Año 2 — royal → sky, medium */
+  .g-bar-fill.y2 {
+    height: 80px;
+    background: linear-gradient(to top, #1565C0, #29b6f6);
+    box-shadow: 0 -4px 14px rgba(41,182,246,0.25);
+  }
+  /* Año 3 — teal → bright cyan, tall + strong glow */
+  .g-bar-fill.y3 {
+    height: 120px;
+    background: linear-gradient(to top, #006064, #0099D6, #4DD0E1);
+    box-shadow: 0 -8px 28px rgba(77,208,225,0.55);
+  }
+  /* Revenue label above each bar */
+  .g-bar-value {
+    font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.85);
+    text-align: center; margin-bottom: 4px; letter-spacing: 0.3px;
+  }
+  .g-bar-fill.y1 ~ .g-bar-value,
+  .g-bar-value.v1 { color: rgba(255,255,255,0.55); }
+  .g-bar-value.v3 { color: #4DD0E1; }
   .g-bar-base { width: 100%; height: 2px; background: rgba(255,255,255,0.1); }
   .g-bar-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 10px; font-weight: 600; }
   .g-bar-tag { font-size: 11px; font-weight: 700; color: var(--cyan); background: rgba(77,208,225,0.1); border-radius: 6px; padding: 3px 8px; margin-top: 4px; }
   .growth-note { text-align: center; font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 16px; }
+
+  /* ── Federation marquee ── */
+  .fed-marquee-wrap {
+    overflow: hidden;
+    margin-top: 40px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(77,208,225,0.18);
+    border-bottom: 1px solid rgba(77,208,225,0.18);
+    position: relative;
+  }
+  /* Fade edges */
+  .fed-marquee-wrap::before,
+  .fed-marquee-wrap::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0; width: 80px;
+    z-index: 2; pointer-events: none;
+  }
+  .fed-marquee-wrap::before { left: 0;  background: linear-gradient(to right, var(--navy2), transparent); }
+  .fed-marquee-wrap::after  { right: 0; background: linear-gradient(to left,  var(--navy2), transparent); }
+  .fed-marquee-track {
+    display: flex; align-items: center; gap: 0;
+    width: max-content;
+    animation: fed-scroll 28s linear infinite;
+  }
+  .fed-marquee-track:hover { animation-play-state: paused; }
+  @keyframes fed-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .fed-item {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 0 36px;
+    font-size: 13px; font-weight: 800; letter-spacing: 2px;
+    color: rgba(255,255,255,0.72); white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .fed-item:hover { color: var(--cyan); }
+  .fed-logo {
+    width: 28px; height: 28px; object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.7);
+  }
+  .fed-dot {
+    color: rgba(77,208,225,0.45);
+    font-size: 8px; padding: 0 4px;
+  }
 
   /* ══════════════════════════════════════════════════
      BLOOM-STYLE LIQUID GLASS HERO — Scout360 Adaptation
@@ -1208,8 +1276,8 @@
     -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
   }
   .bh-community-icon { font-size: 26px; flex-shrink: 0; }
-  .bh-community-title { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
-  .bh-community-sub { font-size: 12px; color: rgba(255,255,255,0.48); }
+  .bh-community-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+  .bh-community-sub { font-size: 13px; color: rgba(255,255,255,0.60); }
   .bh-community-arrow {
     margin-left: auto; width: 30px; height: 30px;
     border-radius: 50%; background: rgba(77,208,225,0.12);
@@ -1250,8 +1318,8 @@
   }
   .bh-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
   .bh-feature-text { flex: 1; }
-  .bh-feature-title { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-  .bh-feature-body { font-size: 11px; color: rgba(255,255,255,0.48); line-height: 1.45; }
+  .bh-feature-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .bh-feature-body { font-size: 13px; color: rgba(255,255,255,0.60); line-height: 1.45; }
   .bh-plus-btn {
     width: 28px; height: 28px; border-radius: 50%;
     background: rgba(0,153,214,0.18); border: none; cursor: pointer;
@@ -1351,10 +1419,10 @@
     color: var(--cyan);
   }
   .bh-feat-title {
-    font-size: 11.5px; font-weight: 800; color: rgba(255,255,255,0.95);
+    font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.97);
     line-height: 1.3; letter-spacing: 0.4px; text-transform: uppercase;
   }
-  .bh-feat-sub { font-size: 10.5px; color: rgba(255,255,255,0.58); line-height: 1.45; }
+  .bh-feat-sub { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.45; }
   /* Accent card — Contacto Directo highlight */
   .bh-feat-card--accent {
     background: linear-gradient(135deg, rgba(0,153,214,0.28) 0%, rgba(77,208,225,0.14) 100%) !important;
@@ -1743,9 +1811,25 @@
         <div class="tam-amount">$85M</div>
       </div>
     </div>
-    <p style="text-align:center; margin-top:32px; font-size:14px; color:rgba(255,255,255,0.4); letter-spacing:2px;" class="reveal">
-      CONMEBOL &nbsp;•&nbsp; UEFA &nbsp;•&nbsp; CONCACAF &nbsp;•&nbsp; CAF &nbsp;•&nbsp; AFC &nbsp;•&nbsp; OFC
-    </p>
+    <!-- Auto-scrolling federation marquee -->
+    <div class="fed-marquee-wrap">
+      <div class="fed-marquee-track">
+        <!-- Set 1 -->
+        <span class="fed-item">CONMEBOL</span><span class="fed-dot">●</span>
+        <span class="fed-item">UEFA</span><span class="fed-dot">●</span>
+        <span class="fed-item">CONCACAF</span><span class="fed-dot">●</span>
+        <span class="fed-item">CAF</span><span class="fed-dot">●</span>
+        <span class="fed-item">AFC</span><span class="fed-dot">●</span>
+        <span class="fed-item">OFC</span><span class="fed-dot">●</span>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <span class="fed-item">CONMEBOL</span><span class="fed-dot">●</span>
+        <span class="fed-item">UEFA</span><span class="fed-dot">●</span>
+        <span class="fed-item">CONCACAF</span><span class="fed-dot">●</span>
+        <span class="fed-item">CAF</span><span class="fed-dot">●</span>
+        <span class="fed-item">AFC</span><span class="fed-dot">●</span>
+        <span class="fed-item">OFC</span><span class="fed-dot">●</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1918,8 +2002,8 @@
   </div>
   <div class="section-inner">
     <div class="section-label label-cyan reveal">TRACCIÓN</div>
-    <h2 class="section-title reveal">El momentum<br><span style="color:var(--cyan)">ya comenzó.</span></h2>
-    <p class="section-subtitle reveal">Scout360 no es solo una idea — hay validación, capital y red activa sobre la mesa.</p>
+    <h2 class="section-title reveal">El momento <span style="color:var(--cyan)">ya comenzó.</span></h2>
+    <p class="section-subtitle reveal">No es solo una idea — hay validación, capital y red activa sobre la mesa.</p>
     <div class="traction-grid">
       <div class="traction-card reveal">
         <span class="traction-icon">💰</span>
@@ -2069,18 +2153,21 @@
       <div class="growth-box-title">Proyección de crecimiento — 3 años</div>
       <div class="growth-bars-wrap">
         <div class="g-bar-col">
+          <div class="g-bar-value v1">$45K</div>
           <div class="g-bar-fill y1"></div>
           <div class="g-bar-base"></div>
           <div class="g-bar-label">Año 1</div>
           <div class="g-bar-tag">Lanzamiento</div>
         </div>
         <div class="g-bar-col">
+          <div class="g-bar-value v2">$180K</div>
           <div class="g-bar-fill y2"></div>
           <div class="g-bar-base"></div>
           <div class="g-bar-label">Año 2</div>
           <div class="g-bar-tag">Escala LATAM</div>
         </div>
         <div class="g-bar-col">
+          <div class="g-bar-value v3">$520K</div>
           <div class="g-bar-fill y3"></div>
           <div class="g-bar-base"></div>
           <div class="g-bar-label">Año 3</div>
@@ -2099,7 +2186,7 @@
       Las oportunidades,<br>
       <span class="hl">ahora también.</span>
     </h2>
-    <p class="cta-sub reveal">Scout360 conecta el deporte con el futuro. Sé parte del movimiento que está transformando el scouting deportivo a nivel global.</p>
+    <p class="cta-sub reveal">Conectamos el deporte con el futuro. Sé parte del movimiento que está transformando el scouting deportivo a nivel global.</p>
     <div class="cta-btns reveal">
       <a href="https://wa.me/543515074833" target="_blank" class="btn-primary">Contactar al equipo</a>
     </div>
