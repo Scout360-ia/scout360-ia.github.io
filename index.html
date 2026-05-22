@@ -743,8 +743,12 @@
 
   /* ── RESPONSIVE — MOBILE (≤ 768px) ── */
   @media (max-width: 768px) {
-    /* Nav */
-    nav { padding: 0 16px; }
+    /* Nav — always visible on mobile */
+    nav {
+      padding: 0 16px;
+      opacity: 1 !important;
+      pointer-events: all !important;
+    }
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .nav-hamburger { display: flex; }
@@ -1753,28 +1757,30 @@
     pointer-events: none;
   }
 
-  /* ── LEFT CARD: light frosted glass ── */
-  .bh-glass-card.s3-glass-strong {
-    background: rgba(255,255,255,0.84) !important;
-    backdrop-filter: blur(48px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(48px) saturate(200%) !important;
-    box-shadow: 0 12px 52px rgba(13,27,75,0.20), inset 0 0 0 1px rgba(255,255,255,0.70) !important;
-  }
-  .bh-glass-card.s3-glass-strong::before { display: none; }
+  /* ── LEFT CARD: light frosted glass — DESKTOP ONLY ── */
+  @media (min-width: 901px) {
+    .bh-glass-card.s3-glass-strong {
+      background: rgba(255,255,255,0.84) !important;
+      backdrop-filter: blur(48px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(48px) saturate(200%) !important;
+      box-shadow: 0 12px 52px rgba(13,27,75,0.20), inset 0 0 0 1px rgba(255,255,255,0.70) !important;
+    }
+    .bh-glass-card.s3-glass-strong::before { display: none; }
 
-  /* Text inside light card → dark navy */
-  .bh-glass-card .bh-title   { color: var(--navy) !important; }
-  .bh-glass-card .bh-serif   { color: var(--sky)  !important; }
-  .bh-glass-card .bh-quote   {
-    background: rgba(13,27,75,0.06) !important;
-    box-shadow: none !important;
-  }
-  .bh-glass-card .bh-quote::before { display: none; }
-  .bh-glass-card .bh-quote-text { color: var(--navy) !important; }
-  .bh-glass-card .bh-quote-text em { color: var(--sky) !important; }
+    /* Text inside light card → dark navy */
+    .bh-glass-card .bh-title   { color: var(--navy) !important; }
+    .bh-glass-card .bh-serif   { color: var(--sky)  !important; }
+    .bh-glass-card .bh-quote   {
+      background: rgba(13,27,75,0.06) !important;
+      box-shadow: none !important;
+    }
+    .bh-glass-card .bh-quote::before { display: none; }
+    .bh-glass-card .bh-quote-text { color: var(--navy) !important; }
+    .bh-glass-card .bh-quote-text em { color: var(--sky) !important; }
 
-  /* Logo inside light card → show original colors, no invert */
-  .bh-glass-card .bh-logo-hero img { filter: none !important; }
+    /* Logo inside light card → show original colors, no invert */
+    .bh-glass-card .bh-logo-hero img { filter: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -2715,6 +2721,12 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
   const nav = document.querySelector('nav');
   if (!nav) return;
   function updateNavVisibility() {
+    // On mobile always show the nav (hamburger menu must be reachable)
+    if (window.innerWidth <= 900) {
+      nav.style.opacity = '1';
+      nav.style.pointerEvents = 'all';
+      return;
+    }
     const hero = document.getElementById('hero');
     const threshold = hero ? hero.offsetHeight * 0.75 : window.innerHeight;
     if (window.scrollY > threshold) {
