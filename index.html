@@ -60,15 +60,10 @@
   }
   .nav-logo .s3 {
     height: 40px; width: auto;
-    border-radius: 10px;
-    overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 0 14px rgba(77,208,225,0.5), 0 0 4px rgba(0,153,214,0.8);
-    padding: 5px 14px;
     flex-shrink: 0;
   }
-  .nav-logo .s3 img { height: 30px; width: auto; object-fit: contain; filter: brightness(1.0) drop-shadow(0 0 6px rgba(77,208,225,0.4)); }
+  .nav-logo .s3 img { height: 34px; width: auto; object-fit: contain; filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(77,208,225,0.55)); }
   .nav-logo span {
     font-weight: 800; font-size: 18px; color: var(--white);
     letter-spacing: 1.5px;
@@ -596,12 +591,9 @@
   .footer-logo { display: flex; align-items: center; gap: 10px; }
   .footer-logo .s3 {
     height: 30px; width: auto;
-    border-radius: 6px; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.90);
-    padding: 4px 10px;
   }
-  .footer-logo .s3 img { height: 22px; width: auto; object-fit: contain; }
+  .footer-logo .s3 img { height: 24px; width: auto; object-fit: contain; filter: brightness(0) invert(1) opacity(0.7); }
   .footer-logo span { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
   .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
 
@@ -1196,14 +1188,10 @@
   }
   .bh-brand-logo {
     height: 34px; width: auto;
-    border-radius: 9px;
-    overflow: hidden; flex-shrink: 0;
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 0 12px rgba(77,208,225,0.4);
+    flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    padding: 5px 12px;
   }
-  .bh-brand-logo img { height: 24px; width: auto; object-fit: contain; }
+  .bh-brand-logo img { height: 28px; width: auto; object-fit: contain; filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(77,208,225,0.45)); }
   .bh-brand-name {
     font-size: 14px; font-weight: 800; color: var(--white);
     letter-spacing: 1.5px;
@@ -1217,16 +1205,12 @@
     min-height: 0;
   }
   .bh-logo-hero {
-    width: auto; max-width: 280px; height: auto;
-    border-radius: 16px;
+    width: auto; max-width: 300px; height: auto;
     flex-shrink: 0;
-    filter: drop-shadow(0 0 24px rgba(77,208,225,0.62)) drop-shadow(0 0 8px rgba(0,153,214,0.8));
-    background: rgba(255,255,255,0.05);
-    padding: 12px 24px;
     display: inline-flex; align-items: center; justify-content: center;
     align-self: flex-start;
   }
-  .bh-logo-hero img { height: 56px; width: auto; object-fit: contain; display: block; }
+  .bh-logo-hero img { height: 60px; width: auto; object-fit: contain; display: block; filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(77,208,225,0.65)) drop-shadow(0 0 8px rgba(0,153,214,0.9)); }
 
   .bh-title {
     font-size: clamp(38px, 5.5vw, 72px);
@@ -1390,16 +1374,16 @@
   }
   .bh-plus-btn:hover { background: rgba(77,208,225,0.28); }
 
-  /* ── Logo backgrounds: clear & bright ── */
+  /* ── Logo backgrounds: transparent ── */
   .bh-brand-logo {
-    background: rgba(255,255,255,0.95) !important;
-    box-shadow: 0 0 18px rgba(77,208,225,0.50), 0 2px 8px rgba(0,0,0,0.18) !important;
+    background: none !important;
+    box-shadow: none !important;
   }
   .bh-logo-hero {
-    background: rgba(255,255,255,0.92) !important;
-    border-radius: 20px;
-    filter: drop-shadow(0 0 16px rgba(77,208,225,0.55));
-    padding: 12px 28px;
+    background: none !important;
+    border-radius: 0;
+    filter: none;
+    padding: 0;
   }
   .bh-thumb {
     background: rgba(255,255,255,0.92) !important;
@@ -1540,7 +1524,6 @@
 <nav>
   <a href="#hero" class="nav-logo">
     <div class="s3"><img src="logo.png" alt="Scout 360 Logo"></div>
-    <span>SCOUT 360</span>
   </a>
   <ul class="nav-links">
     <li><a href="#problem">Problema</a></li>
@@ -1580,7 +1563,6 @@
           <div class="bh-nav-row">
             <a href="#hero" class="bh-brand">
               <div class="bh-brand-logo"><img src="logo.png" alt="Scout 360"></div>
-              <span class="bh-brand-name">SCOUT 360</span>
             </a>
           </div>
 
@@ -2310,7 +2292,6 @@
 <footer>
   <div class="footer-logo">
     <div class="s3"><img src="logo.png" alt="Scout 360"></div>
-    <span>SCOUT 360</span>
   </div>
   <div class="footer-copy">© 2025 Scout360 · Todos los derechos reservados</div>
 </footer>
