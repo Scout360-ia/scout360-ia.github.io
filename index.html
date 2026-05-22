@@ -657,6 +657,29 @@
   @media (max-width: 900px) {
     .bh-right { display: none !important; }
     .bh-left { width: 100% !important; padding: 76px 16px 28px !important; }
+
+    /* Card goes dark+transparent so background video shows through */
+    .bh-glass-card.s3-glass-strong {
+      background: rgba(10, 18, 50, 0.42) !important;
+      backdrop-filter: blur(28px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.30), inset 0 0 0 1px rgba(77,208,225,0.18) !important;
+    }
+
+    /* Revert text to white on dark card */
+    .bh-glass-card .bh-title        { color: var(--white) !important; }
+    .bh-glass-card .bh-serif        { color: var(--cyan)  !important; }
+    .bh-glass-card .bh-quote        { background: rgba(13,27,75,0.25) !important; }
+    .bh-glass-card .bh-quote-text   { color: rgba(255,255,255,0.90) !important; }
+    .bh-glass-card .bh-quote-text em { color: var(--cyan) !important; }
+
+    /* Logo: invert to white on dark background */
+    .bh-glass-card .bh-logo-hero img { filter: brightness(0) invert(1) !important; }
+
+    /* Hero fills full viewport height so background is fully visible */
+    #hero { min-height: 100svh; }
+    .bh-layout { min-height: 100svh; align-items: stretch; }
+    .bh-left { min-height: 100svh; }
   }
 
   /* ── RESPONSIVE — MOBILE (≤ 768px) ── */
