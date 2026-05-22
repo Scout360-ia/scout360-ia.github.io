@@ -700,54 +700,83 @@
     /* Logo: invert to white on dark background */
     .bh-glass-card .bh-logo-hero img { filter: brightness(0) invert(1) !important; }
 
-    /* Right panel: compact strip below left panel */
+    /* Right panel: horizontal slide bar — one swipe per card */
     .bh-right {
       display: flex !important;
-      width: 100% !important;
-      padding: 8px 16px 48px !important;
-      flex-direction: column !important;
-      gap: 10px !important;
-    }
-
-    /* Hide earth bg, spacer, and topbar on mobile — dead space */
-    .bh-earth-bg     { display: none !important; }
-    .bh-earth-spacer { display: none !important; }
-    .bh-topbar       { display: none !important; }
-
-    /* Community card: more compact */
-    .bh-community {
-      padding: 14px 16px !important;
-      gap: 12px !important;
-    }
-    .bh-community-icon { font-size: 22px !important; }
-
-    /* Feature cards: horizontal scroll row — compact, no stretching */
-    .bh-feat-cards {
-      display: flex !important;
       flex-direction: row !important;
+      width: 100% !important;
       overflow-x: auto !important;
       overflow-y: hidden !important;
       scroll-snap-type: x mandatory !important;
       -webkit-overflow-scrolling: touch !important;
-      gap: 10px !important;
-      padding-bottom: 4px !important;
+      scrollbar-width: none !important;
+      padding: 0 0 24px !important;
+      gap: 0 !important;
     }
-    .bh-feat-cards::-webkit-scrollbar { display: none; }
-    .bh-feat-card {
-      flex: 0 0 200px !important;
-      width: 200px !important;
-      min-height: auto !important;
-      padding: 14px 14px !important;
+    .bh-right::-webkit-scrollbar { display: none !important; }
+
+    /* Hide dead-space elements */
+    .bh-earth-bg     { display: none !important; }
+    .bh-earth-spacer { display: none !important; }
+    .bh-topbar       { display: none !important; }
+
+    /* Every card = one full-width slide */
+    .bh-community,
+    .bh-feat-cards,
+    .bh-feature-card2 {
+      flex: 0 0 calc(100vw - 32px) !important;
+      width: calc(100vw - 32px) !important;
       scroll-snap-align: start !important;
-      gap: 7px !important;
+      box-sizing: border-box !important;
     }
-    .bh-feat-icon { width: 28px !important; height: 28px !important; font-size: 14px !important; }
+    /* First slide: left-padded to align */
+    .bh-community    { margin-left: 16px !important; padding: 16px !important; }
+    /* Middle slide: feat-cards as 2×2 grid inside the slide */
+    .bh-feat-cards {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      grid-template-rows: 1fr 1fr !important;
+      overflow: visible !important;
+      scroll-snap-type: none !important;
+      gap: 10px !important;
+      padding: 0 16px !important;
+    }
+    .bh-feat-card {
+      flex: none !important;
+      width: auto !important;
+      min-height: auto !important;
+      padding: 14px 12px !important;
+      scroll-snap-align: none !important;
+      gap: 6px !important;
+    }
+    /* Last slide: becas card */
+    .bh-feature-card2 { margin-left: 12px !important; padding: 14px 16px !important; }
+    /* Spacer after last slide so it snaps cleanly */
+    .bh-right::after {
+      content: '';
+      flex: 0 0 16px;
+      display: block;
+    }
+
+    .bh-feat-icon  { width: 28px !important; height: 28px !important; font-size: 14px !important; }
     .bh-feat-title { font-size: 11px !important; }
     .bh-feat-sub   { font-size: 11px !important; }
 
-    /* Becas card: compact on mobile */
-    .bh-feature-card2 {
-      padding: 14px 16px !important;
+    /* Swipe hint dots — shown by JS on mobile */
+    .bh-slide-dots {
+      justify-content: center !important;
+      gap: 6px !important;
+      padding-bottom: 16px !important;
+      pointer-events: none;
+    }
+    .bh-slide-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(77,208,225,0.30);
+      transition: background 0.3s, width 0.3s;
+    }
+    .bh-slide-dot.active {
+      background: var(--cyan) !important;
+      width: 20px !important; border-radius: 3px;
     }
   }
 
@@ -2049,6 +2078,14 @@
       </div>
 
     </div><!-- end bh-right -->
+
+    <!-- Slide indicator dots — mobile only, outside the scrollable right panel -->
+    <div class="bh-slide-dots" id="bh-slide-dots" style="display:none;">
+      <div class="bh-slide-dot active"></div>
+      <div class="bh-slide-dot"></div>
+      <div class="bh-slide-dot"></div>
+    </div>
+
   </div><!-- end bh-layout -->
 
   <div class="hero-scroll">
@@ -2396,7 +2433,7 @@
         <div class="team-bio">Especialista en Big Data e Inteligencia Artificial · Arquitectura de matching deportivo · Análisis predictivo de rendimiento.</div>
       </div>
       <div class="team-card reveal reveal-delay-3">
-        <div class="team-avatar">CW</div>
+        <div class="team-avatar"><img src="equipo-cory.jpg" alt="Cory Weaver"></div>
         <div class="team-name">Cory Weaver</div>
         <div class="team-role">Co-Founder & Advisor USA</div>
         <div class="team-divider"></div>
@@ -2999,6 +3036,41 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       btn.classList.remove('open');
     }
   });
+})();
+
+// ── Mobile right-panel slide bar + dots
+(function() {
+  function initSlider() {
+    if (window.innerWidth > 900) return;
+    const rail  = document.querySelector('.bh-right');
+    const dots  = document.getElementById('bh-slide-dots');
+    if (!rail || !dots) return;
+
+    // Show dots
+    dots.style.display = 'flex';
+
+    // Slides are the three direct children: community, feat-cards, feature-card2
+    const slides = [
+      rail.querySelector('.bh-community'),
+      rail.querySelector('.bh-feat-cards'),
+      rail.querySelector('.bh-feature-card2')
+    ].filter(Boolean);
+
+    const dotEls = dots.querySelectorAll('.bh-slide-dot');
+
+    function updateDots() {
+      const scrollLeft = rail.scrollLeft;
+      const slideWidth = slides[0] ? slides[0].offsetWidth : rail.offsetWidth;
+      const idx = Math.round(scrollLeft / (slideWidth + 12));
+      dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    rail.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
+  }
+
+  initSlider();
+  window.addEventListener('resize', initSlider, { passive: true });
 })();
 
 // ── Pricing tabs
