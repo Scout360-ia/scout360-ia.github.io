@@ -1201,16 +1201,16 @@
   /* Hero center */
   .bh-center {
     flex: 1; display: flex; flex-direction: column;
-    justify-content: center; gap: 22px;
-    min-height: 0;
+    justify-content: center; align-items: center; gap: 22px;
+    min-height: 0; text-align: center;
   }
   .bh-logo-hero {
     width: auto; max-width: 300px; height: auto;
     flex-shrink: 0;
     display: inline-flex; align-items: center; justify-content: center;
-    align-self: flex-start;
+    align-self: center;
   }
-  .bh-logo-hero img { height: 60px; width: auto; object-fit: contain; display: block; filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(77,208,225,0.65)) drop-shadow(0 0 8px rgba(0,153,214,0.9)); }
+  .bh-logo-hero img { height: 60px; width: auto; object-fit: contain; display: block; filter: brightness(0) invert(1); }
 
   .bh-title {
     font-size: clamp(38px, 5.5vw, 72px);
@@ -1558,13 +1558,6 @@
     <div class="bh-left">
       <div class="bh-glass-card s3-glass-strong">
         <div class="bh-content">
-
-          <!-- In-card brand nav -->
-          <div class="bh-nav-row">
-            <a href="#hero" class="bh-brand">
-              <div class="bh-brand-logo"><img src="logo.png" alt="Scout 360"></div>
-            </a>
-          </div>
 
           <!-- Hero center content -->
           <div class="bh-center">
