@@ -992,8 +992,12 @@
   }
   .fed-item:hover { color: var(--cyan); }
   .fed-logo {
-    width: 28px; height: 28px; object-fit: contain;
-    filter: brightness(0) invert(1) opacity(0.7);
+    height: 22px; width: auto; max-width: 72px;
+    object-fit: contain;
+    /* Convert to white so all logos match on dark background */
+    filter: brightness(0) invert(1);
+    opacity: 0.80;
+    flex-shrink: 0;
   }
   .fed-dot {
     color: rgba(77,208,225,0.45);
@@ -1815,19 +1819,19 @@
     <div class="fed-marquee-wrap">
       <div class="fed-marquee-track">
         <!-- Set 1 -->
-        <span class="fed-item">CONMEBOL</span><span class="fed-dot">●</span>
-        <span class="fed-item">UEFA</span><span class="fed-dot">●</span>
-        <span class="fed-item">CONCACAF</span><span class="fed-dot">●</span>
-        <span class="fed-item">CAF</span><span class="fed-dot">●</span>
-        <span class="fed-item">AFC</span><span class="fed-dot">●</span>
-        <span class="fed-item">OFC</span><span class="fed-dot">●</span>
-        <!-- Set 2 (duplicate for seamless loop) -->
-        <span class="fed-item">CONMEBOL</span><span class="fed-dot">●</span>
-        <span class="fed-item">UEFA</span><span class="fed-dot">●</span>
-        <span class="fed-item">CONCACAF</span><span class="fed-dot">●</span>
-        <span class="fed-item">CAF</span><span class="fed-dot">●</span>
-        <span class="fed-item">AFC</span><span class="fed-dot">●</span>
-        <span class="fed-item">OFC</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Official_Image_of_CONMEBOL.svg" alt="CONMEBOL">CONMEBOL</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/UEFA_logo.svg" alt="UEFA">UEFA</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Concacaf_logo.svg" alt="CONCACAF">CONCACAF</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Caf_llogo.svg" alt="CAF">CAF</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Asian_Football_Confederation_emblem.svg" alt="AFC">AFC</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Oceania_Football_Confederation_logo.svg" alt="OFC">OFC</span><span class="fed-dot">●</span>
+        <!-- Set 2 — duplicate for seamless infinite loop -->
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Official_Image_of_CONMEBOL.svg" alt="CONMEBOL">CONMEBOL</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/UEFA_logo.svg" alt="UEFA">UEFA</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Concacaf_logo.svg" alt="CONCACAF">CONCACAF</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Caf_llogo.svg" alt="CAF">CAF</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Asian_Football_Confederation_emblem.svg" alt="AFC">AFC</span><span class="fed-dot">●</span>
+        <span class="fed-item"><img class="fed-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Oceania_Football_Confederation_logo.svg" alt="OFC">OFC</span><span class="fed-dot">●</span>
       </div>
     </div>
   </div>
