@@ -75,13 +75,24 @@
     text-shadow: 0 0 12px rgba(77,208,225,0.5);
   }
 
-  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links { display: flex; gap: 20px; list-style: none; }
   .nav-links a {
-    color: rgba(255,255,255,0.75); text-decoration: none;
-    font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.65); text-decoration: none;
+    font-size: 13px; font-weight: 500;
     transition: color 0.2s;
+    position: relative; padding-bottom: 2px;
   }
   .nav-links a:hover { color: var(--cyan); }
+  .nav-links a.nav-active {
+    color: var(--cyan);
+  }
+  .nav-links a.nav-active::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 2px;
+    background: var(--cyan);
+    border-radius: 1px;
+  }
 
   .nav-cta {
     background: linear-gradient(135deg, var(--sky), var(--cyan));
@@ -1946,8 +1957,10 @@
     <li><a href="#problem">Problema</a></li>
     <li><a href="#solution">Solución</a></li>
     <li><a href="#market">Mercado</a></li>
+    <li><a href="#competition">Competencia</a></li>
     <li><a href="#pricing">Planes</a></li>
     <li><a href="#traction">Tracción</a></li>
+    <li><a href="#team">Equipo</a></li>
     <li><a href="#investment">Inversión</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
@@ -1959,8 +1972,10 @@
   <a href="#problem" class="nav-mobile-link">Problema</a>
   <a href="#solution" class="nav-mobile-link">Solución</a>
   <a href="#market" class="nav-mobile-link">Mercado</a>
+  <a href="#competition" class="nav-mobile-link">Competencia</a>
   <a href="#pricing" class="nav-mobile-link">Planes</a>
   <a href="#traction" class="nav-mobile-link">Tracción</a>
+  <a href="#team" class="nav-mobile-link">Equipo</a>
   <a href="#investment" class="nav-mobile-link">Inversión</a>
   <a href="#investment" class="nav-mobile-cta">Quiero Invertir →</a>
 </div>
@@ -3086,6 +3101,51 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       if (target) target.classList.add('active');
     });
   });
+})();
+
+// ── Active nav link — tracks current section as user scrolls
+(function() {
+  const sectionIds = ['problem','solution','market','competition','pricing','traction','roadmap','team','investment'];
+  const navLinks = {};
+  sectionIds.forEach(id => {
+    const a = document.querySelector('.nav-links a[href="#' + id + '"]');
+    if (a) navLinks[id] = a;
+  });
+
+  let activeId = null;
+
+  function setActive(id) {
+    if (id === activeId) return;
+    activeId = id;
+    Object.values(navLinks).forEach(a => a.classList.remove('nav-active'));
+    if (id && navLinks[id]) navLinks[id].classList.add('nav-active');
+  }
+
+  // Use IntersectionObserver — fires when a section enters/leaves the top 30% of viewport
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActive(entry.target.id);
+      }
+    });
+  }, {
+    rootMargin: '-10% 0px -65% 0px', // section is "active" when it occupies the top 25% band
+    threshold: 0
+  });
+
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+
+  // Clear active when scrolled above all sections (back to hero)
+  window.addEventListener('scroll', () => {
+    const firstSection = document.getElementById(sectionIds[0]);
+    if (!firstSection) return;
+    if (window.scrollY + 80 < firstSection.offsetTop) {
+      setActive(null);
+    }
+  }, { passive: true });
 })();
 </script>
 </body>
