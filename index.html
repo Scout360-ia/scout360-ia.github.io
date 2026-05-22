@@ -30,6 +30,7 @@
     scroll-behavior: smooth;
     background: var(--navy2); /* iOS overscroll top/bottom shows navy not white */
     overscroll-behavior-y: none;
+    overflow-x: clip; /* clip (not hidden) — prevents horizontal bleed without creating scroll container */
   }
 
   body {
