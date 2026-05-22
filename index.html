@@ -1257,6 +1257,89 @@
     flex-shrink: 0; transition: background 0.2s;
   }
   .bh-plus-btn:hover { background: rgba(77,208,225,0.28); }
+
+  /* ── Logo backgrounds: clear & bright ── */
+  .bh-brand-logo {
+    background: rgba(255,255,255,0.95) !important;
+    box-shadow: 0 0 18px rgba(77,208,225,0.50), 0 2px 8px rgba(0,0,0,0.18) !important;
+  }
+  .bh-logo-hero {
+    background: rgba(255,255,255,0.92) !important;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 16px rgba(77,208,225,0.55));
+    padding: 8px;
+  }
+  .bh-thumb {
+    background: rgba(255,255,255,0.92) !important;
+  }
+
+  /* ── Title frame (rectángulo destacado) ── */
+  .bh-title-frame {
+    background: rgba(0,153,214,0.07);
+    border: 1.5px solid rgba(77,208,225,0.22);
+    border-left: 4px solid var(--cyan);
+    border-radius: 16px;
+    padding: 22px 26px;
+  }
+  .bh-title {
+    font-size: clamp(46px, 6.5vw, 88px) !important;
+  }
+
+  /* ── Quote: Marco Aurelio inspirational ── */
+  .bh-quote {
+    text-align: center !important;
+    padding: 30px 28px 28px !important;
+  }
+  .bh-line { display: none !important; }
+  .bh-quote-label { display: none !important; }
+  .bh-quote-text {
+    font-family: 'Source Serif 4', Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+    font-size: clamp(20px, 2.3vw, 29px) !important;
+    color: rgba(255,255,255,0.90) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 14px !important;
+    letter-spacing: 0.1px;
+  }
+  .bh-quote-author {
+    font-size: 11px !important;
+    color: var(--cyan) !important;
+    letter-spacing: 2.5px !important;
+    opacity: 0.75;
+  }
+
+  /* ── Globe visual (right panel) ── */
+  .bh-globe-wrap {
+    flex: 1;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px 18px;
+    overflow: hidden;
+    position: relative;
+    min-height: 0;
+  }
+  .bh-globe-svg {
+    width: 100%;
+    max-width: 310px;
+    height: auto;
+    filter: drop-shadow(0 0 28px rgba(77,208,225,0.30));
+  }
+  .bh-globe-labels {
+    display: flex; gap: 8px; margin-top: 14px;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .bh-globe-label {
+    font-size: 11px; font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    background: rgba(77,208,225,0.10);
+    border: 1px solid rgba(77,208,225,0.22);
+    border-radius: 12px; padding: 4px 12px;
+    letter-spacing: 0.5px;
+  }
 </style>
 </head>
 <body>
@@ -1312,29 +1395,18 @@
           <!-- Hero center content -->
           <div class="bh-center">
             <div class="bh-logo-hero"><img src="logo.png" alt="Scout 360 Logo"></div>
-            <h1 class="bh-title">
-              El talento está<br>
-              <em class="bh-serif">en todas partes.</em>
-            </h1>
-            <div class="bh-cta-row">
-              <a href="#investment" class="bh-cta">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
-                Ver Inversión
-              </a>
-              <div class="bh-pills">
-                <span class="bh-pill">⚽ Deportistas</span>
-                <span class="bh-pill">🏛 Universidades</span>
-                <span class="bh-pill">🤝 Clubes &amp; Agencias</span>
-              </div>
+            <div class="bh-title-frame">
+              <h1 class="bh-title">
+                El talento está<br>
+                <em class="bh-serif">en todas partes.</em>
+              </h1>
             </div>
           </div>
 
-          <!-- Bottom quote strip -->
+          <!-- Bottom quote — Marco Aurelio style -->
           <div class="bh-quote s3-glass">
-            <div class="bh-line"></div>
-            <div class="bh-quote-label">Scouting Global</div>
-            <div class="bh-quote-text">Conectamos talento con su próxima <em class="bh-serif">oportunidad.</em></div>
-            <div class="bh-quote-author">Scout 360 · 2025</div>
+            <div class="bh-quote-text">"Conectamos talento con su próxima <em class="bh-serif">oportunidad.</em>"</div>
+            <div class="bh-quote-author">— Scout 360 · 2025</div>
           </div>
 
         </div>
@@ -1361,9 +1433,96 @@
         </button>
       </div>
 
-      <!-- Community card -->
+      <!-- Globe visual — main hero element -->
+      <div class="bh-globe-wrap s3-glass">
+        <svg class="bh-globe-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="gGrad" cx="38%" cy="32%" r="68%">
+              <stop offset="0%" stop-color="#1565C0" stop-opacity="0.55"/>
+              <stop offset="55%" stop-color="#0099D6" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#0D1B4B" stop-opacity="0.04"/>
+            </radialGradient>
+            <clipPath id="gClip"><circle cx="180" cy="180" r="160"/></clipPath>
+          </defs>
+          <!-- Globe fill -->
+          <circle cx="180" cy="180" r="160" fill="url(#gGrad)"/>
+          <!-- Grid lines clipped -->
+          <g clip-path="url(#gClip)" fill="none" stroke="rgba(0,153,214,0.22)" stroke-width="0.8">
+            <!-- Latitude lines -->
+            <line x1="20" y1="120" x2="340" y2="120"/>
+            <line x1="20" y1="150" x2="340" y2="150"/>
+            <line x1="20" y1="180" x2="340" y2="180"/>
+            <line x1="20" y1="210" x2="340" y2="210"/>
+            <line x1="20" y1="240" x2="340" y2="240"/>
+            <!-- Longitude ellipses -->
+            <ellipse cx="180" cy="180" rx="160" ry="38"/>
+            <ellipse cx="180" cy="180" rx="160" ry="75"/>
+            <ellipse cx="180" cy="180" rx="160" ry="115"/>
+            <ellipse cx="180" cy="180" rx="48" ry="160"/>
+            <ellipse cx="180" cy="180" rx="96" ry="160"/>
+            <ellipse cx="180" cy="180" rx="140" ry="160"/>
+            <line x1="180" y1="20" x2="180" y2="340"/>
+          </g>
+          <!-- Connection lines (network) -->
+          <g clip-path="url(#gClip)" fill="none" stroke="rgba(77,208,225,0.38)" stroke-width="1.1">
+            <line x1="85"  y1="105" x2="148" y2="148"/>
+            <line x1="148" y1="148" x2="210" y2="122"/>
+            <line x1="210" y1="122" x2="268" y2="160"/>
+            <line x1="85"  y1="105" x2="108" y2="198"/>
+            <line x1="268" y1="160" x2="298" y2="222"/>
+            <line x1="148" y1="148" x2="132" y2="242"/>
+            <line x1="210" y1="122" x2="240" y2="252"/>
+            <line x1="268" y1="160" x2="240" y2="252"/>
+            <line x1="108" y1="198" x2="132" y2="242"/>
+            <line x1="132" y1="242" x2="180" y2="270"/>
+            <line x1="240" y1="252" x2="298" y2="222"/>
+          </g>
+          <!-- Dim nodes -->
+          <g fill="rgba(0,153,214,0.55)">
+            <circle cx="85"  cy="105" r="3"/>
+            <circle cx="108" cy="198" r="2.5"/>
+            <circle cx="298" cy="222" r="2.5"/>
+            <circle cx="240" cy="252" r="3"/>
+            <circle cx="52"  cy="168" r="2"/>
+            <circle cx="315" cy="140" r="2"/>
+            <circle cx="178" cy="268" r="2.5"/>
+            <circle cx="162" cy="82"  r="2"/>
+            <circle cx="290" cy="285" r="2"/>
+            <circle cx="55"  cy="240" r="2"/>
+            <circle cx="320" cy="190" r="2"/>
+          </g>
+          <!-- Bright nodes -->
+          <g fill="rgba(77,208,225,0.92)">
+            <circle cx="148" cy="148" r="4.5"/>
+            <circle cx="210" cy="122" r="4"/>
+            <circle cx="268" cy="160" r="4.5"/>
+            <circle cx="132" cy="242" r="4"/>
+            <circle cx="180" cy="270" r="3.5"/>
+          </g>
+          <!-- Pulse ring on key node -->
+          <circle cx="210" cy="122" r="4" fill="none" stroke="rgba(77,208,225,0.5)" stroke-width="1.5">
+            <animate attributeName="r" values="4;14;4" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="148" cy="148" r="4.5" fill="none" stroke="rgba(0,153,214,0.45)" stroke-width="1">
+            <animate attributeName="r" values="4.5;16;4.5" dur="4s" begin="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0;1" dur="4s" begin="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Globe border + glow rings -->
+          <circle cx="180" cy="180" r="160" fill="none" stroke="rgba(77,208,225,0.42)" stroke-width="1.5"/>
+          <circle cx="180" cy="180" r="166" fill="none" stroke="rgba(77,208,225,0.14)" stroke-width="1"/>
+          <circle cx="180" cy="180" r="173" fill="none" stroke="rgba(77,208,225,0.05)" stroke-width="1.5"/>
+        </svg>
+        <div class="bh-globe-labels">
+          <span class="bh-globe-label">🌍 USA</span>
+          <span class="bh-globe-label">🌎 LATAM</span>
+          <span class="bh-globe-label">🌏 AU · Asia</span>
+        </div>
+      </div>
+
+      <!-- Bottom cards row -->
       <div class="bh-community s3-glass">
-        <div class="bh-community-icon">🌐</div>
+        <div class="bh-community-icon">⚡</div>
         <div>
           <div class="bh-community-title">Únete al ecosistema</div>
           <div class="bh-community-sub">Deportistas · Clubes · Universidades</div>
@@ -1372,34 +1531,13 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
-
-      <!-- Feature area -->
-      <div class="bh-features">
-        <div class="bh-features-label">Tecnología deportiva</div>
-        <div class="bh-mini-cards">
-          <div class="bh-mini-card s3-glass">
-            <div class="bh-mini-card-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <div class="bh-mini-card-title">IA Matching</div>
-            <div class="bh-mini-card-sub">Conexiones inteligentes</div>
-          </div>
-          <div class="bh-mini-card s3-glass">
-            <div class="bh-mini-card-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <div class="bh-mini-card-title">Red Global</div>
-            <div class="bh-mini-card-sub">USA · LATAM · AU</div>
-          </div>
+      <div class="bh-feature-card s3-glass-strong">
+        <div class="bh-thumb"><img src="logo.png" alt="Scout 360"></div>
+        <div class="bh-feature-text">
+          <div class="bh-feature-title">Perfil Multimedia Completo</div>
+          <div class="bh-feature-body">Videos, estadísticas, highlights y trayectoria en un solo lugar</div>
         </div>
-        <div class="bh-feature-card s3-glass-strong">
-          <div class="bh-thumb"><img src="logo.png" alt="Scout 360"></div>
-          <div class="bh-feature-text">
-            <div class="bh-feature-title">Perfil Multimedia Completo</div>
-            <div class="bh-feature-body">Videos, estadísticas, highlights y trayectoria en un solo lugar</div>
-          </div>
-          <button class="bh-plus-btn">+</button>
-        </div>
+        <button class="bh-plus-btn">+</button>
       </div>
 
     </div><!-- end bh-right -->
