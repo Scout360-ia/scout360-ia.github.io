@@ -59,14 +59,16 @@
     text-decoration: none;
   }
   .nav-logo .s3 {
-    width: 46px; height: 46px;
+    height: 40px; width: auto;
     border-radius: 10px;
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.95);
     box-shadow: 0 0 14px rgba(77,208,225,0.5), 0 0 4px rgba(0,153,214,0.8);
+    padding: 5px 14px;
+    flex-shrink: 0;
   }
-  .nav-logo .s3 img { width: 100%; height: 100%; object-fit: contain; filter: brightness(1.2) drop-shadow(0 0 6px rgba(77,208,225,0.7)); }
+  .nav-logo .s3 img { height: 30px; width: auto; object-fit: contain; filter: brightness(1.0) drop-shadow(0 0 6px rgba(77,208,225,0.4)); }
   .nav-logo span {
     font-weight: 800; font-size: 18px; color: var(--white);
     letter-spacing: 1.5px;
@@ -593,11 +595,13 @@
   }
   .footer-logo { display: flex; align-items: center; gap: 10px; }
   .footer-logo .s3 {
-    width: 32px; height: 32px;
+    height: 30px; width: auto;
     border-radius: 6px; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.90);
+    padding: 4px 10px;
   }
-  .footer-logo .s3 img { width: 100%; height: 100%; object-fit: contain; }
+  .footer-logo .s3 img { height: 22px; width: auto; object-fit: contain; }
   .footer-logo span { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
   .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
 
@@ -1191,14 +1195,15 @@
     text-decoration: none;
   }
   .bh-brand-logo {
-    width: 38px; height: 38px;
+    height: 34px; width: auto;
     border-radius: 9px;
     overflow: hidden; flex-shrink: 0;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.95);
     box-shadow: 0 0 12px rgba(77,208,225,0.4);
     display: flex; align-items: center; justify-content: center;
+    padding: 5px 12px;
   }
-  .bh-brand-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .bh-brand-logo img { height: 24px; width: auto; object-fit: contain; }
   .bh-brand-name {
     font-size: 14px; font-weight: 800; color: var(--white);
     letter-spacing: 1.5px;
@@ -1212,15 +1217,16 @@
     min-height: 0;
   }
   .bh-logo-hero {
-    width: 84px; height: 84px;
+    width: auto; max-width: 280px; height: auto;
     border-radius: 16px;
     flex-shrink: 0;
     filter: drop-shadow(0 0 24px rgba(77,208,225,0.62)) drop-shadow(0 0 8px rgba(0,153,214,0.8));
     background: rgba(255,255,255,0.05);
-    padding: 6px;
-    display: block;
+    padding: 12px 24px;
+    display: inline-flex; align-items: center; justify-content: center;
+    align-self: flex-start;
   }
-  .bh-logo-hero img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .bh-logo-hero img { height: 56px; width: auto; object-fit: contain; display: block; }
 
   .bh-title {
     font-size: clamp(38px, 5.5vw, 72px);
@@ -1393,7 +1399,7 @@
     background: rgba(255,255,255,0.92) !important;
     border-radius: 20px;
     filter: drop-shadow(0 0 16px rgba(77,208,225,0.55));
-    padding: 8px;
+    padding: 12px 28px;
   }
   .bh-thumb {
     background: rgba(255,255,255,0.92) !important;
