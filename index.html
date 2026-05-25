@@ -1912,7 +1912,13 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 660px;
   }
+  .plan-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+  }
   @media (max-width: 1100px) { .plan-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px)  { .plan-grid--3 { grid-template-columns: repeat(2, 1fr); max-width: 100%; } }
+  @media (max-width: 560px)  { .plan-grid--3 { grid-template-columns: 1fr; max-width: 420px; } }
 
   .plan-card {
     background: rgba(255,255,255,0.04);
@@ -1985,6 +1991,58 @@
     .pricing-tab  { font-size: 12px; padding: 9px 12px; min-width: 0; }
     .plan-grid, .plan-grid--2 { grid-template-columns: 1fr; }
     .plan-card { padding: 24px 18px; }
+  }
+
+  /* ── SERVICIOS ESPECIALES ── */
+  .pricing-specials {
+    margin-top: 52px;
+    padding: 36px 40px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(77,208,225,0.18);
+    border-radius: 20px;
+    text-align: center;
+  }
+  .specials-label {
+    font-size: 11px; font-weight: 900; letter-spacing: 3.5px;
+    text-transform: uppercase; color: var(--cyan);
+    margin-bottom: 28px;
+  }
+  .specials-grid {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+  }
+  .special-item {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+    padding: 24px 32px;
+    flex: 1 1 180px; max-width: 220px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .special-item:hover {
+    background: rgba(0,153,214,0.10);
+    border-color: rgba(0,153,214,0.40);
+  }
+  .special-icon { font-size: 28px; line-height: 1; }
+  .special-name {
+    font-size: 15px; font-weight: 700; color: var(--white);
+    letter-spacing: 0.4px;
+  }
+  .special-cta {
+    font-size: 12px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--sky);
+    padding: 6px 16px; border-radius: 20px;
+    border: 1px solid rgba(0,153,214,0.45);
+    background: rgba(0,153,214,0.10);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .special-item:hover .special-cta {
+    background: rgba(0,153,214,0.22);
+    border-color: rgba(0,153,214,0.7);
+  }
+  @media (max-width: 600px) {
+    .pricing-specials { padding: 28px 20px; }
+    .special-item { max-width: 100%; flex-basis: 100%; }
   }
 </style>
 </head>
@@ -2487,26 +2545,26 @@
         <div class="plan-card reveal">
           <div class="plan-badge">FREE</div>
           <div class="plan-price">$0<span class="plan-period">/mes</span></div>
+          <div class="plan-annual" style="color:rgba(255,255,255,0.45)">Configuración: USD 10 (único)</div>
           <div class="plan-desc">Comenzá gratis, sin compromiso</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Página de perfil básica en PDF</li>
-            <li>Fotos de presentación</li>
-            <li>Acceso a la comunidad Scout 360</li>
+            <li>Página de perfil en PDF</li>
+            <li>Visibilidad básica en la plataforma</li>
           </ul>
           <a href="#investment" class="plan-cta">Registrarme gratis</a>
         </div>
         <div class="plan-card reveal reveal-delay-1">
           <div class="plan-badge plan-badge--standard">STANDARD</div>
-          <div class="plan-price">USD 10<span class="plan-period">/mes</span></div>
+          <div class="plan-price">USD 9<span class="plan-period">/mes</span></div>
           <div class="plan-annual">USD 80/año</div>
           <div class="plan-desc">Para el deportista activo en búsqueda</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li>Página de perfil completa</li>
-            <li>Videos de presentación</li>
-            <li>Solicitar hasta 5 ofertas</li>
-            <li>Descuentos en capacitación</li>
+            <li>Fotos de presentación</li>
+            <li>Videos: 2 clips de hasta 4 min</li>
+            <li>Solicitar y visualizar hasta 5 ofertas</li>
           </ul>
           <a href="#investment" class="plan-cta">Elegir Standard</a>
         </div>
@@ -2514,16 +2572,16 @@
           <div class="plan-popular">MÁS POPULAR</div>
           <div class="plan-badge plan-badge--gold">GOLD</div>
           <div class="plan-price">USD 12<span class="plan-period">/mes</span></div>
-          <div class="plan-annual">USD 99.99/año</div>
+          <div class="plan-annual">USD 99,99/año</div>
           <div class="plan-desc">El preferido por scouts y reclutadores</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Perfil + estadísticas completas</li>
+            <li>Perfil + datos estadísticos completos</li>
             <li>Parámetros avanzados del jugador</li>
-            <li>Videos: 4 clips de hasta 4 min</li>
-            <li>Ofertas ilimitadas</li>
+            <li>Fotos + Videos: 4 clips de hasta 4 min</li>
+            <li>Ofertas ilimitadas + acceso directo</li>
+            <li>Descuentos en capacitación</li>
             <li>Descuentos en asesoramiento</li>
-            <li>Ver acceso directo a ofertas</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--gold">Elegir Gold</a>
         </div>
@@ -2538,7 +2596,7 @@
             <li>Parametrizaciones con IA</li>
             <li>Informes para Clubes y Universidades</li>
             <li>Visibilidad para Agencias y Agentes</li>
-            <li>Asesoramiento legal, imagen y carrera</li>
+            <li>Asesoramiento legal, imagen y carrera con descuentos</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--black">Elegir Black</a>
         </div>
@@ -2547,21 +2605,34 @@
 
     <!-- CLUBES & UNIVERSIDADES -->
     <div class="pricing-panel" id="tab-clubs">
-      <div class="plan-grid plan-grid--2">
+      <div class="plan-grid plan-grid--3">
         <div class="plan-card reveal">
-          <div class="plan-badge plan-badge--gold">GOLD</div>
-          <div class="plan-price">USD 700<span class="plan-period">/año</span></div>
-          <div class="plan-desc">Acceso profesional para instituciones deportivas</div>
+          <div class="plan-badge plan-badge--standard">STANDARD</div>
+          <div class="plan-price">USD 500<span class="plan-period">/año</span></div>
+          <div class="plan-desc">Acceso esencial para instituciones deportivas</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Búsqueda avanzada de talentos (Standard+)</li>
+            <li>Carga de perfil de jugador solicitado</li>
+            <li>Carga de propuesta económica</li>
+            <li>Match con interesados</li>
+            <li>Búsqueda en la base de datos</li>
+          </ul>
+          <a href="#investment" class="plan-cta">Elegir Standard</a>
+        </div>
+        <div class="plan-card reveal reveal-delay-1">
+          <div class="plan-badge plan-badge--gold">GOLD</div>
+          <div class="plan-price">USD 700<span class="plan-period">/año</span></div>
+          <div class="plan-desc">Acceso profesional con datos y video</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>Todo Standard incluido</li>
             <li>Acceso a videos de deportistas</li>
             <li>Datos estadísticos completos</li>
             <li>Evaluaciones de rendimiento</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--gold">Elegir Gold</a>
         </div>
-        <div class="plan-card plan-card--highlight reveal reveal-delay-1">
+        <div class="plan-card plan-card--highlight reveal reveal-delay-2">
           <div class="plan-popular">RECOMENDADO</div>
           <div class="plan-badge plan-badge--black">BLACK</div>
           <div class="plan-price">USD 1200<span class="plan-period">/año</span></div>
@@ -2569,9 +2640,9 @@
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li>Todo Gold incluido</li>
-            <li>Informes comparativos de hasta 5 deportistas</li>
+            <li>Informe comparativo de hasta 5 deportistas</li>
             <li>Síntesis e informes con IA</li>
-            <li>Análisis predictivo de rendimiento</li>
+            <li>Contacto directo con el equipo Scout 360</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--black">Elegir Black</a>
         </div>
@@ -2580,33 +2651,68 @@
 
     <!-- AGENTES & AGENCIAS -->
     <div class="pricing-panel" id="tab-agents">
-      <div class="plan-grid plan-grid--2">
+      <div class="plan-grid plan-grid--3">
         <div class="plan-card reveal">
-          <div class="plan-badge plan-badge--gold">GOLD</div>
-          <div class="plan-price">USD 800<span class="plan-period">/año</span></div>
-          <div class="plan-desc">Panel exclusivo para representantes deportivos</div>
+          <div class="plan-badge plan-badge--standard">STANDARD</div>
+          <div class="plan-price">USD 500<span class="plan-period">/año</span></div>
+          <div class="plan-desc">Inicio para representantes deportivos</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Búsqueda avanzada (Standard+)</li>
+            <li>Carga de perfil de jugador solicitado</li>
+            <li>Carga de propuesta económica</li>
+            <li>Match con interesados y búsqueda</li>
+            <li>Hasta 10 perfiles de jugadores</li>
+          </ul>
+          <a href="#investment" class="plan-cta">Elegir Standard</a>
+        </div>
+        <div class="plan-card reveal reveal-delay-1">
+          <div class="plan-badge plan-badge--gold">GOLD</div>
+          <div class="plan-price">USD 800<span class="plan-period">/año</span></div>
+          <div class="plan-desc">Panel avanzado para representantes activos</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>Todo Standard incluido</li>
             <li>Acceso a videos y estadísticas</li>
             <li>Evaluaciones de rendimiento</li>
-            <li>Hasta 5 perfiles adicionales de jugadores</li>
+            <li>Hasta 15 perfiles de jugadores</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--gold">Elegir Gold</a>
         </div>
-        <div class="plan-card plan-card--highlight reveal reveal-delay-1">
+        <div class="plan-card plan-card--highlight reveal reveal-delay-2">
           <div class="plan-popular">RECOMENDADO</div>
           <div class="plan-badge plan-badge--black">BLACK</div>
-          <div class="plan-price">USD 1200<span class="plan-period">/año</span></div>
-          <div class="plan-desc">El plan completo para agencias de elite</div>
+          <div class="plan-price">USD 1399<span class="plan-period">/año</span></div>
+          <div class="plan-desc">El plan completo para agencias de élite</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li>Todo Gold incluido</li>
-            <li>Informes comparativos con IA</li>
-            <li>Gestión avanzada de representados</li>
-            <li>Contacto directo con el equipo Scout 360</li>
+            <li>Informe comparativo con IA</li>
+            <li>Hasta 30 perfiles de jugadores</li>
+            <li>Contacto directo con Scout 360</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--black">Elegir Black</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIOS ESPECIALES -->
+    <div class="pricing-specials reveal">
+      <div class="specials-label">SERVICIOS ESPECIALES</div>
+      <div class="specials-grid">
+        <div class="special-item">
+          <span class="special-icon">📋</span>
+          <span class="special-name">Asesorías</span>
+          <span class="special-cta">Consultar</span>
+        </div>
+        <div class="special-item">
+          <span class="special-icon">🔄</span>
+          <span class="special-name">Pases</span>
+          <span class="special-cta">Consultar</span>
+        </div>
+        <div class="special-item">
+          <span class="special-icon">🤝</span>
+          <span class="special-name">Representación</span>
+          <span class="special-cta">Consultar</span>
         </div>
       </div>
     </div>
