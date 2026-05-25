@@ -1141,6 +1141,45 @@
     100% { background-position: -100% 0; }
   }
 
+  /* ══════════════════════════════════════════════
+     VISUAL UPGRADES v2 — 3D tilt · line draw · pulses
+  ══════════════════════════════════════════════ */
+
+  /* ── 3D Tilt: smooth reset via CSS transition ── */
+  .problem-card, .team-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  /* JS inline-style handles tilt on mousemove; CSS handles smooth reset */
+
+  /* ── Roadmap line: draw from top on scroll ── */
+  .roadmap-line {
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .roadmap-line.drawn { transform: scaleY(1); }
+
+  /* ── Team avatar: ring-pulse glow ── */
+  @keyframes avatar-pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(0,153,214,0.55), 0 0 0 6px rgba(0,153,214,0); }
+    50%       { box-shadow: 0 0 0 3px rgba(0,153,214,0.55), 0 0 0 11px rgba(0,153,214,0.12); }
+  }
+  .team-avatar { animation: avatar-pulse 2.8s ease-in-out infinite; }
+
+  /* ── Step circles: spring pop-in when section enters viewport ── */
+  .step .step-circle {
+    transform: scale(0) rotate(-15deg);
+    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .step.visible .step-circle { transform: scale(1) rotate(0deg); }
+  /* Stagger each circle */
+  .step:nth-child(1) .step-circle { transition-delay: 0.10s; }
+  .step:nth-child(2) .step-circle { transition-delay: 0.22s; }
+  .step:nth-child(3) .step-circle { transition-delay: 0.34s; }
+  .step:nth-child(4) .step-circle { transition-delay: 0.46s; }
+  .step:nth-child(5) .step-circle { transition-delay: 0.58s; }
+
   /* ── WHY NOW STRIP ── */
   .why-now-strip {
     background: linear-gradient(110deg, #060e2e 0%, var(--navy) 40%, #0f2260 100%);
@@ -3104,6 +3143,41 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       if (target) target.classList.add('active');
     });
   });
+})();
+
+// ── 3D Tilt on problem + team cards (desktop / mouse only)
+(function() {
+  if (window.matchMedia('(hover: none)').matches) return; // skip touch devices
+  const cards = document.querySelectorAll('.problem-card, .team-card');
+  cards.forEach(card => {
+    let raf;
+    card.addEventListener('mousemove', e => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - 0.5; // -0.5 … 0.5
+        const y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform =
+          `perspective(900px) rotateY(${x * 11}deg) rotateX(${-y * 11}deg) translateY(-4px) scale(1.015)`;
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      cancelAnimationFrame(raf);
+      card.style.transform = '';
+    });
+  });
+})();
+
+// ── Roadmap line: draw animation on scroll
+(function() {
+  const line = document.querySelector('.roadmap-line');
+  if (!line) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { line.classList.add('drawn'); obs.unobserve(line); }
+    });
+  }, { threshold: 0.05 });
+  obs.observe(line);
 })();
 
 // ── Active nav link — tracks current section as user scrolls
