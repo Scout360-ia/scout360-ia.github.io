@@ -618,6 +618,18 @@
   .footer-logo span { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
   .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
 
+  /* ── LANGUAGE TOGGLE ── */
+  .lang-toggle {
+    font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+    color: var(--sky); background: rgba(0,153,214,0.12);
+    border: 1px solid rgba(0,153,214,0.35);
+    border-radius: 20px; padding: 5px 13px;
+    cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap; margin-left: 8px;
+  }
+  .lang-toggle:hover { background: rgba(0,153,214,0.24); border-color: rgba(0,153,214,0.6); color: var(--white); }
+  .lang-toggle.active-en { background: var(--sky); color: var(--white); border-color: var(--sky); }
+
   /* ── HAMBURGER MENU ── */
   .nav-hamburger {
     display: none;
@@ -2003,30 +2015,31 @@
     <div class="s3"><img src="logo.png" alt="Scout 360 Logo"></div>
   </a>
   <ul class="nav-links">
-    <li><a href="#problem">Problema</a></li>
-    <li><a href="#solution">Solución</a></li>
-    <li><a href="#market">Mercado</a></li>
-    <li><a href="#competition">Competencia</a></li>
-    <li><a href="#pricing">Planes</a></li>
-    <li><a href="#traction">Tracción</a></li>
-    <li><a href="#team">Equipo</a></li>
-    <li><a href="#investment">Inversión</a></li>
+    <li><a href="#problem" data-i18n="nav.problem">Problema</a></li>
+    <li><a href="#solution" data-i18n="nav.solution">Solución</a></li>
+    <li><a href="#market" data-i18n="nav.market">Mercado</a></li>
+    <li><a href="#competition" data-i18n="nav.competition">Competencia</a></li>
+    <li><a href="#pricing" data-i18n="nav.pricing">Planes</a></li>
+    <li><a href="#traction" data-i18n="nav.traction">Tracción</a></li>
+    <li><a href="#team" data-i18n="nav.team">Equipo</a></li>
+    <li><a href="#investment" data-i18n="nav.investment">Inversión</a></li>
   </ul>
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <!-- Mobile nav drawer -->
 <div class="nav-mobile-drawer" id="nav-mobile-drawer">
-  <a href="#problem" class="nav-mobile-link">Problema</a>
-  <a href="#solution" class="nav-mobile-link">Solución</a>
-  <a href="#market" class="nav-mobile-link">Mercado</a>
-  <a href="#competition" class="nav-mobile-link">Competencia</a>
-  <a href="#pricing" class="nav-mobile-link">Planes</a>
-  <a href="#traction" class="nav-mobile-link">Tracción</a>
-  <a href="#team" class="nav-mobile-link">Equipo</a>
-  <a href="#investment" class="nav-mobile-link">Inversión</a>
-  <a href="#investment" class="nav-mobile-cta">Quiero Invertir →</a>
+  <a href="#problem" class="nav-mobile-link" data-i18n="nav.problem">Problema</a>
+  <a href="#solution" class="nav-mobile-link" data-i18n="nav.solution">Solución</a>
+  <a href="#market" class="nav-mobile-link" data-i18n="nav.market">Mercado</a>
+  <a href="#competition" class="nav-mobile-link" data-i18n="nav.competition">Competencia</a>
+  <a href="#pricing" class="nav-mobile-link" data-i18n="nav.pricing">Planes</a>
+  <a href="#traction" class="nav-mobile-link" data-i18n="nav.traction">Tracción</a>
+  <a href="#team" class="nav-mobile-link" data-i18n="nav.team">Equipo</a>
+  <a href="#investment" class="nav-mobile-link" data-i18n="nav.investment">Inversión</a>
+  <a href="#investment" class="nav-mobile-cta" data-i18n="nav.cta">Quiero Invertir →</a>
 </div>
 
 <!-- HERO -->
@@ -2057,12 +2070,12 @@
           <!-- Hero center content -->
           <div class="bh-center">
             <div class="bh-logo-hero"><img src="logo.png" alt="Scout 360 Logo"></div>
-            <h1 class="bh-title">El talento está <em class="bh-serif">en todas partes.</em></h1>
+            <h1 class="bh-title" data-i18n-html="hero.title">El talento está <em class="bh-serif">en todas partes.</em></h1>
           </div>
 
           <!-- Bottom quote — Marco Aurelio style -->
           <div class="bh-quote s3-glass">
-            <div class="bh-quote-text">"Conectamos talento con su próxima <em class="bh-serif">oportunidad.</em>"</div>
+            <div class="bh-quote-text" data-i18n-html="hero.quote">"Conectamos talento con su próxima <em class="bh-serif">oportunidad.</em>"</div>
           </div>
 
         </div>
@@ -2082,7 +2095,7 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </button>
           <div class="bh-social-sep"></div>
-          <span class="bh-social-label">Seguinos</span>
+          <span class="bh-social-label" data-i18n="hero.follow">Seguinos</span>
         </div>
         <button class="bh-sparkles-btn" title="IA Matching">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -2093,8 +2106,8 @@
       <div class="bh-community s3-glass">
         <div class="bh-community-icon">🌍</div>
         <div>
-          <div class="bh-community-title">Únete al ecosistema global</div>
-          <div class="bh-community-sub">Deportistas · Clubes · Universidades · Agencias</div>
+          <div class="bh-community-title" data-i18n="hero.community.title">Únete al ecosistema global</div>
+          <div class="bh-community-sub" data-i18n="hero.community.sub">Deportistas · Clubes · Universidades · Agencias</div>
         </div>
         <button class="bh-community-arrow">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -2110,22 +2123,22 @@
           <div class="bh-feat-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
-          <div class="bh-feat-title">IA + Análisis</div>
-          <div class="bh-feat-sub">Métricas automáticas de rendimiento</div>
+          <div class="bh-feat-title" data-i18n="hero.feat1.title">IA + Análisis</div>
+          <div class="bh-feat-sub" data-i18n="hero.feat1.sub">Métricas automáticas de rendimiento</div>
         </div>
         <div class="bh-feat-card s3-glass">
           <div class="bh-feat-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
-          <div class="bh-feat-title">Matchmaking Inteligente</div>
-          <div class="bh-feat-sub">Conexiones perfectas por perfil</div>
+          <div class="bh-feat-title" data-i18n="hero.feat2.title">Matchmaking Inteligente</div>
+          <div class="bh-feat-sub" data-i18n="hero.feat2.sub">Conexiones perfectas por perfil</div>
         </div>
         <div class="bh-feat-card s3-glass bh-feat-card--accent">
           <div class="bh-feat-icon bh-feat-icon--cyan">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
-          <div class="bh-feat-title">Contacto Directo</div>
-          <div class="bh-feat-sub">Chat y video en tiempo real. Sin intermediarios.</div>
+          <div class="bh-feat-title" data-i18n="hero.feat3.title">Contacto Directo</div>
+          <div class="bh-feat-sub" data-i18n="hero.feat3.sub">Chat y video en tiempo real. Sin intermediarios.</div>
         </div>
       </div>
 
@@ -2135,8 +2148,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         </div>
         <div class="bh-feature-text">
-          <div class="bh-feature-title">Becas y Oportunidades</div>
-          <div class="bh-feature-body">Universidades, clubes y ligas en un solo lugar</div>
+          <div class="bh-feature-title" data-i18n="hero.feat4.title">Becas y Oportunidades</div>
+          <div class="bh-feature-body" data-i18n="hero.feat4.body">Universidades, clubes y ligas en un solo lugar</div>
         </div>
         <button class="bh-plus-btn">+</button>
       </div>
@@ -2161,48 +2174,48 @@
 <div class="stats-strip">
   <div class="stat-item reveal">
     <div class="stat-num counter" data-target="600000" data-suffix="K+" data-divisor="1000">0</div>
-    <div class="stat-label">Deportistas en el mercado objetivo</div>
+    <div class="stat-label" data-i18n="stats.athletes">Deportistas en el mercado objetivo</div>
   </div>
   <div class="stat-item reveal reveal-delay-1">
     <div class="stat-num counter" data-target="26" data-suffix="B+" data-divisor="1">0</div>
-    <div class="stat-label">Mercado global en USD</div>
+    <div class="stat-label" data-i18n="stats.market">Mercado global en USD</div>
   </div>
   <div class="stat-item reveal reveal-delay-2">
     <div class="stat-num counter" data-target="4500" data-suffix="+" data-divisor="1">0</div>
-    <div class="stat-label">Universidades con becas deportivas</div>
+    <div class="stat-label" data-i18n="stats.universities">Universidades con becas deportivas</div>
   </div>
   <div class="stat-item reveal reveal-delay-3">
     <div class="stat-num counter" data-target="85" data-suffix="%" data-divisor="1">0</div>
-    <div class="stat-label">Clubes sin plataforma digital</div>
+    <div class="stat-label" data-i18n="stats.clubs">Clubes sin plataforma digital</div>
   </div>
 </div>
 
 <!-- PROBLEMA -->
 <section id="problem" class="white-section">
   <div class="section-inner">
-    <div class="section-label label-royal reveal">EL PROBLEMA</div>
-    <h2 class="section-title reveal">El talento deportivo existe.<br>La visibilidad, no.</h2>
-    <p class="section-subtitle reveal">Miles de deportistas con potencial real nunca son descubiertos. Los sistemas actuales son lentos, fragmentados e ineficientes.</p>
+    <div class="section-label label-royal reveal" data-i18n="problem.label">EL PROBLEMA</div>
+    <h2 class="section-title reveal" data-i18n-html="problem.title">El talento deportivo existe.<br>La visibilidad, no.</h2>
+    <p class="section-subtitle reveal" data-i18n="problem.subtitle">Miles de deportistas con potencial real nunca son descubiertos. Los sistemas actuales son lentos, fragmentados e ineficientes.</p>
     <div class="problem-grid">
       <div class="problem-card reveal">
         <div class="problem-num">01</div>
-        <div class="problem-title">Talentos invisibles</div>
-        <div class="problem-body">Miles de deportistas con potencial real nunca son descubiertos por falta de visibilidad digital y herramientas adecuadas de presentación.</div>
+        <div class="problem-title" data-i18n="problem.1.title">Talentos invisibles</div>
+        <div class="problem-body" data-i18n="problem.1.body">Miles de deportistas con potencial real nunca son descubiertos por falta de visibilidad digital y herramientas adecuadas de presentación.</div>
       </div>
       <div class="problem-card reveal reveal-delay-1">
         <div class="problem-num">02</div>
-        <div class="problem-title">Procesos fragmentados</div>
-        <div class="problem-body">Reclutadores y universidades usan métodos lentos, costosos e ineficientes sin una plataforma unificada que los conecte directamente.</div>
+        <div class="problem-title" data-i18n="problem.2.title">Procesos fragmentados</div>
+        <div class="problem-body" data-i18n="problem.2.body">Reclutadores y universidades usan métodos lentos, costosos e ineficientes sin una plataforma unificada que los conecte directamente.</div>
       </div>
       <div class="problem-card reveal reveal-delay-2">
         <div class="problem-num">03</div>
-        <div class="problem-title">Competidores limitados</div>
-        <div class="problem-body">La competencia carece de interactividad real, inteligencia artificial, cobertura global y perfil multimedia completo.</div>
+        <div class="problem-title" data-i18n="problem.3.title">Competidores limitados</div>
+        <div class="problem-body" data-i18n="problem.3.body">La competencia carece de interactividad real, inteligencia artificial, cobertura global y perfil multimedia completo.</div>
       </div>
     </div>
     <div class="problem-stat reveal">
       <div class="problem-stat-num counter" data-target="600" data-suffix="K+" data-divisor="1">0</div>
-      <div class="problem-stat-text">deportistas buscan oportunidades sin encontrar la plataforma adecuada</div>
+      <div class="problem-stat-text" data-i18n="problem.stat">deportistas buscan oportunidades sin encontrar la plataforma adecuada</div>
     </div>
   </div>
 </section>
@@ -2211,34 +2224,34 @@
 <div class="why-now-strip">
   <div class="why-now-inner">
     <div class="why-now-label">¿Por qué <img src="logo.png" alt="Scout360" style="height:18px;width:auto;vertical-align:middle;filter:brightness(0) invert(1);opacity:0.9;margin:0 4px -2px">? ¿Por qué ahora?</div>
-    <h3 class="why-now-title">Un <em>ecosistema integrado</em> donde todas las partes ganan.<br>El equipo y el momento son únicos.</h3>
+    <h3 class="why-now-title" data-i18n-html="whynow.title">Un <em>ecosistema integrado</em> donde todas las partes ganan.<br>El equipo y el momento son únicos.</h3>
     <div class="why-now-pills">
       <div class="why-now-pill">
         <div class="pill-icon-wrap">🔗</div>
         <div class="pill-body">
-          <div class="pill-label">Ecosistema 360°</div>
-          <div class="pill-desc">Deportistas, clubes, universidades y agencias en un solo lugar</div>
+          <div class="pill-label" data-i18n="whynow.pill1.label">Ecosistema 360°</div>
+          <div class="pill-desc" data-i18n="whynow.pill1.desc">Deportistas, clubes, universidades y agencias en un solo lugar</div>
         </div>
       </div>
       <div class="why-now-pill">
         <div class="pill-icon-wrap">🧠</div>
         <div class="pill-body">
-          <div class="pill-label">Equipo Interdisciplinario</div>
-          <div class="pill-desc">Deporte, formación, tecnología y desarrollo unidos</div>
+          <div class="pill-label" data-i18n="whynow.pill2.label">Equipo Interdisciplinario</div>
+          <div class="pill-desc" data-i18n="whynow.pill2.desc">Deporte, formación, tecnología y desarrollo unidos</div>
         </div>
       </div>
       <div class="why-now-pill">
         <div class="pill-icon-wrap">🌎</div>
         <div class="pill-body">
-          <div class="pill-label">Sin líder en LATAM</div>
-          <div class="pill-desc">La ventana de liderazgo regional está abierta hoy</div>
+          <div class="pill-label" data-i18n="whynow.pill3.label">Sin líder en LATAM</div>
+          <div class="pill-desc" data-i18n="whynow.pill3.desc">La ventana de liderazgo regional está abierta hoy</div>
         </div>
       </div>
       <div class="why-now-pill">
         <div class="pill-icon-wrap">⚡</div>
         <div class="pill-body">
-          <div class="pill-label">IA lista</div>
-          <div class="pill-desc">La tecnología de matching deportivo ya es accesible y desplegable</div>
+          <div class="pill-label" data-i18n="whynow.pill4.label">IA lista</div>
+          <div class="pill-desc" data-i18n="whynow.pill4.desc">La tecnología de matching deportivo ya es accesible y desplegable</div>
         </div>
       </div>
     </div>
@@ -2253,39 +2266,39 @@
     <div class="stream-line"></div>
   </div>
   <div class="section-inner">
-    <div class="section-label label-cyan reveal">LA SOLUCIÓN</div>
-    <h2 class="section-title reveal">El ecosistema deportivo<br><span style="color:var(--cyan)">completo.</span></h2>
-    <p class="section-subtitle reveal" style="white-space:nowrap; max-width:none;">Una plataforma que conecta todos los actores del deporte en un solo lugar.</p>
+    <div class="section-label label-cyan reveal" data-i18n="solution.label">LA SOLUCIÓN</div>
+    <h2 class="section-title reveal" data-i18n-html="solution.title">El ecosistema deportivo<br><span style="color:var(--cyan)">completo.</span></h2>
+    <p class="section-subtitle reveal" style="white-space:nowrap; max-width:none;" data-i18n="solution.subtitle">Una plataforma que conecta todos los actores del deporte en un solo lugar.</p>
     <div class="features-grid">
       <div class="feature-card reveal">
         <span class="feature-icon">🎬</span>
-        <div class="feature-title">Perfiles Multimedia</div>
-        <div class="feature-body">Videos de highlights, estadísticas de rendimiento, trayectoria completa y logros en un perfil dinámico.</div>
+        <div class="feature-title" data-i18n="solution.1.title">Perfiles Multimedia</div>
+        <div class="feature-body" data-i18n="solution.1.body">Videos de highlights, estadísticas de rendimiento, trayectoria completa y logros en un perfil dinámico.</div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <span class="feature-icon">🤖</span>
-        <div class="feature-title">IA + Análisis</div>
-        <div class="feature-body">Algoritmos de inteligencia artificial que analizan rendimiento y generan métricas automáticas desde los videos.</div>
+        <div class="feature-title" data-i18n="solution.2.title">IA + Análisis</div>
+        <div class="feature-body" data-i18n="solution.2.body">Algoritmos de inteligencia artificial que analizan rendimiento y generan métricas automáticas desde los videos.</div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <span class="feature-icon">🎯</span>
-        <div class="feature-title">Matchmaking Inteligente</div>
-        <div class="feature-body">Sistema de recomendaciones personalizadas que conecta deportistas con las oportunidades perfectas para su perfil.</div>
+        <div class="feature-title" data-i18n="solution.3.title">Matchmaking Inteligente</div>
+        <div class="feature-body" data-i18n="solution.3.body">Sistema de recomendaciones personalizadas que conecta deportistas con las oportunidades perfectas para su perfil.</div>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <span class="feature-icon">💬</span>
-        <div class="feature-title">Comunicación Directa</div>
-        <div class="feature-body">Chat, videollamadas y mensajería en tiempo real. Sin intermediarios, sin fricción.</div>
+        <div class="feature-title" data-i18n="solution.4.title">Comunicación Directa</div>
+        <div class="feature-body" data-i18n="solution.4.body">Chat, videollamadas y mensajería en tiempo real. Sin intermediarios, sin fricción.</div>
       </div>
       <div class="feature-card reveal">
         <span class="feature-icon">🎓</span>
-        <div class="feature-title">Becas y Oportunidades</div>
-        <div class="feature-body">Universidades, clubes y ligas de todo el mundo publican oportunidades accesibles desde cualquier lugar.</div>
+        <div class="feature-title" data-i18n="solution.5.title">Becas y Oportunidades</div>
+        <div class="feature-body" data-i18n="solution.5.body">Universidades, clubes y ligas de todo el mundo publican oportunidades accesibles desde cualquier lugar.</div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <span class="feature-icon">🧠</span>
-        <div class="feature-title">Formación Integral</div>
-        <div class="feature-body">Coach deportivo, psicólogo, nutricionista y capacitación continua integrados dentro de la plataforma.</div>
+        <div class="feature-title" data-i18n="solution.6.title">Formación Integral</div>
+        <div class="feature-body" data-i18n="solution.6.body">Coach deportivo, psicólogo, nutricionista y capacitación continua integrados dentro de la plataforma.</div>
       </div>
     </div>
   </div>
@@ -2294,33 +2307,33 @@
 <!-- CÓMO FUNCIONA -->
 <section id="how" class="light-section">
   <div class="section-inner">
-    <div class="section-label label-royal reveal">CÓMO FUNCIONA</div>
-    <h2 class="section-title reveal">Simple. Poderoso.<br>Eficiente.</h2>
+    <div class="section-label label-royal reveal" data-i18n="how.label">CÓMO FUNCIONA</div>
+    <h2 class="section-title reveal" data-i18n-html="how.title">Simple. Poderoso.<br>Eficiente.</h2>
     <div class="steps-container">
       <div class="step reveal">
         <div class="step-circle">1</div>
-        <div class="step-title">Registro</div>
-        <div class="step-body">Crea tu perfil en minutos, sea deportista, club, universidad y agentes.</div>
+        <div class="step-title" data-i18n="how.1.title">Registro</div>
+        <div class="step-body" data-i18n="how.1.body">Crea tu perfil en minutos, sea deportista, club, universidad y agentes.</div>
       </div>
       <div class="step reveal reveal-delay-1">
         <div class="step-circle">2</div>
-        <div class="step-title">Perfil Multimedia</div>
-        <div class="step-body">Sube videos de highlights, estadísticas, logros y trayectoria.</div>
+        <div class="step-title" data-i18n="how.2.title">Perfil Multimedia</div>
+        <div class="step-body" data-i18n="how.2.body">Sube videos de highlights, estadísticas, logros y trayectoria.</div>
       </div>
       <div class="step reveal reveal-delay-2">
         <div class="step-circle">3</div>
-        <div class="step-title">Descubrimiento</div>
-        <div class="step-body">El sistema te conecta con las mejores oportunidades automáticamente.</div>
+        <div class="step-title" data-i18n="how.3.title">Descubrimiento</div>
+        <div class="step-body" data-i18n="how.3.body">El sistema te conecta con las mejores oportunidades automáticamente.</div>
       </div>
       <div class="step reveal reveal-delay-3">
         <div class="step-circle">4</div>
-        <div class="step-title">Contacto Directo</div>
-        <div class="step-body">Chat en tiempo real entre deportistas, scouts y entrenadores.</div>
+        <div class="step-title" data-i18n="how.4.title">Contacto Directo</div>
+        <div class="step-body" data-i18n="how.4.body">Chat en tiempo real entre deportistas, scouts y entrenadores.</div>
       </div>
       <div class="step reveal reveal-delay-4">
         <div class="step-circle">5</div>
-        <div class="step-title">Oportunidad</div>
-        <div class="step-body">Becas, fichajes y contratos conseguidos sin intermediarios.</div>
+        <div class="step-title" data-i18n="how.5.title">Oportunidad</div>
+        <div class="step-body" data-i18n="how.5.body">Becas, fichajes y contratos conseguidos sin intermediarios.</div>
       </div>
     </div>
   </div>
@@ -2334,43 +2347,43 @@
     <div class="stream-line"></div>
   </div>
   <div class="section-inner">
-    <div class="section-label label-cyan reveal">EL MERCADO</div>
-    <h2 class="section-title reveal">Un mercado global<br>en plena <span style="color:var(--cyan)">expansión.</span></h2>
+    <div class="section-label label-cyan reveal" data-i18n="market.label">EL MERCADO</div>
+    <h2 class="section-title reveal" data-i18n-html="market.title">Un mercado global<br>en plena <span style="color:var(--cyan)">expansión.</span></h2>
     <div class="market-grid">
       <div class="market-card reveal">
         <div class="market-big counter" data-target="26" data-suffix="B+" data-divisor="1">$0</div>
-        <div class="market-sub">Mercado global de tecnología deportiva</div>
+        <div class="market-sub" data-i18n="market.1">Mercado global de tecnología deportiva</div>
       </div>
       <div class="market-card reveal reveal-delay-1">
         <div class="market-big counter" data-target="600" data-suffix="K+" data-divisor="1" style="font-size:44px">0</div>
-        <div class="market-sub">Deportistas activos buscando oportunidades</div>
+        <div class="market-sub" data-i18n="market.2">Deportistas activos buscando oportunidades</div>
       </div>
       <div class="market-card reveal reveal-delay-2">
         <div class="market-big counter" data-target="4500" data-suffix="+" data-divisor="1" style="font-size:44px">0</div>
-        <div class="market-sub">Universidades con becas deportivas en USA/Canadá</div>
+        <div class="market-sub" data-i18n="market.3">Universidades con becas deportivas en USA/Canadá</div>
       </div>
       <div class="market-card reveal reveal-delay-3">
         <div class="market-big counter" data-target="85" data-suffix="%" data-divisor="1">0</div>
-        <div class="market-sub">Clubes sin acceso a plataforma digital de scouting</div>
+        <div class="market-sub" data-i18n="market.4">Clubes sin acceso a plataforma digital de scouting</div>
       </div>
     </div>
     <div class="market-tam-row">
       <div class="tam-bar reveal">
         <div class="tam-label">TAM</div>
         <div class="tam-track"><div class="tam-fill" data-width="100"></div></div>
-        <div class="tam-text">Tecnología deportiva global</div>
+        <div class="tam-text" data-i18n="market.tam">Tecnología deportiva global</div>
         <div class="tam-amount">$26B+</div>
       </div>
       <div class="tam-bar reveal reveal-delay-1">
         <div class="tam-label">SAM</div>
         <div class="tam-track"><div class="tam-fill" data-width="65"></div></div>
-        <div class="tam-text">Reclutamiento digital deportivo</div>
+        <div class="tam-text" data-i18n="market.sam">Reclutamiento digital deportivo</div>
         <div class="tam-amount">$4.2B</div>
       </div>
       <div class="tam-bar reveal reveal-delay-2">
         <div class="tam-label">SOM</div>
         <div class="tam-track"><div class="tam-fill" data-width="22"></div></div>
-        <div class="tam-text">Objetivo años 1–3</div>
+        <div class="tam-text" data-i18n="market.som">Objetivo años 1–3</div>
         <div class="tam-amount">$85M</div>
       </div>
     </div>
@@ -2400,13 +2413,13 @@
 <!-- COMPETENCIA -->
 <section id="competition" class="dark-section">
   <div class="section-inner">
-    <div class="section-label label-cyan reveal">VENTAJA COMPETITIVA</div>
-    <h2 class="section-title reveal">Claramente<br><span style="color:var(--cyan)">diferenciados.</span></h2>
+    <div class="section-label label-cyan reveal" data-i18n="comp.label">VENTAJA COMPETITIVA</div>
+    <h2 class="section-title reveal" data-i18n-html="comp.title">Claramente<br><span style="color:var(--cyan)">diferenciados.</span></h2>
     <div class="comp-table-wrap reveal">
       <table class="comp-table">
         <thead>
           <tr>
-            <th>Característica</th>
+            <th data-i18n="comp.th">Característica</th>
             <th class="th-scout360">SCOUT 360</th>
             <th class="th-others">Competencia A</th>
             <th class="th-others">Competencia B</th>
@@ -2415,49 +2428,49 @@
         </thead>
         <tbody>
           <tr>
-            <td>Perfiles multimedia con video</td>
+            <td data-i18n="comp.row1">Perfiles multimedia con video</td>
             <td class="td-scout"><span class="check">✓</span></td>
             <td><span class="check">✓</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="check">✓</span></td>
           </tr>
           <tr>
-            <td>Chat y video en tiempo real</td>
+            <td data-i18n="comp.row2">Chat y video en tiempo real</td>
             <td class="td-scout"><span class="check">✓</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
           </tr>
           <tr>
-            <td>IA y análisis automático</td>
+            <td data-i18n="comp.row3">IA y análisis automático</td>
             <td class="td-scout"><span class="check">✓</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
           </tr>
           <tr>
-            <td>Becas universitarias + clubes</td>
+            <td data-i18n="comp.row4">Becas universitarias + clubes</td>
             <td class="td-scout"><span class="check">✓</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="check">✓</span></td>
           </tr>
           <tr>
-            <td>Cobertura multi-deporte</td>
+            <td data-i18n="comp.row5">Cobertura multi-deporte</td>
             <td class="td-scout"><span class="check">✓</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
           </tr>
           <tr>
-            <td>Formación y coaching integrado</td>
+            <td data-i18n="comp.row6">Formación y coaching integrado</td>
             <td class="td-scout"><span class="check">✓</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
           </tr>
           <tr>
-            <td>Precio accesible / Freemium</td>
+            <td data-i18n="comp.row7">Precio accesible / Freemium</td>
             <td class="td-scout"><span class="check">✓</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
@@ -2477,15 +2490,15 @@
     <div class="stream-line"></div>
   </div>
   <div class="section-inner">
-    <div class="section-label label-cyan reveal">PLANES Y PRECIOS</div>
-    <h2 class="section-title reveal" style="color:var(--white);">Transparente.<br>Accesible. Escalable.</h2>
-    <p class="section-sub reveal" style="color:rgba(255,255,255,0.6);max-width:540px;margin:0 auto 0;">Acceso flexible para cada actor del ecosistema deportivo.</p>
+    <div class="section-label label-cyan reveal" data-i18n="pricing.label">PLANES Y PRECIOS</div>
+    <h2 class="section-title reveal" style="color:var(--white);" data-i18n-html="pricing.title">Transparente.<br>Accesible. Escalable.</h2>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,0.6);max-width:540px;margin:0 auto 0;" data-i18n="pricing.subtitle">Acceso flexible para cada actor del ecosistema deportivo.</p>
 
     <!-- Tab buttons -->
     <div class="pricing-tabs reveal">
-      <button class="pricing-tab active" data-tab="athletes">Deportistas</button>
-      <button class="pricing-tab" data-tab="clubs">Clubes &amp; Universidades</button>
-      <button class="pricing-tab" data-tab="agents">Agentes &amp; Agencias</button>
+      <button class="pricing-tab active" data-tab="athletes" data-i18n="pricing.tab.athletes">Deportistas</button>
+      <button class="pricing-tab" data-tab="clubs" data-i18n="pricing.tab.clubs">Clubes &amp; Universidades</button>
+      <button class="pricing-tab" data-tab="agents" data-i18n="pricing.tab.agents">Agentes &amp; Agencias</button>
     </div>
 
     <!-- DEPORTISTAS -->
@@ -2495,59 +2508,59 @@
           <div class="plan-badge">FREE</div>
           <div class="plan-price">$0<span class="plan-period">/mes</span></div>
           <div class="plan-annual" style="color:rgba(255,255,255,0.45)">Configuración: USD 10 (único)</div>
-          <div class="plan-desc">Comenzá gratis, sin compromiso</div>
+          <div class="plan-desc" data-i18n="pricing.ath.free.desc">Comenzá gratis, sin compromiso</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Página de perfil en PDF</li>
-            <li>Visibilidad básica en la plataforma</li>
+            <li data-i18n="pricing.ath.free.f1">Página de perfil en PDF</li>
+            <li data-i18n="pricing.ath.free.f2">Visibilidad básica en la plataforma</li>
           </ul>
-          <a href="#investment" class="plan-cta">Registrarme gratis</a>
+          <a href="#investment" class="plan-cta" data-i18n="pricing.ath.free.cta">Registrarme gratis</a>
         </div>
         <div class="plan-card reveal reveal-delay-1">
           <div class="plan-badge plan-badge--standard">STANDARD</div>
           <div class="plan-price">USD 9<span class="plan-period">/mes</span></div>
           <div class="plan-annual">USD 80/año</div>
-          <div class="plan-desc">Para el deportista activo en búsqueda</div>
+          <div class="plan-desc" data-i18n="pricing.ath.std.desc">Para el deportista activo en búsqueda</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Página de perfil completa</li>
-            <li>Fotos de presentación</li>
-            <li>Videos: 2 clips de hasta 4 min</li>
-            <li>Solicitar y visualizar hasta 5 ofertas</li>
+            <li data-i18n="pricing.ath.std.f1">Página de perfil completa</li>
+            <li data-i18n="pricing.ath.std.f2">Fotos de presentación</li>
+            <li data-i18n="pricing.ath.std.f3">Videos: 2 clips de hasta 4 min</li>
+            <li data-i18n="pricing.ath.std.f4">Solicitar y visualizar hasta 5 ofertas</li>
           </ul>
-          <a href="#investment" class="plan-cta">Elegir Standard</a>
+          <a href="#investment" class="plan-cta" data-i18n="pricing.ath.std.cta">Elegir Standard</a>
         </div>
         <div class="plan-card plan-card--highlight reveal reveal-delay-2">
-          <div class="plan-popular">MÁS POPULAR</div>
+          <div class="plan-popular" data-i18n="pricing.ath.gold.popular">MÁS POPULAR</div>
           <div class="plan-badge plan-badge--gold">GOLD</div>
           <div class="plan-price">USD 12<span class="plan-period">/mes</span></div>
           <div class="plan-annual">USD 99,99/año</div>
-          <div class="plan-desc">El preferido por scouts y reclutadores</div>
+          <div class="plan-desc" data-i18n="pricing.ath.gold.desc">El preferido por scouts y reclutadores</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Perfil + datos estadísticos completos</li>
-            <li>Parámetros avanzados del jugador</li>
-            <li>Fotos + Videos: 4 clips de hasta 4 min</li>
-            <li>Ofertas ilimitadas + acceso directo</li>
-            <li>Descuentos en capacitación</li>
-            <li>Descuentos en asesoramiento</li>
+            <li data-i18n="pricing.ath.gold.f1">Perfil + datos estadísticos completos</li>
+            <li data-i18n="pricing.ath.gold.f2">Parámetros avanzados del jugador</li>
+            <li data-i18n="pricing.ath.gold.f3">Fotos + Videos: 4 clips de hasta 4 min</li>
+            <li data-i18n="pricing.ath.gold.f4">Ofertas ilimitadas + acceso directo</li>
+            <li data-i18n="pricing.ath.gold.f5">Descuentos en capacitación</li>
+            <li data-i18n="pricing.ath.gold.f6">Descuentos en asesoramiento</li>
           </ul>
-          <a href="#investment" class="plan-cta plan-cta--gold">Elegir Gold</a>
+          <a href="#investment" class="plan-cta plan-cta--gold" data-i18n="pricing.ath.gold.cta">Elegir Gold</a>
         </div>
         <div class="plan-card reveal reveal-delay-3">
           <div class="plan-badge plan-badge--black">BLACK</div>
           <div class="plan-price">USD 15<span class="plan-period">/mes</span></div>
           <div class="plan-annual">USD 115/año</div>
-          <div class="plan-desc">Máxima exposición y soporte premium</div>
+          <div class="plan-desc" data-i18n="pricing.ath.black.desc">Máxima exposición y soporte premium</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Todo Gold incluido</li>
-            <li>Parametrizaciones con IA</li>
-            <li>Informes para Clubes y Universidades</li>
-            <li>Visibilidad para Agencias y Agentes</li>
-            <li>Asesoramiento legal, imagen y carrera con descuentos</li>
+            <li data-i18n="pricing.ath.black.f1">Todo Gold incluido</li>
+            <li data-i18n="pricing.ath.black.f2">Parametrizaciones con IA</li>
+            <li data-i18n="pricing.ath.black.f3">Informes para Clubes y Universidades</li>
+            <li data-i18n="pricing.ath.black.f4">Visibilidad para Agencias y Agentes</li>
+            <li data-i18n="pricing.ath.black.f5">Asesoramiento legal, imagen y carrera con descuentos</li>
           </ul>
-          <a href="#investment" class="plan-cta plan-cta--black">Elegir Black</a>
+          <a href="#investment" class="plan-cta plan-cta--black" data-i18n="pricing.ath.black.cta">Elegir Black</a>
         </div>
       </div>
     </div>
@@ -2558,42 +2571,42 @@
         <div class="plan-card reveal">
           <div class="plan-badge plan-badge--standard">STANDARD</div>
           <div class="plan-price">USD 500<span class="plan-period">/año</span></div>
-          <div class="plan-desc">Acceso esencial para instituciones deportivas</div>
+          <div class="plan-desc" data-i18n="pricing.clubs.std.desc">Acceso esencial para instituciones deportivas</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Carga de perfil de jugador solicitado</li>
-            <li>Carga de propuesta económica</li>
-            <li>Match con interesados</li>
-            <li>Búsqueda en la base de datos</li>
+            <li data-i18n="pricing.clubs.std.f1">Carga de perfil de jugador solicitado</li>
+            <li data-i18n="pricing.clubs.std.f2">Carga de propuesta económica</li>
+            <li data-i18n="pricing.clubs.std.f3">Match con interesados</li>
+            <li data-i18n="pricing.clubs.std.f4">Búsqueda en la base de datos</li>
           </ul>
-          <a href="#investment" class="plan-cta">Elegir Standard</a>
+          <a href="#investment" class="plan-cta" data-i18n="pricing.clubs.std.cta">Elegir Standard</a>
         </div>
         <div class="plan-card reveal reveal-delay-1">
           <div class="plan-badge plan-badge--gold">GOLD</div>
           <div class="plan-price">USD 700<span class="plan-period">/año</span></div>
-          <div class="plan-desc">Acceso profesional con datos y video</div>
+          <div class="plan-desc" data-i18n="pricing.clubs.gold.desc">Acceso profesional con datos y video</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Todo Standard incluido</li>
-            <li>Acceso a videos de deportistas</li>
-            <li>Datos estadísticos completos</li>
-            <li>Evaluaciones de rendimiento</li>
+            <li data-i18n="pricing.clubs.gold.f1">Todo Standard incluido</li>
+            <li data-i18n="pricing.clubs.gold.f2">Acceso a videos de deportistas</li>
+            <li data-i18n="pricing.clubs.gold.f3">Datos estadísticos completos</li>
+            <li data-i18n="pricing.clubs.gold.f4">Evaluaciones de rendimiento</li>
           </ul>
-          <a href="#investment" class="plan-cta plan-cta--gold">Elegir Gold</a>
+          <a href="#investment" class="plan-cta plan-cta--gold" data-i18n="pricing.clubs.gold.cta">Elegir Gold</a>
         </div>
         <div class="plan-card plan-card--highlight reveal reveal-delay-2">
-          <div class="plan-popular">RECOMENDADO</div>
+          <div class="plan-popular" data-i18n="pricing.clubs.black.popular">RECOMENDADO</div>
           <div class="plan-badge plan-badge--black">BLACK</div>
           <div class="plan-price">USD 1200<span class="plan-period">/año</span></div>
-          <div class="plan-desc">Inteligencia artificial al servicio del scouting</div>
+          <div class="plan-desc" data-i18n="pricing.clubs.black.desc">Inteligencia artificial al servicio del scouting</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Todo Gold incluido</li>
-            <li>Informe comparativo de hasta 5 deportistas</li>
-            <li>Síntesis e informes con IA</li>
-            <li>Contacto directo con el equipo Scout 360</li>
+            <li data-i18n="pricing.clubs.black.f1">Todo Gold incluido</li>
+            <li data-i18n="pricing.clubs.black.f2">Informe comparativo de hasta 5 deportistas</li>
+            <li data-i18n="pricing.clubs.black.f3">Síntesis e informes con IA</li>
+            <li data-i18n="pricing.clubs.black.f4">Contacto directo con el equipo Scout 360</li>
           </ul>
-          <a href="#investment" class="plan-cta plan-cta--black">Elegir Black</a>
+          <a href="#investment" class="plan-cta plan-cta--black" data-i18n="pricing.clubs.black.cta">Elegir Black</a>
         </div>
       </div>
     </div>
@@ -2604,47 +2617,47 @@
         <div class="plan-card reveal">
           <div class="plan-badge plan-badge--standard">STANDARD</div>
           <div class="plan-price">USD 500<span class="plan-period">/año</span></div>
-          <div class="plan-desc">Inicio para representantes deportivos</div>
+          <div class="plan-desc" data-i18n="pricing.agents.std.desc">Inicio para representantes deportivos</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li>Carga de perfil de jugador solicitado</li>
             <li>Carga de propuesta económica</li>
-            <li>Match con interesados y búsqueda</li>
-            <li>Hasta 10 perfiles de jugadores</li>
+            <li data-i18n="pricing.agents.std.f3">Match con interesados y búsqueda</li>
+            <li data-i18n="pricing.agents.std.f4">Hasta 10 perfiles de jugadores</li>
           </ul>
-          <a href="#investment" class="plan-cta">Elegir Standard</a>
+          <a href="#investment" class="plan-cta" data-i18n="pricing.agents.std.cta">Elegir Standard</a>
         </div>
         <div class="plan-card reveal reveal-delay-1">
           <div class="plan-badge plan-badge--gold">GOLD</div>
           <div class="plan-price">USD 800<span class="plan-period">/año</span></div>
-          <div class="plan-desc">Panel avanzado para representantes activos</div>
+          <div class="plan-desc" data-i18n="pricing.agents.gold.desc">Panel avanzado para representantes activos</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li>Todo Standard incluido</li>
-            <li>Acceso a videos y estadísticas</li>
+            <li data-i18n="pricing.agents.gold.f2">Acceso a videos y estadísticas</li>
             <li>Evaluaciones de rendimiento</li>
-            <li>Hasta 15 perfiles de jugadores</li>
+            <li data-i18n="pricing.agents.gold.f4">Hasta 15 perfiles de jugadores</li>
           </ul>
-          <a href="#investment" class="plan-cta plan-cta--gold">Elegir Gold</a>
+          <a href="#investment" class="plan-cta plan-cta--gold" data-i18n="pricing.agents.gold.cta">Elegir Gold</a>
         </div>
         <div class="plan-card plan-card--highlight reveal reveal-delay-2">
           <div class="plan-popular">RECOMENDADO</div>
           <div class="plan-badge plan-badge--black">BLACK</div>
           <div class="plan-price">USD 1399<span class="plan-period">/año</span></div>
-          <div class="plan-desc">El plan completo para agencias de élite</div>
+          <div class="plan-desc" data-i18n="pricing.agents.black.desc">El plan completo para agencias de élite</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li>Todo Gold incluido</li>
-            <li>Informe comparativo con IA</li>
-            <li>Hasta 30 perfiles de jugadores</li>
-            <li>Contacto directo con Scout 360</li>
+            <li data-i18n="pricing.agents.black.f2">Informe comparativo con IA</li>
+            <li data-i18n="pricing.agents.black.f3">Hasta 30 perfiles de jugadores</li>
+            <li data-i18n="pricing.agents.black.f4">Contacto directo con Scout 360</li>
           </ul>
-          <a href="#investment" class="plan-cta plan-cta--black">Elegir Black</a>
+          <a href="#investment" class="plan-cta plan-cta--black" data-i18n="pricing.agents.black.cta">Elegir Black</a>
         </div>
       </div>
     </div>
 
-    <p class="pricing-note reveal">* Todos los precios en USD · Planes anuales con descuento · Disponibilidad regional a confirmar</p>
+    <p class="pricing-note reveal" data-i18n="pricing.note">* Todos los precios en USD · Planes anuales con descuento · Disponibilidad regional a confirmar</p>
   </div>
 </section>
 
@@ -2656,33 +2669,33 @@
     <div class="stream-line"></div>
   </div>
   <div class="section-inner">
-    <div class="section-label label-cyan reveal">TRACCIÓN</div>
-    <h2 class="section-title reveal">El momento <span style="color:var(--cyan)">ya comenzó.</span></h2>
-    <p class="section-subtitle reveal">No es solo una idea — hay validación, capital y red activa sobre la mesa.</p>
+    <div class="section-label label-cyan reveal" data-i18n="traction.label">TRACCIÓN</div>
+    <h2 class="section-title reveal" data-i18n-html="traction.title">El momento <span style="color:var(--cyan)">ya comenzó.</span></h2>
+    <p class="section-subtitle reveal" data-i18n="traction.subtitle">No es solo una idea — hay validación, capital y red activa sobre la mesa.</p>
     <div class="traction-grid">
       <div class="traction-card reveal">
         <span class="traction-icon">💰</span>
-        <div class="traction-title">Capital Propio Invertido</div>
-        <div class="traction-body">Los founders ya inyectaron capital propio en desarrollo, diseño e infraestructura. Compromiso real desde el día uno.</div>
-        <div class="traction-status">Activo</div>
+        <div class="traction-title" data-i18n="traction.1.title">Capital Propio Invertido</div>
+        <div class="traction-body" data-i18n="traction.1.body">Los founders ya inyectaron capital propio en desarrollo, diseño e infraestructura. Compromiso real desde el día uno.</div>
+        <div class="traction-status" data-i18n="traction.1.status">Activo</div>
       </div>
       <div class="traction-card reveal reveal-delay-1">
         <span class="traction-icon">🤝</span>
-        <div class="traction-title">Conversaciones con Clubes</div>
-        <div class="traction-body">Diálogo directo en curso con clubes y universidades. Demanda validada en el mercado objetivo.</div>
-        <div class="traction-status">En progreso</div>
+        <div class="traction-title" data-i18n="traction.2.title">Conversaciones con Clubes</div>
+        <div class="traction-body" data-i18n="traction.2.body">Diálogo directo en curso con clubes y universidades. Demanda validada en el mercado objetivo.</div>
+        <div class="traction-status" data-i18n="traction.2.status">En progreso</div>
       </div>
       <div class="traction-card reveal reveal-delay-2">
         <span class="traction-icon">🌐</span>
-        <div class="traction-title">Red Internacional Activa</div>
-        <div class="traction-body">Red de contactos deportivos lista para activar desde el lanzamiento.</div>
-        <div class="traction-status">Activo</div>
+        <div class="traction-title" data-i18n="traction.3.title">Red Internacional Activa</div>
+        <div class="traction-body" data-i18n="traction.3.body">Red de contactos deportivos lista para activar desde el lanzamiento.</div>
+        <div class="traction-status" data-i18n="traction.3.status">Activo</div>
       </div>
       <div class="traction-card reveal reveal-delay-3">
         <span class="traction-icon">🚀</span>
-        <div class="traction-title">Plataforma Online</div>
-        <div class="traction-body">MVP finalizado. Roadmap técnico definido y en ejecución.</div>
-        <div class="traction-status">En desarrollo</div>
+        <div class="traction-title" data-i18n="traction.4.title">Plataforma Online</div>
+        <div class="traction-body" data-i18n="traction.4.body">MVP finalizado. Roadmap técnico definido y en ejecución.</div>
+        <div class="traction-status" data-i18n="traction.4.status">En desarrollo</div>
       </div>
     </div>
   </div>
@@ -2691,15 +2704,15 @@
 <!-- ROADMAP -->
 <section id="roadmap" class="white-section">
   <div class="section-inner">
-    <div class="section-label label-royal reveal">ROADMAP</div>
-    <h2 class="section-title reveal">De MVP a plataforma<br>global en 18 meses.</h2>
+    <div class="section-label label-royal reveal" data-i18n="roadmap.label">ROADMAP</div>
+    <h2 class="section-title reveal" data-i18n-html="roadmap.title">De MVP a plataforma<br>global en 18 meses.</h2>
     <div class="roadmap-container">
       <div class="roadmap-line"></div>
       <div class="phase reveal">
         <div class="phase-dot">MVP</div>
         <div class="phase-content">
-          <div class="phase-time">0 – 6 MESES</div>
-          <div class="phase-title">MVP & UX</div>
+          <div class="phase-time" data-i18n="roadmap.1.time">0 – 6 MESES</div>
+          <div class="phase-title" data-i18n="roadmap.1.title">MVP & UX</div>
           <div class="phase-items">
             <span>→</span> Diseño UX/UI profesional<span> · </span>
             <span>→</span> Backend y base de datos<span> · </span>
@@ -2715,8 +2728,8 @@
       <div class="phase reveal reveal-delay-1">
         <div class="phase-dot">β</div>
         <div class="phase-content">
-          <div class="phase-time">6 – 8 MESES</div>
-          <div class="phase-title">Lanzamiento Beta</div>
+          <div class="phase-time" data-i18n="roadmap.2.time">6 – 8 MESES</div>
+          <div class="phase-title" data-i18n="roadmap.2.title">Lanzamiento Beta</div>
           <div class="phase-items">
             <span>→</span> Primeros usuarios reales<span> · </span>
             <span>→</span> Testeo de usabilidad<span> · </span>
@@ -2732,8 +2745,8 @@
       <div class="phase reveal reveal-delay-2">
         <div class="phase-dot">🚀</div>
         <div class="phase-content">
-          <div class="phase-time">8 – 12 MESES</div>
-          <div class="phase-title">Lanzamiento Oficial</div>
+          <div class="phase-time" data-i18n="roadmap.3.time">8 – 12 MESES</div>
+          <div class="phase-title" data-i18n="roadmap.3.title">Lanzamiento Oficial</div>
           <div class="phase-items">
             <span>→</span> Campaña de marketing masiva<span> · </span>
             <span>→</span> Embajadores y partnerships<span> · </span>
@@ -2749,8 +2762,8 @@
       <div class="phase reveal reveal-delay-3">
         <div class="phase-dot">🌍</div>
         <div class="phase-content">
-          <div class="phase-time">12 – 18 MESES</div>
-          <div class="phase-title">Escala Global</div>
+          <div class="phase-time" data-i18n="roadmap.4.time">12 – 18 MESES</div>
+          <div class="phase-title" data-i18n="roadmap.4.title">Escala Global</div>
           <div class="phase-items">
             <span>→</span> IA avanzada y video análisis<span> · </span>
             <span>→</span> Internacionalización (EN, PT)<span> · </span>
@@ -2770,36 +2783,36 @@
 <!-- EQUIPO -->
 <section id="team" class="light-section">
   <div class="section-inner">
-    <div class="section-label label-royal reveal">EQUIPO</div>
-    <h2 class="section-title reveal">Experiencia real.<br>Red global. Pasión por el deporte.</h2>
+    <div class="section-label label-royal reveal" data-i18n="team.label">EQUIPO</div>
+    <h2 class="section-title reveal" data-i18n-html="team.title">Experiencia real.<br>Red global. Pasión por el deporte.</h2>
     <div class="team-grid">
       <div class="team-card reveal">
         <div class="team-avatar">FM</div>
         <div class="team-name">Fernando Miranda</div>
         <div class="team-role">Founder & CEO</div>
         <div class="team-divider"></div>
-        <div class="team-bio">35+ años liderando proyectos en tecnología y deporte · Visionario detrás de Scout360.</div>
+        <div class="team-bio" data-i18n="team.fm.bio">35+ años liderando proyectos en tecnología y deporte · Visionario detrás de Scout360.</div>
       </div>
       <div class="team-card reveal reveal-delay-1">
         <div class="team-avatar"><img src="equipo-matias.jpg" alt="Matias Miranda"></div>
         <div class="team-name">Matias Miranda</div>
         <div class="team-role">Commercial Development</div>
         <div class="team-divider"></div>
-        <div class="team-bio">Especialista en desarrollo comercial · Gestión deportiva y scouting · Expansión de red institucional.</div>
+        <div class="team-bio" data-i18n="team.mm.bio">Especialista en desarrollo comercial · Gestión deportiva y scouting · Expansión de red institucional.</div>
       </div>
       <div class="team-card reveal reveal-delay-2">
         <div class="team-avatar"><img src="equipo-ignacio.jpg" alt="Ignacio Miranda"></div>
         <div class="team-name">Ignacio Miranda</div>
         <div class="team-role">Big Data & IA</div>
         <div class="team-divider"></div>
-        <div class="team-bio">Especialista en Big Data e Inteligencia Artificial · Arquitectura de matching deportivo · Análisis predictivo de rendimiento.</div>
+        <div class="team-bio" data-i18n="team.im.bio">Especialista en Big Data e Inteligencia Artificial · Arquitectura de matching deportivo · Análisis predictivo de rendimiento.</div>
       </div>
       <div class="team-card reveal reveal-delay-3">
         <div class="team-avatar"><img src="equipo-cory.jpg" alt="Cory Weaver"></div>
         <div class="team-name">Cory Weaver</div>
         <div class="team-role">Head of Global Scouting</div>
         <div class="team-divider"></div>
-        <div class="team-bio">Ex jugador y entrenador profesional · Red global de scouting · Especialista en desarrollo de atletas de élite.</div>
+        <div class="team-bio" data-i18n="team.cw.bio">Ex jugador y entrenador profesional · Red global de scouting · Especialista en desarrollo de atletas de élite.</div>
       </div>
     </div>
   </div>
@@ -2808,82 +2821,82 @@
 <!-- INVERSIÓN -->
 <section id="investment" class="light-section">
   <div class="section-inner">
-    <div class="section-label label-royal reveal" style="text-align:center">OPORTUNIDAD DE INVERSIÓN</div>
+    <div class="section-label label-royal reveal" style="text-align:center" data-i18n="invest.label">OPORTUNIDAD DE INVERSIÓN</div>
     <div class="invest-hero reveal">
       <div class="invest-amount">$25,000</div>
     </div>
     <div class="equity-row reveal">
       <div class="equity-item">
         <div class="equity-num">8%</div>
-        <div class="equity-label">Equity a cambio</div>
+        <div class="equity-label" data-i18n="invest.equity.label">Equity a cambio</div>
       </div>
       <div class="equity-item">
         <div class="equity-num">$312K</div>
-        <div class="equity-label">Valuación pre-money</div>
+        <div class="equity-label" data-i18n="invest.valuation.label">Valuación pre-money</div>
       </div>
       <div class="equity-item">
         <div class="equity-num">Mes 18</div>
-        <div class="equity-label">Punto de equilibrio</div>
+        <div class="equity-label" data-i18n="invest.breakeven.label">Punto de equilibrio</div>
       </div>
     </div>
     <div class="invest-bars">
       <div class="invest-bar-item reveal">
         <div class="invest-bar-header">
-          <span class="invest-bar-label">Tecnología & Desarrollo</span>
+          <span class="invest-bar-label" data-i18n="invest.bar1">Tecnología & Desarrollo</span>
           <span class="invest-bar-amt">$12,500 · 50%</span>
         </div>
         <div class="invest-bar-track"><div class="invest-bar-fill" data-width="50"></div></div>
       </div>
       <div class="invest-bar-item reveal reveal-delay-1">
         <div class="invest-bar-header">
-          <span class="invest-bar-label">Marketing & Lanzamiento</span>
+          <span class="invest-bar-label" data-i18n="invest.bar2">Marketing & Lanzamiento</span>
           <span class="invest-bar-amt">$7,500 · 30%</span>
         </div>
         <div class="invest-bar-track"><div class="invest-bar-fill" data-width="30"></div></div>
       </div>
       <div class="invest-bar-item reveal reveal-delay-2">
         <div class="invest-bar-header">
-          <span class="invest-bar-label">Operaciones & Equipo</span>
+          <span class="invest-bar-label" data-i18n="invest.bar3">Operaciones & Equipo</span>
           <span class="invest-bar-amt">$5,000 · 20%</span>
         </div>
         <div class="invest-bar-track"><div class="invest-bar-fill" data-width="20"></div></div>
       </div>
     </div>
     <div class="invest-return reveal">
-      <h3>¿Qué ofrecemos a cambio?</h3>
+      <h3 data-i18n="invest.return.title">¿Qué ofrecemos a cambio?</h3>
       <div class="invest-bullets">
-        <div class="invest-bullet"><strong style="color:var(--cyan)">8% de equity</strong> — participación directa en el crecimiento de la plataforma</div>
-        <div class="invest-bullet">Co-participación en todos los procesos de desarrollo y expansión global</div>
-        <div class="invest-bullet">Retorno proyectado a partir del mes 18 post-lanzamiento</div>
-        <div class="invest-bullet">Acceso a red global de deportistas, universidades, clubes y agencias en el mundo</div>
+        <div class="invest-bullet" data-i18n-html="invest.bullet1"><strong style="color:var(--cyan)">8% de equity</strong> — participación directa en el crecimiento de la plataforma</div>
+        <div class="invest-bullet" data-i18n="invest.bullet2">Co-participación en todos los procesos de desarrollo y expansión global</div>
+        <div class="invest-bullet" data-i18n="invest.bullet3">Retorno proyectado a partir del mes 18 post-lanzamiento</div>
+        <div class="invest-bullet" data-i18n="invest.bullet4">Acceso a red global de deportistas, universidades, clubes y agencias en el mundo</div>
       </div>
     </div>
     <div class="growth-box reveal">
-      <div class="growth-box-title">Proyección de crecimiento — 3 años</div>
+      <div class="growth-box-title" data-i18n="invest.growth.title">Proyección de crecimiento — 3 años</div>
       <div class="growth-bars-wrap">
         <div class="g-bar-col">
           <div class="g-bar-value v1">$45K</div>
           <div class="g-bar-fill y1"></div>
           <div class="g-bar-base"></div>
-          <div class="g-bar-label">Año 1</div>
-          <div class="g-bar-tag">Lanzamiento</div>
+          <div class="g-bar-label" data-i18n="invest.y1.label">Año 1</div>
+          <div class="g-bar-tag" data-i18n="invest.y1.tag">Lanzamiento</div>
         </div>
         <div class="g-bar-col">
           <div class="g-bar-value v2">$180K</div>
           <div class="g-bar-fill y2"></div>
           <div class="g-bar-base"></div>
-          <div class="g-bar-label">Año 2</div>
-          <div class="g-bar-tag">Escala LATAM</div>
+          <div class="g-bar-label" data-i18n="invest.y2.label">Año 2</div>
+          <div class="g-bar-tag" data-i18n="invest.y2.tag">Escala LATAM</div>
         </div>
         <div class="g-bar-col">
           <div class="g-bar-value v3">$520K</div>
           <div class="g-bar-fill y3"></div>
           <div class="g-bar-base"></div>
-          <div class="g-bar-label">Año 3</div>
-          <div class="g-bar-tag">Expansión Global</div>
+          <div class="g-bar-label" data-i18n="invest.y3.label">Año 3</div>
+          <div class="g-bar-tag" data-i18n="invest.y3.tag">Expansión Global</div>
         </div>
       </div>
-      <div class="growth-note">Crecimiento sostenido · Breakeven mes 18 · Escala desde mes 24</div>
+      <div class="growth-note" data-i18n="invest.growth.note">Crecimiento sostenido · Breakeven mes 18 · Escala desde mes 24</div>
     </div>
   </div>
 </section>
@@ -2891,13 +2904,13 @@
 <!-- CTA FINAL -->
 <section id="cta">
   <div class="cta-content">
-    <h2 class="cta-title reveal">
+    <h2 class="cta-title reveal" data-i18n-html="cta.title">
       El talento ya existe.<br>
       <span class="hl">Ahora falta tu decisión.</span>
     </h2>
-    <p class="cta-sub reveal">Somos la infraestructura que el deporte global estaba esperando.</p>
+    <p class="cta-sub reveal" data-i18n="cta.sub">Somos la infraestructura que el deporte global estaba esperando.</p>
     <div class="cta-btns reveal">
-      <a href="https://wa.me/543515074833" target="_blank" class="btn-primary">Contactar al equipo</a>
+      <a href="https://wa.me/543515074833" target="_blank" class="btn-primary" data-i18n="cta.btn">Contactar al equipo</a>
     </div>
     <div class="cta-contact reveal">
       <div class="contact-item">
@@ -2919,7 +2932,7 @@
   <div class="footer-logo">
     <div class="s3"><img src="logo.png" alt="Scout 360"></div>
   </div>
-  <div class="footer-copy">© 2025 Scout360 · Todos los derechos reservados</div>
+  <div class="footer-copy" data-i18n="footer.copy">© 2025 Scout360 · Todos los derechos reservados</div>
 </footer>
 
 <script>
@@ -3256,6 +3269,285 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       setActive(null);
     }
   }, { passive: true });
+})();
+
+// ── i18n — Language toggle ES / EN
+(function() {
+  const T = {
+    es: {
+      'nav.problem':'Problema','nav.solution':'Solución','nav.market':'Mercado',
+      'nav.competition':'Competencia','nav.pricing':'Planes','nav.traction':'Tracción',
+      'nav.team':'Equipo','nav.investment':'Inversión','nav.cta':'Quiero Invertir →',
+      'hero.quote':'"Conectamos talento con su próxima <em class="bh-serif">oportunidad.</em>"',
+      'hero.follow':'Seguinos','hero.community.title':'Únete al ecosistema global',
+      'hero.community.sub':'Deportistas · Clubes · Universidades · Agencias',
+      'hero.feat1.title':'IA + Análisis','hero.feat1.sub':'Métricas automáticas de rendimiento',
+      'hero.feat2.title':'Matchmaking Inteligente','hero.feat2.sub':'Conexiones perfectas por perfil',
+      'hero.feat3.title':'Contacto Directo','hero.feat3.sub':'Chat y video en tiempo real. Sin intermediarios.',
+      'hero.feat4.title':'Becas y Oportunidades','hero.feat4.body':'Universidades, clubes y ligas en un solo lugar',
+      'stats.athletes':'Deportistas en el mercado objetivo','stats.market':'Mercado global en USD',
+      'stats.universities':'Universidades con becas deportivas','stats.clubs':'Clubes sin plataforma digital',
+      'problem.label':'EL PROBLEMA',
+      'problem.subtitle':'Miles de deportistas con potencial real nunca son descubiertos. Los sistemas actuales son lentos, fragmentados e ineficientes.',
+      'problem.1.title':'Talentos invisibles','problem.1.body':'Miles de deportistas con potencial real nunca son descubiertos por falta de visibilidad digital y herramientas adecuadas de presentación.',
+      'problem.2.title':'Procesos fragmentados','problem.2.body':'Reclutadores y universidades usan métodos lentos, costosos e ineficientes sin una plataforma unificada que los conecte directamente.',
+      'problem.3.title':'Competidores limitados','problem.3.body':'La competencia carece de interactividad real, inteligencia artificial, cobertura global y perfil multimedia completo.',
+      'problem.stat':'deportistas buscan oportunidades sin encontrar la plataforma adecuada',
+      'whynow.pill1.label':'Ecosistema 360°','whynow.pill1.desc':'Deportistas, clubes, universidades y agencias en un solo lugar',
+      'whynow.pill2.label':'Equipo Interdisciplinario','whynow.pill2.desc':'Deporte, formación, tecnología y desarrollo unidos',
+      'whynow.pill3.label':'Sin líder en LATAM','whynow.pill3.desc':'La ventana de liderazgo regional está abierta hoy',
+      'whynow.pill4.label':'IA lista','whynow.pill4.desc':'La tecnología de matching deportivo ya es accesible y desplegable',
+      'solution.label':'LA SOLUCIÓN','solution.subtitle':'Una plataforma que conecta todos los actores del deporte en un solo lugar.',
+      'solution.1.title':'Perfiles Multimedia','solution.1.body':'Videos de highlights, estadísticas de rendimiento, trayectoria completa y logros en un perfil dinámico.',
+      'solution.2.title':'IA + Análisis','solution.2.body':'Algoritmos de inteligencia artificial que analizan rendimiento y generan métricas automáticas desde los videos.',
+      'solution.3.title':'Matchmaking Inteligente','solution.3.body':'Sistema de recomendaciones personalizadas que conecta deportistas con las oportunidades perfectas para su perfil.',
+      'solution.4.title':'Comunicación Directa','solution.4.body':'Chat, videollamadas y mensajería en tiempo real. Sin intermediarios, sin fricción.',
+      'solution.5.title':'Becas y Oportunidades','solution.5.body':'Universidades, clubes y ligas de todo el mundo publican oportunidades accesibles desde cualquier lugar.',
+      'solution.6.title':'Formación Integral','solution.6.body':'Coach deportivo, psicólogo, nutricionista y capacitación continua integrados dentro de la plataforma.',
+      'how.label':'CÓMO FUNCIONA',
+      'how.1.title':'Registro','how.1.body':'Crea tu perfil en minutos, sea deportista, club, universidad y agentes.',
+      'how.2.title':'Perfil Multimedia','how.2.body':'Sube videos de highlights, estadísticas, logros y trayectoria.',
+      'how.3.title':'Descubrimiento','how.3.body':'El sistema te conecta con las mejores oportunidades automáticamente.',
+      'how.4.title':'Contacto Directo','how.4.body':'Chat en tiempo real entre deportistas, scouts y entrenadores.',
+      'how.5.title':'Oportunidad','how.5.body':'Becas, fichajes y contratos conseguidos sin intermediarios.',
+      'market.label':'EL MERCADO',
+      'market.1':'Mercado global de tecnología deportiva','market.2':'Deportistas activos buscando oportunidades',
+      'market.3':'Universidades con becas deportivas en USA/Canadá','market.4':'Clubes sin acceso a plataforma digital de scouting',
+      'market.tam':'Tecnología deportiva global','market.sam':'Reclutamiento digital deportivo','market.som':'Objetivo años 1–3',
+      'comp.label':'VENTAJA COMPETITIVA','comp.th':'Característica',
+      'comp.row1':'Perfiles multimedia con video','comp.row2':'Chat y video en tiempo real',
+      'comp.row3':'IA y análisis automático','comp.row4':'Becas universitarias + clubes',
+      'comp.row5':'Cobertura multi-deporte','comp.row6':'Formación y coaching integrado','comp.row7':'Precio accesible / Freemium',
+      'pricing.label':'PLANES Y PRECIOS','pricing.subtitle':'Acceso flexible para cada actor del ecosistema deportivo.',
+      'pricing.tab.athletes':'Deportistas','pricing.tab.clubs':'Clubes & Universidades','pricing.tab.agents':'Agentes & Agencias',
+      'pricing.ath.free.desc':'Comenzá gratis, sin compromiso','pricing.ath.free.f1':'Página de perfil en PDF',
+      'pricing.ath.free.f2':'Visibilidad básica en la plataforma','pricing.ath.free.cta':'Registrarme gratis',
+      'pricing.ath.std.desc':'Para el deportista activo en búsqueda','pricing.ath.std.f1':'Página de perfil completa',
+      'pricing.ath.std.f2':'Fotos de presentación','pricing.ath.std.f3':'Videos: 2 clips de hasta 4 min',
+      'pricing.ath.std.f4':'Solicitar y visualizar hasta 5 ofertas','pricing.ath.std.cta':'Elegir Standard',
+      'pricing.ath.gold.popular':'MÁS POPULAR','pricing.ath.gold.desc':'El preferido por scouts y reclutadores',
+      'pricing.ath.gold.f1':'Perfil + datos estadísticos completos','pricing.ath.gold.f2':'Parámetros avanzados del jugador',
+      'pricing.ath.gold.f3':'Fotos + Videos: 4 clips de hasta 4 min','pricing.ath.gold.f4':'Ofertas ilimitadas + acceso directo',
+      'pricing.ath.gold.f5':'Descuentos en capacitación','pricing.ath.gold.f6':'Descuentos en asesoramiento','pricing.ath.gold.cta':'Elegir Gold',
+      'pricing.ath.black.desc':'Máxima exposición y soporte premium','pricing.ath.black.f1':'Todo Gold incluido',
+      'pricing.ath.black.f2':'Parametrizaciones con IA','pricing.ath.black.f3':'Informes para Clubes y Universidades',
+      'pricing.ath.black.f4':'Visibilidad para Agencias y Agentes','pricing.ath.black.f5':'Asesoramiento legal, imagen y carrera con descuentos',
+      'pricing.ath.black.cta':'Elegir Black',
+      'pricing.clubs.std.desc':'Acceso esencial para instituciones deportivas','pricing.clubs.std.f1':'Carga de perfil de jugador solicitado',
+      'pricing.clubs.std.f2':'Carga de propuesta económica','pricing.clubs.std.f3':'Match con interesados',
+      'pricing.clubs.std.f4':'Búsqueda en la base de datos','pricing.clubs.std.cta':'Elegir Standard',
+      'pricing.clubs.gold.desc':'Acceso profesional con datos y video','pricing.clubs.gold.f1':'Todo Standard incluido',
+      'pricing.clubs.gold.f2':'Acceso a videos de deportistas','pricing.clubs.gold.f3':'Datos estadísticos completos',
+      'pricing.clubs.gold.f4':'Evaluaciones de rendimiento','pricing.clubs.gold.cta':'Elegir Gold',
+      'pricing.clubs.black.popular':'RECOMENDADO','pricing.clubs.black.desc':'Inteligencia artificial al servicio del scouting',
+      'pricing.clubs.black.f1':'Todo Gold incluido','pricing.clubs.black.f2':'Informe comparativo de hasta 5 deportistas',
+      'pricing.clubs.black.f3':'Síntesis e informes con IA','pricing.clubs.black.f4':'Contacto directo con el equipo Scout 360',
+      'pricing.clubs.black.cta':'Elegir Black',
+      'pricing.agents.std.desc':'Inicio para representantes deportivos','pricing.agents.std.f3':'Match con interesados y búsqueda',
+      'pricing.agents.std.f4':'Hasta 10 perfiles de jugadores','pricing.agents.std.cta':'Elegir Standard',
+      'pricing.agents.gold.desc':'Panel avanzado para representantes activos','pricing.agents.gold.f2':'Acceso a videos y estadísticas',
+      'pricing.agents.gold.f4':'Hasta 15 perfiles de jugadores','pricing.agents.gold.cta':'Elegir Gold',
+      'pricing.agents.black.desc':'El plan completo para agencias de élite','pricing.agents.black.f2':'Informe comparativo con IA',
+      'pricing.agents.black.f3':'Hasta 30 perfiles de jugadores','pricing.agents.black.f4':'Contacto directo con Scout 360',
+      'pricing.agents.black.cta':'Elegir Black',
+      'pricing.note':'* Todos los precios en USD · Planes anuales con descuento · Disponibilidad regional a confirmar',
+      'traction.label':'TRACCIÓN','traction.subtitle':'No es solo una idea — hay validación, capital y red activa sobre la mesa.',
+      'traction.1.title':'Capital Propio Invertido','traction.1.body':'Los founders ya inyectaron capital propio en desarrollo, diseño e infraestructura. Compromiso real desde el día uno.','traction.1.status':'Activo',
+      'traction.2.title':'Conversaciones con Clubes','traction.2.body':'Diálogo directo en curso con clubes y universidades. Demanda validada en el mercado objetivo.','traction.2.status':'En progreso',
+      'traction.3.title':'Red Internacional Activa','traction.3.body':'Red de contactos deportivos lista para activar desde el lanzamiento.','traction.3.status':'Activo',
+      'traction.4.title':'Plataforma Online','traction.4.body':'MVP finalizado. Roadmap técnico definido y en ejecución.','traction.4.status':'En desarrollo',
+      'roadmap.label':'ROADMAP',
+      'roadmap.1.time':'0 – 6 MESES','roadmap.1.title':'MVP & UX',
+      'roadmap.2.time':'6 – 8 MESES','roadmap.2.title':'Lanzamiento Beta',
+      'roadmap.3.time':'8 – 12 MESES','roadmap.3.title':'Lanzamiento Oficial',
+      'roadmap.4.time':'12 – 18 MESES','roadmap.4.title':'Escala Global',
+      'team.label':'EQUIPO',
+      'team.fm.bio':'35+ años liderando proyectos en tecnología y deporte · Visionario detrás de Scout360.',
+      'team.mm.bio':'Especialista en desarrollo comercial · Gestión deportiva y scouting · Expansión de red institucional.',
+      'team.im.bio':'Especialista en Big Data e Inteligencia Artificial · Arquitectura de matching deportivo · Análisis predictivo de rendimiento.',
+      'team.cw.bio':'Ex jugador y entrenador profesional · Red global de scouting · Especialista en desarrollo de atletas de élite.',
+      'invest.label':'OPORTUNIDAD DE INVERSIÓN','invest.equity.label':'Equity a cambio',
+      'invest.valuation.label':'Valuación pre-money','invest.breakeven.label':'Punto de equilibrio',
+      'invest.bar1':'Tecnología & Desarrollo','invest.bar2':'Marketing & Lanzamiento','invest.bar3':'Operaciones & Equipo',
+      'invest.y1.label':'Año 1','invest.y1.tag':'Lanzamiento',
+      'invest.y2.label':'Año 2','invest.y2.tag':'Escala LATAM',
+      'invest.y3.label':'Año 3','invest.y3.tag':'Expansión Global',
+      'invest.return.title':'¿Qué ofrecemos a cambio?',
+      'invest.bullet1':'<strong style="color:var(--cyan)">8% de equity</strong> — participación directa en el crecimiento de la plataforma',
+      'invest.bullet2':'Co-participación en todos los procesos de desarrollo y expansión global',
+      'invest.bullet3':'Retorno proyectado a partir del mes 18 post-lanzamiento',
+      'invest.bullet4':'Acceso a red global de deportistas, universidades, clubes y agencias en el mundo',
+      'invest.growth.title':'Proyección de crecimiento — 3 años',
+      'invest.growth.note':'Crecimiento sostenido · Breakeven mes 18 · Escala desde mes 24',
+      'hero.title':'El talento está <em class="bh-serif">en todas partes.</em>',
+      'problem.title':'El talento deportivo existe.<br>La visibilidad, no.',
+      'whynow.title':'Un <em>ecosistema integrado</em> donde todas las partes ganan.<br>El equipo y el momento son únicos.',
+      'solution.title':'El ecosistema deportivo<br><span style="color:var(--cyan)">completo.</span>',
+      'how.title':'Simple. Poderoso.<br>Eficiente.',
+      'market.title':'Un mercado global<br>en plena <span style="color:var(--cyan)">expansión.</span>',
+      'comp.title':'Claramente<br><span style="color:var(--cyan)">diferenciados.</span>',
+      'pricing.title':'Transparente.<br>Accesible. Escalable.',
+      'traction.title':'El momento <span style="color:var(--cyan)">ya comenzó.</span>',
+      'roadmap.title':'De MVP a plataforma<br>global en 18 meses.',
+      'team.title':'Experiencia real.<br>Red global. Pasión por el deporte.',
+      'cta.title':'El talento ya existe.<br><span class="hl">Ahora falta tu decisión.</span>',
+      'cta.sub':'Somos la infraestructura que el deporte global estaba esperando.','cta.btn':'Contactar al equipo',
+      'footer.copy':'© 2025 Scout360 · Todos los derechos reservados',
+    },
+    en: {
+      'nav.problem':'Problem','nav.solution':'Solution','nav.market':'Market',
+      'nav.competition':'Competition','nav.pricing':'Plans','nav.traction':'Traction',
+      'nav.team':'Team','nav.investment':'Investment','nav.cta':'Invest Now →',
+      'hero.quote':'"We connect talent with their next <em class="bh-serif">opportunity.</em>"',
+      'hero.follow':'Follow us','hero.community.title':'Join the global ecosystem',
+      'hero.community.sub':'Athletes · Clubs · Universities · Agencies',
+      'hero.feat1.title':'AI + Analytics','hero.feat1.sub':'Automatic performance metrics',
+      'hero.feat2.title':'Smart Matchmaking','hero.feat2.sub':'Perfect connections by profile',
+      'hero.feat3.title':'Direct Contact','hero.feat3.sub':'Real-time chat and video. No intermediaries.',
+      'hero.feat4.title':'Scholarships & Opportunities','hero.feat4.body':'Universities, clubs and leagues in one place',
+      'stats.athletes':'Athletes in the target market','stats.market':'Global market in USD',
+      'stats.universities':'Universities with sports scholarships','stats.clubs':'Clubs without a digital platform',
+      'problem.label':'THE PROBLEM',
+      'problem.subtitle':'Thousands of athletes with real potential are never discovered. Current systems are slow, fragmented, and inefficient.',
+      'problem.1.title':'Invisible Talent','problem.1.body':'Thousands of athletes with real potential are never discovered due to lack of digital visibility and proper presentation tools.',
+      'problem.2.title':'Fragmented Processes','problem.2.body':'Recruiters and universities use slow, costly, and inefficient methods with no unified platform to connect them directly.',
+      'problem.3.title':'Limited Competitors','problem.3.body':'The competition lacks real interactivity, artificial intelligence, global coverage, and complete multimedia profiles.',
+      'problem.stat':'athletes are searching for opportunities without finding the right platform',
+      'whynow.pill1.label':'360° Ecosystem','whynow.pill1.desc':'Athletes, clubs, universities and agencies in one place',
+      'whynow.pill2.label':'Interdisciplinary Team','whynow.pill2.desc':'Sports, education, technology and development united',
+      'whynow.pill3.label':'No Leader in LATAM','whynow.pill3.desc':'The regional leadership window is open today',
+      'whynow.pill4.label':'AI Ready','whynow.pill4.desc':'Sports matching technology is already accessible and deployable',
+      'solution.label':'THE SOLUTION','solution.subtitle':'A platform that connects every player in the sports world in one place.',
+      'solution.1.title':'Multimedia Profiles','solution.1.body':'Highlight videos, performance stats, full career history and achievements in one dynamic profile.',
+      'solution.2.title':'AI + Analytics','solution.2.body':'AI algorithms that analyze performance and generate automatic metrics from videos.',
+      'solution.3.title':'Smart Matchmaking','solution.3.body':'Personalized recommendation system that connects athletes with the perfect opportunities for their profile.',
+      'solution.4.title':'Direct Communication','solution.4.body':'Chat, video calls and real-time messaging. No intermediaries, no friction.',
+      'solution.5.title':'Scholarships & Opportunities','solution.5.body':'Universities, clubs and leagues worldwide post opportunities accessible from anywhere.',
+      'solution.6.title':'Comprehensive Training','solution.6.body':'Sports coach, psychologist, nutritionist and ongoing training integrated within the platform.',
+      'how.label':'HOW IT WORKS',
+      'how.1.title':'Sign Up','how.1.body':'Create your profile in minutes — athlete, club, university, or agent.',
+      'how.2.title':'Multimedia Profile','how.2.body':'Upload highlight videos, statistics, achievements and career history.',
+      'how.3.title':'Discovery','how.3.body':'The system automatically connects you with the best opportunities.',
+      'how.4.title':'Direct Contact','how.4.body':'Real-time chat between athletes, scouts and coaches.',
+      'how.5.title':'Opportunity','how.5.body':'Scholarships, signings and contracts secured with no intermediaries.',
+      'market.label':'THE MARKET',
+      'market.1':'Global sports technology market','market.2':'Active athletes seeking opportunities',
+      'market.3':'Universities with sports scholarships in USA/Canada','market.4':'Clubs without access to a digital scouting platform',
+      'market.tam':'Global sports technology','market.sam':'Digital sports recruitment','market.som':'Target years 1–3',
+      'comp.label':'COMPETITIVE ADVANTAGE','comp.th':'Feature',
+      'comp.row1':'Multimedia profiles with video','comp.row2':'Real-time chat and video',
+      'comp.row3':'AI and automatic analysis','comp.row4':'University scholarships + clubs',
+      'comp.row5':'Multi-sport coverage','comp.row6':'Integrated training and coaching','comp.row7':'Affordable pricing / Freemium',
+      'pricing.label':'PLANS & PRICING','pricing.subtitle':'Flexible access for every player in the sports ecosystem.',
+      'pricing.tab.athletes':'Athletes','pricing.tab.clubs':'Clubs & Universities','pricing.tab.agents':'Agents & Agencies',
+      'pricing.ath.free.desc':'Start free, no commitment','pricing.ath.free.f1':'PDF profile page',
+      'pricing.ath.free.f2':'Basic visibility on the platform','pricing.ath.free.cta':'Sign up for free',
+      'pricing.ath.std.desc':'For the active athlete on the hunt','pricing.ath.std.f1':'Full profile page',
+      'pricing.ath.std.f2':'Presentation photos','pricing.ath.std.f3':'Videos: 2 clips up to 4 min',
+      'pricing.ath.std.f4':'Request and view up to 5 offers','pricing.ath.std.cta':'Choose Standard',
+      'pricing.ath.gold.popular':'MOST POPULAR','pricing.ath.gold.desc':'The favorite of scouts and recruiters',
+      'pricing.ath.gold.f1':'Profile + full statistical data','pricing.ath.gold.f2':'Advanced player parameters',
+      'pricing.ath.gold.f3':'Photos + Videos: 4 clips up to 4 min','pricing.ath.gold.f4':'Unlimited offers + direct access',
+      'pricing.ath.gold.f5':'Training discounts','pricing.ath.gold.f6':'Advisory discounts','pricing.ath.gold.cta':'Choose Gold',
+      'pricing.ath.black.desc':'Maximum exposure and premium support','pricing.ath.black.f1':'Everything in Gold included',
+      'pricing.ath.black.f2':'AI-powered parameterization','pricing.ath.black.f3':'Reports for Clubs and Universities',
+      'pricing.ath.black.f4':'Visibility to Agencies and Agents','pricing.ath.black.f5':'Discounted legal, image and career advisory',
+      'pricing.ath.black.cta':'Choose Black',
+      'pricing.clubs.std.desc':'Essential access for sports institutions','pricing.clubs.std.f1':'Upload requested player profile',
+      'pricing.clubs.std.f2':'Upload financial proposal','pricing.clubs.std.f3':'Match with interested parties',
+      'pricing.clubs.std.f4':'Search the database','pricing.clubs.std.cta':'Choose Standard',
+      'pricing.clubs.gold.desc':'Professional access with data and video','pricing.clubs.gold.f1':'Everything in Standard included',
+      'pricing.clubs.gold.f2':'Access to athlete videos','pricing.clubs.gold.f3':'Full statistical data',
+      'pricing.clubs.gold.f4':'Performance evaluations','pricing.clubs.gold.cta':'Choose Gold',
+      'pricing.clubs.black.popular':'RECOMMENDED','pricing.clubs.black.desc':'Artificial intelligence at the service of scouting',
+      'pricing.clubs.black.f1':'Everything in Gold included','pricing.clubs.black.f2':'Comparative report for up to 5 athletes',
+      'pricing.clubs.black.f3':'AI-powered summaries and reports','pricing.clubs.black.f4':'Direct contact with the Scout 360 team',
+      'pricing.clubs.black.cta':'Choose Black',
+      'pricing.agents.std.desc':'Entry plan for sports representatives','pricing.agents.std.f3':'Match with interested parties and search',
+      'pricing.agents.std.f4':'Up to 10 player profiles','pricing.agents.std.cta':'Choose Standard',
+      'pricing.agents.gold.desc':'Advanced panel for active representatives','pricing.agents.gold.f2':'Access to videos and statistics',
+      'pricing.agents.gold.f4':'Up to 15 player profiles','pricing.agents.gold.cta':'Choose Gold',
+      'pricing.agents.black.desc':'The complete plan for elite agencies','pricing.agents.black.f2':'AI-powered comparative report',
+      'pricing.agents.black.f3':'Up to 30 player profiles','pricing.agents.black.f4':'Direct contact with Scout 360',
+      'pricing.agents.black.cta':'Choose Black',
+      'pricing.note':'* All prices in USD · Annual plans with discount · Regional availability to be confirmed',
+      'traction.label':'TRACTION','traction.subtitle':'This is not just an idea — there is validation, capital and an active network on the table.',
+      'traction.1.title':'Founder Capital Invested','traction.1.body':'Founders have already injected personal capital into development, design and infrastructure. Real commitment from day one.','traction.1.status':'Active',
+      'traction.2.title':'Club Conversations','traction.2.body':'Direct ongoing dialogue with clubs and universities. Demand validated in the target market.','traction.2.status':'In progress',
+      'traction.3.title':'Active International Network','traction.3.body':'Sports contact network ready to activate from launch.','traction.3.status':'Active',
+      'traction.4.title':'Online Platform','traction.4.body':'MVP finalized. Technical roadmap defined and in execution.','traction.4.status':'In development',
+      'roadmap.label':'ROADMAP',
+      'roadmap.1.time':'0 – 6 MONTHS','roadmap.1.title':'MVP & UX',
+      'roadmap.2.time':'6 – 8 MONTHS','roadmap.2.title':'Beta Launch',
+      'roadmap.3.time':'8 – 12 MONTHS','roadmap.3.title':'Official Launch',
+      'roadmap.4.time':'12 – 18 MONTHS','roadmap.4.title':'Global Scale',
+      'team.label':'TEAM',
+      'team.fm.bio':'35+ years leading technology and sports projects · The visionary behind Scout360.',
+      'team.mm.bio':'Commercial development specialist · Sports management and scouting · Institutional network expansion.',
+      'team.im.bio':'Big Data and AI specialist · Sports matching architecture · Predictive performance analysis.',
+      'team.cw.bio':'Former professional player and coach · Global scouting network · Elite athlete development specialist.',
+      'invest.label':'INVESTMENT OPPORTUNITY','invest.equity.label':'Equity offered',
+      'invest.valuation.label':'Pre-money valuation','invest.breakeven.label':'Break-even point',
+      'invest.bar1':'Technology & Development','invest.bar2':'Marketing & Launch','invest.bar3':'Operations & Team',
+      'invest.y1.label':'Year 1','invest.y1.tag':'Launch',
+      'invest.y2.label':'Year 2','invest.y2.tag':'LATAM Scale',
+      'invest.y3.label':'Year 3','invest.y3.tag':'Global Expansion',
+      'invest.return.title':'What do we offer in return?',
+      'invest.bullet1':'<strong style="color:var(--cyan)">8% equity</strong> — direct stake in the platform\'s growth',
+      'invest.bullet2':'Co-participation in all development and global expansion processes',
+      'invest.bullet3':'Projected return from month 18 post-launch',
+      'invest.bullet4':'Access to global network of athletes, universities, clubs and agencies worldwide',
+      'invest.growth.title':'Growth projection — 3 years',
+      'invest.growth.note':'Sustained growth · Breakeven month 18 · Scale from month 24',
+      'hero.title':'Talent is <em class="bh-serif">everywhere.</em>',
+      'problem.title':'Sports talent exists.<br>Visibility doesn\'t.',
+      'whynow.title':'An <em>integrated ecosystem</em> where everyone wins.<br>The team and the moment are unique.',
+      'solution.title':'The complete<br><span style="color:var(--cyan)">sports ecosystem.</span>',
+      'how.title':'Simple. Powerful.<br>Efficient.',
+      'market.title':'A global market<br>in full <span style="color:var(--cyan)">expansion.</span>',
+      'comp.title':'Clearly<br><span style="color:var(--cyan)">differentiated.</span>',
+      'pricing.title':'Transparent.<br>Accessible. Scalable.',
+      'traction.title':'The moment <span style="color:var(--cyan)">has already begun.</span>',
+      'roadmap.title':'From MVP to global<br>platform in 18 months.',
+      'team.title':'Real experience.<br>Global network. Passion for sports.',
+      'cta.title':'The talent already exists.<br><span class="hl">Now it\'s your turn to decide.</span>',
+      'cta.sub':'We are the infrastructure that global sports has been waiting for.','cta.btn':'Contact the team',
+      'footer.copy':'© 2025 Scout360 · All rights reserved',
+    }
+  };
+
+  let lang = 'es';
+  const btn = document.getElementById('lang-toggle');
+
+  function applyLang(l) {
+    lang = l;
+    const t = T[l];
+    // textContent elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    // innerHTML elements (contain HTML tags)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    // Toggle button label & state
+    btn.textContent = l === 'es' ? 'EN' : 'ES';
+    btn.classList.toggle('active-en', l === 'en');
+    // Update html lang attribute
+    document.documentElement.lang = l === 'es' ? 'es' : 'en';
+    // Persist
+    try { localStorage.setItem('s360lang', l); } catch(e) {}
+  }
+
+  btn.addEventListener('click', () => applyLang(lang === 'es' ? 'en' : 'es'));
+
+  // Restore saved preference
+  try {
+    const saved = localStorage.getItem('s360lang');
+    if (saved === 'en') applyLang('en');
+  } catch(e) {}
 })();
 </script>
 </body>
