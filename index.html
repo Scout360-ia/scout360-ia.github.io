@@ -2620,8 +2620,8 @@
           <div class="plan-desc" data-i18n="pricing.agents.std.desc">Inicio para representantes deportivos</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Carga de perfil de jugador solicitado</li>
-            <li>Carga de propuesta económica</li>
+            <li data-i18n="pricing.agents.std.f1">Carga de perfil de jugador solicitado</li>
+            <li data-i18n="pricing.agents.std.f2">Carga de propuesta económica</li>
             <li data-i18n="pricing.agents.std.f3">Match con interesados y búsqueda</li>
             <li data-i18n="pricing.agents.std.f4">Hasta 10 perfiles de jugadores</li>
           </ul>
@@ -2633,24 +2633,26 @@
           <div class="plan-desc" data-i18n="pricing.agents.gold.desc">Panel avanzado para representantes activos</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Todo Standard incluido</li>
-            <li data-i18n="pricing.agents.gold.f2">Acceso a videos y estadísticas</li>
-            <li>Evaluaciones de rendimiento</li>
-            <li data-i18n="pricing.agents.gold.f4">Hasta 15 perfiles de jugadores</li>
+            <li data-i18n="pricing.agents.gold.f1">Todo Standard incluido</li>
+            <li data-i18n="pricing.agents.gold.f2">Acceso a videos de deportistas</li>
+            <li data-i18n="pricing.agents.gold.f3">Datos estadísticos completos</li>
+            <li data-i18n="pricing.agents.gold.f4">Evaluaciones de rendimiento</li>
+            <li data-i18n="pricing.agents.gold.f5">Hasta 15 perfiles de jugadores</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--gold" data-i18n="pricing.agents.gold.cta">Elegir Gold</a>
         </div>
         <div class="plan-card plan-card--highlight reveal reveal-delay-2">
-          <div class="plan-popular">RECOMENDADO</div>
+          <div class="plan-popular" data-i18n="pricing.agents.black.popular">RECOMENDADO</div>
           <div class="plan-badge plan-badge--black">BLACK</div>
           <div class="plan-price">USD 1399<span class="plan-period">/año</span></div>
           <div class="plan-desc" data-i18n="pricing.agents.black.desc">El plan completo para agencias de élite</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
-            <li>Todo Gold incluido</li>
-            <li data-i18n="pricing.agents.black.f2">Informe comparativo con IA</li>
-            <li data-i18n="pricing.agents.black.f3">Hasta 30 perfiles de jugadores</li>
-            <li data-i18n="pricing.agents.black.f4">Contacto directo con Scout 360</li>
+            <li data-i18n="pricing.agents.black.f1">Todo Gold incluido</li>
+            <li data-i18n="pricing.agents.black.f2">Informe comparativo de hasta 5 deportistas</li>
+            <li data-i18n="pricing.agents.black.f3">Síntesis e informes con IA</li>
+            <li data-i18n="pricing.agents.black.f4">Hasta 30 perfiles de jugadores</li>
+            <li data-i18n="pricing.agents.black.f5">Contacto directo con Scout 360</li>
           </ul>
           <a href="#investment" class="plan-cta plan-cta--black" data-i18n="pricing.agents.black.cta">Elegir Black</a>
         </div>
@@ -2787,11 +2789,11 @@
     <h2 class="section-title reveal" data-i18n-html="team.title">Experiencia real.<br>Red global. Pasión por el deporte.</h2>
     <div class="team-grid">
       <div class="team-card reveal">
-        <div class="team-avatar">FM</div>
+        <div class="team-avatar"><img src="equipo-fernando.jpg" alt="Fernando Miranda"></div>
         <div class="team-name">Fernando Miranda</div>
         <div class="team-role">Founder & CEO</div>
         <div class="team-divider"></div>
-        <div class="team-bio" data-i18n="team.fm.bio">35+ años liderando proyectos en tecnología y deporte · Visionario detrás de Scout360.</div>
+        <div class="team-bio" data-i18n="team.fm.bio">Visionario detrás de Scout360.</div>
       </div>
       <div class="team-card reveal reveal-delay-1">
         <div class="team-avatar"><img src="equipo-matias.jpg" alt="Matias Miranda"></div>
@@ -3343,13 +3345,18 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       'pricing.clubs.black.f1':'Todo Gold incluido','pricing.clubs.black.f2':'Informe comparativo de hasta 5 deportistas',
       'pricing.clubs.black.f3':'Síntesis e informes con IA','pricing.clubs.black.f4':'Contacto directo con el equipo Scout 360',
       'pricing.clubs.black.cta':'Elegir Black',
-      'pricing.agents.std.desc':'Inicio para representantes deportivos','pricing.agents.std.f3':'Match con interesados y búsqueda',
-      'pricing.agents.std.f4':'Hasta 10 perfiles de jugadores','pricing.agents.std.cta':'Elegir Standard',
-      'pricing.agents.gold.desc':'Panel avanzado para representantes activos','pricing.agents.gold.f2':'Acceso a videos y estadísticas',
-      'pricing.agents.gold.f4':'Hasta 15 perfiles de jugadores','pricing.agents.gold.cta':'Elegir Gold',
-      'pricing.agents.black.desc':'El plan completo para agencias de élite','pricing.agents.black.f2':'Informe comparativo con IA',
-      'pricing.agents.black.f3':'Hasta 30 perfiles de jugadores','pricing.agents.black.f4':'Contacto directo con Scout 360',
-      'pricing.agents.black.cta':'Elegir Black',
+      'pricing.agents.std.desc':'Inicio para representantes deportivos',
+      'pricing.agents.std.f1':'Carga de perfil de jugador solicitado','pricing.agents.std.f2':'Carga de propuesta económica',
+      'pricing.agents.std.f3':'Match con interesados y búsqueda','pricing.agents.std.f4':'Hasta 10 perfiles de jugadores',
+      'pricing.agents.std.cta':'Elegir Standard',
+      'pricing.agents.gold.desc':'Panel avanzado para representantes activos',
+      'pricing.agents.gold.f1':'Todo Standard incluido','pricing.agents.gold.f2':'Acceso a videos de deportistas',
+      'pricing.agents.gold.f3':'Datos estadísticos completos','pricing.agents.gold.f4':'Evaluaciones de rendimiento',
+      'pricing.agents.gold.f5':'Hasta 15 perfiles de jugadores','pricing.agents.gold.cta':'Elegir Gold',
+      'pricing.agents.black.popular':'RECOMENDADO','pricing.agents.black.desc':'El plan completo para agencias de élite',
+      'pricing.agents.black.f1':'Todo Gold incluido','pricing.agents.black.f2':'Informe comparativo de hasta 5 deportistas',
+      'pricing.agents.black.f3':'Síntesis e informes con IA','pricing.agents.black.f4':'Hasta 30 perfiles de jugadores',
+      'pricing.agents.black.f5':'Contacto directo con Scout 360','pricing.agents.black.cta':'Elegir Black',
       'pricing.note':'* Todos los precios en USD · Planes anuales con descuento · Disponibilidad regional a confirmar',
       'traction.label':'TRACCIÓN','traction.subtitle':'No es solo una idea — hay validación, capital y red activa sobre la mesa.',
       'traction.1.title':'Capital Propio Invertido','traction.1.body':'Los founders ya inyectaron capital propio en desarrollo, diseño e infraestructura. Compromiso real desde el día uno.','traction.1.status':'Activo',
@@ -3362,7 +3369,7 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       'roadmap.3.time':'8 – 12 MESES','roadmap.3.title':'Lanzamiento Oficial',
       'roadmap.4.time':'12 – 18 MESES','roadmap.4.title':'Escala Global',
       'team.label':'EQUIPO',
-      'team.fm.bio':'35+ años liderando proyectos en tecnología y deporte · Visionario detrás de Scout360.',
+      'team.fm.bio':'Visionario detrás de Scout360.',
       'team.mm.bio':'Especialista en desarrollo comercial · Gestión deportiva y scouting · Expansión de red institucional.',
       'team.im.bio':'Especialista en Big Data e Inteligencia Artificial · Arquitectura de matching deportivo · Análisis predictivo de rendimiento.',
       'team.cw.bio':'Ex jugador y entrenador profesional · Red global de scouting · Especialista en desarrollo de atletas de élite.',
@@ -3463,13 +3470,18 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       'pricing.clubs.black.f1':'Everything in Gold included','pricing.clubs.black.f2':'Comparative report for up to 5 athletes',
       'pricing.clubs.black.f3':'AI-powered summaries and reports','pricing.clubs.black.f4':'Direct contact with the Scout 360 team',
       'pricing.clubs.black.cta':'Choose Black',
-      'pricing.agents.std.desc':'Entry plan for sports representatives','pricing.agents.std.f3':'Match with interested parties and search',
-      'pricing.agents.std.f4':'Up to 10 player profiles','pricing.agents.std.cta':'Choose Standard',
-      'pricing.agents.gold.desc':'Advanced panel for active representatives','pricing.agents.gold.f2':'Access to videos and statistics',
-      'pricing.agents.gold.f4':'Up to 15 player profiles','pricing.agents.gold.cta':'Choose Gold',
-      'pricing.agents.black.desc':'The complete plan for elite agencies','pricing.agents.black.f2':'AI-powered comparative report',
-      'pricing.agents.black.f3':'Up to 30 player profiles','pricing.agents.black.f4':'Direct contact with Scout 360',
-      'pricing.agents.black.cta':'Choose Black',
+      'pricing.agents.std.desc':'Entry plan for sports representatives',
+      'pricing.agents.std.f1':'Upload requested player profile','pricing.agents.std.f2':'Upload financial proposal',
+      'pricing.agents.std.f3':'Match with interested parties and search','pricing.agents.std.f4':'Up to 10 player profiles',
+      'pricing.agents.std.cta':'Choose Standard',
+      'pricing.agents.gold.desc':'Advanced panel for active representatives',
+      'pricing.agents.gold.f1':'Everything in Standard included','pricing.agents.gold.f2':'Access to athlete videos',
+      'pricing.agents.gold.f3':'Full statistical data','pricing.agents.gold.f4':'Performance evaluations',
+      'pricing.agents.gold.f5':'Up to 15 player profiles','pricing.agents.gold.cta':'Choose Gold',
+      'pricing.agents.black.popular':'RECOMMENDED','pricing.agents.black.desc':'The complete plan for elite agencies',
+      'pricing.agents.black.f1':'Everything in Gold included','pricing.agents.black.f2':'Comparative report for up to 5 athletes',
+      'pricing.agents.black.f3':'AI-powered summaries and reports','pricing.agents.black.f4':'Up to 30 player profiles',
+      'pricing.agents.black.f5':'Direct contact with Scout 360','pricing.agents.black.cta':'Choose Black',
       'pricing.note':'* All prices in USD · Annual plans with discount · Regional availability to be confirmed',
       'traction.label':'TRACTION','traction.subtitle':'This is not just an idea — there is validation, capital and an active network on the table.',
       'traction.1.title':'Founder Capital Invested','traction.1.body':'Founders have already injected personal capital into development, design and infrastructure. Real commitment from day one.','traction.1.status':'Active',
@@ -3482,7 +3494,7 @@ document.querySelectorAll('.stats-strip .counter').forEach(el => {
       'roadmap.3.time':'8 – 12 MONTHS','roadmap.3.title':'Official Launch',
       'roadmap.4.time':'12 – 18 MONTHS','roadmap.4.title':'Global Scale',
       'team.label':'TEAM',
-      'team.fm.bio':'35+ years leading technology and sports projects · The visionary behind Scout360.',
+      'team.fm.bio':'The visionary behind Scout360.',
       'team.mm.bio':'Commercial development specialist · Sports management and scouting · Institutional network expansion.',
       'team.im.bio':'Big Data and AI specialist · Sports matching architecture · Predictive performance analysis.',
       'team.cw.bio':'Former professional player and coach · Global scouting network · Elite athlete development specialist.',
